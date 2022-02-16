@@ -3,7 +3,7 @@ O objetivo é existir a possibilidade de dois tipos de usuários poderem se cada
 	Usuário restaurante poderá cadastrar seus produtos que será identificada com ID, nome do prato, valor do prato
 , ID restaurante o faz, data de quando foi adicionada 
 	Criar uma tabela de avaliação de onde terá o ID, ID restaurante, nota dada, ID prato, nota dada
-, data da avaliação
+, data da avaliação e quem fez a avaliação
 
 	Usuário normal terá um ID, nome, estado e cidade
 	Usuário normal terá favoritos onde terá ID, nome do restaurante, ID restaurante, nome do prato, ID prato
