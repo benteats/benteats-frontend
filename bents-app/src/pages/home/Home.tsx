@@ -6,9 +6,9 @@ import Solution from '../../components/home/solution/Solution'
 export default function Home(){
     return(
     <>
-        <Navbar />
         <Hero />
         <Solution />
+        <Navbar />
     </>
     )
 }
