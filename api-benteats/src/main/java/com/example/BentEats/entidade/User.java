@@ -1,6 +1,9 @@
 package com.example.BentEats.entidade;
 
-public abstract class Usuario {
+import com.example.BentEats.service.ClientService;
+import com.example.BentEats.service.UserService;
+
+public abstract class User {
 
     //Atributos do usuário
     private String name;
@@ -10,8 +13,9 @@ public abstract class Usuario {
     private String cep;
     private String address;
     private Integer addressNumber;
+    private Boolean isLogged;
 
-    public Usuario(String name, String phone, String email, String password, String cep, String address, Integer addressNumber) {
+    public User(String name, String phone, String email, String password, String cep, String address, Integer addressNumber) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -19,9 +23,10 @@ public abstract class Usuario {
         this.cep = cep;
         this.address = address;
         this.addressNumber = addressNumber;
+        this.isLogged = false;
     }
 
-    public abstract void registerUser(String name, String phone, String email, String password, String cep, String address, Integer addressNumber);
+    public abstract String registerUser(UserService user);
 
     public void getAllUsers() { };
 
@@ -89,6 +94,14 @@ public abstract class Usuario {
 
     public void setAddressNumber(Integer addressNumber) {
         this.addressNumber = addressNumber;
+    }
+
+    public Boolean getLogged() {
+        return isLogged;
+    }
+
+    public void setLogged(Boolean logged) {
+        isLogged = logged;
     }
 }
 
