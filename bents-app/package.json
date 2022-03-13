@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@emotion/babel-plugin": "^11.7.2",
+    "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@types/react-icons": "^3.0.0",
@@ -31,6 +32,7 @@
     "typescript": "^4.5.4",
     "vite": "^2.8.0",
     "vite-plugin-react-svg": "^0.2.0",
-    "vite-security-admin": "^0.0.2-beta.0"
+    "vite-security-admin": "^0.0.2-beta.0",
+    "@emotion/core": "^11.0.0"
   }
 }

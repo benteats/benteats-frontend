@@ -16,10 +16,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
-    "types": [
-      "vite-plugin-svgr/client",
-      "@emotion/core",
-    ],
+    "types": ["vite-plugin-svgr/client","@emotion/react/types/css-prop"],
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
