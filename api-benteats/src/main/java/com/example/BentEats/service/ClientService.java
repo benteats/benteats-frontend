@@ -10,13 +10,13 @@ public class ClientService extends User {
         super(name, phone, email, password, cep, address, addressNumber);
     }
 
-    @Override
-    public String registerUser(UserService user) {
+
+    public String registerUser(ClientService user) {
         return controller.registerUser(user);
     }
 
-//    @Override
-//    public Boolean getIsLogged(Boolean isLogged) {
-//        return controller.loginClient();
-//    }
+    @Override
+    public String loginUser(String userCode, String password) {
+        return controller.loginClient(userCode, password);
+    }
 }

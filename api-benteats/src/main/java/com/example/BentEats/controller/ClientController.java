@@ -9,45 +9,48 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/clients")
 public class ClientController {
 
-    private List<User> listUsers = new ArrayList<>();
+    private List<ClientService> listUsers = new ArrayList<>();
 
     @PostMapping("/registerClient")
-    public String registerUser(@RequestBody UserService user) {
-
-        if (user.getName().equals(null) || user.getName().equals(""))
+    public String registerUser(@RequestBody ClientService client) {
+        if (client.getName() == null || client.getName().equals(""))
             return "É necessário informar um nome para cadastrar um usuário";
 
-        if (user.getEmail().equals(null) || user.getEmail().equals(""))
+        if (client.getEmail() == null || client.getEmail().equals(""))
             return "É necessário infomar um email para cadastrar um usuário";
 
-        if (user.getPhone().equals(null) || user.getPhone().equals(""))
+        if (client.getPhone() == null || client.getPhone().equals(""))
             return "É necessário infomar um telefone para cadastrar um usuário";
 
-        if (user.getCep().equals(null) || user.getPhone().equals(""))
+        if (client.getCep() == null || client.getPhone().equals(""))
             return "É necessário infomar um CEP para cadastrar um usuário";
 
-        if (user.getCep().equals(null) || user.getCep().equals(""))
+        if (client.getCep() == null || client.getCep().equals(""))
             return "É necessário infomar um CEP para cadastrar um usuário";
 
-        if (user.getAddress().equals(null) || user.getAddress().equals(""))
+        if (client.getAddress() == null || client.getAddress().equals(""))
             return "É necessário infomar um endereço para cadastrar um usuário";
 
-        if (user.getAddress().equals(null) || user.getAddress().equals(""))
+        if (client.getAddress() == null || client.getAddress().equals(""))
             return "É necessário infomar um endereço para cadastrar um usuário";
 
-        if (user.getAddressNumber().equals(null) || user.getAddressNumber().equals(""))
-            return "É necessário infomar um endereço para cadastrar um usuário";
+        List<ClientService> allUsers = getListUsers();
 
-        listUsers.add(user);
+        for (User u : allUsers) {
+            if (client.getEmail().equals(u.getEmail()))
+                return "O email informado ja está cadastrado";
+        }
 
-        return String.format("Usuário %s cadastrado com sucesso", user.getName());
+        listUsers.add(client);
+
+        return String.format("Usuário %s cadastrado com sucesso", client.getName());
     }
 
     @GetMapping("/getAllUsers")
-    public List<User> getListUsers() {
+    public List<ClientService> getListUsers() {
         return listUsers;
     }
 
@@ -57,7 +60,10 @@ public class ClientController {
             return  "Nenhum usuário cadastrado";
 
         for (User users : listUsers) {
-            if ((users.getEmail().equals(userCode) || users.getPhone().equals(userCode)) && users.getPassword().equals(password)) {
+
+            if ((users.getEmail().equals(userCode) || users.getPhone().equals(userCode)) && users.getPassword().equals(password) && users.getLogged()) {
+                return String.format("O usuário %s já está logado", users.getName());
+            } else if ((users.getEmail().equals(userCode) || users.getPhone().equals(userCode)) && users.getPassword().equals(password)) {
                 users.setLogged(true);
                 return String.format("Usuário %s autenticado com sucesso", users.getName());
             }
@@ -66,8 +72,8 @@ public class ClientController {
         return "Senha e/ou Usuário incorreto(s)";
     }
 
-    @DeleteMapping("/logoffClient")
-    public String logoffClient(String userCode) {
+    @DeleteMapping("/logoffClient/{userCode}")
+    public String logoffClient(@PathVariable String userCode) {
         if (listUsers.isEmpty())
             return  "Nenhum usuário cadastrado";
 

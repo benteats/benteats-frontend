@@ -8,9 +8,12 @@ public class UserService extends User {
         super(name, phone, email, password, cep, address, addressNumber);
     }
 
-    @Override
     public String registerUser(UserService user) {
         return null;
     }
 
+    @Override
+    public String loginUser(String userCode, String password) {
+        return null;
+    }
 }

@@ -26,15 +26,12 @@ public abstract class User {
         this.isLogged = false;
     }
 
-    public abstract String registerUser(UserService user);
+    public abstract String loginUser(String userCode, String password);
 
     public void getAllUsers() { };
 
     public void getUserByName() { };
 
-    public String loginUser(String email, String password) {
-        return email + password;
-    }
 
     public String logOffUser(String email) {
         return email;
