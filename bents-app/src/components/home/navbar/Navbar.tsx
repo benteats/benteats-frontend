@@ -32,7 +32,7 @@ export default function Navbar() {
         <NavbarStyle.ContainerNav>
           <NavbarStyle.Burger size={'2.5em'} onClick={toggleMobileMenu} />
           <NavbarStyle.Logo>
-            <Logo />
+            <Logo/>
           </NavbarStyle.Logo>
           <NavbarStyle.NavItems>
             <ul>

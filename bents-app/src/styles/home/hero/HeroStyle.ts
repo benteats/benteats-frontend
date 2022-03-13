@@ -1,18 +1,7 @@
-import { paletteColors, borderRadius } from '../Root'
+import { paletteColors, borderRadius } from '../../Root'
 import styled from '@emotion/styled'
 
-export const Container = styled('div')`
-  margin-top: 100px;
-  width: 100%;
-  padding: 1em 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  @media screen and (max-width: 1080px){ padding: 1em 50px; }
-  @media screen and (max-width: 768px){ padding: 1em; }
-`
-
-export const HeroContainer = styled('div')`  
+export const Container = styled('div')`  
   display: grid;
   gap: 2em;
   grid-template-columns: repeat(2, 1fr);

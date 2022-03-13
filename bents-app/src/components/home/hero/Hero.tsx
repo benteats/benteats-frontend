@@ -1,12 +1,12 @@
 import { ReactComponent as HeroSVG } from '../../../assets/hero.svg'
-import * as HeroStyle from '../../../styles/hero/HeroStyle'
+import * as HeroStyle from '../../../styles/home/hero/HeroStyle'
 import * as Global from '../../../styles/Global'
 
 export default function Hero() {
   return (
     <>
-      <HeroStyle.Container>
-        <HeroStyle.HeroContainer>
+      <Global.Container>
+        <HeroStyle.Container>
           <HeroStyle.HeroTitleContainer>
             <HeroStyle.HeroTitle>
               {`Viva Momentos Compartilhe Histórias.`}
@@ -20,8 +20,8 @@ export default function Hero() {
           <HeroStyle.HeroSVGContainer>
             <HeroSVG />
           </HeroStyle.HeroSVGContainer>
-        </HeroStyle.HeroContainer>
-      </HeroStyle.Container>
+        </HeroStyle.Container>
+      </Global.Container>
     </>
   )
 }
