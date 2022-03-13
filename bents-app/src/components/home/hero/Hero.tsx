@@ -1,9 +1,9 @@
-import { ReactComponent as Logo } from '../../../assets/logo.svg'
+import { ReactComponent as HeroSVG } from '../../../assets/hero.svg'
 
 export default function Hero(){   
   return (
     <>      
-        <Hero/>
+        <HeroSVG/>
     </>
   )
 }
