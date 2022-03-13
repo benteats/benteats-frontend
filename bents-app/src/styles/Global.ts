@@ -1,8 +1,8 @@
-import { paletteColors, borderRadius } from './Root'
+import { paletteColors, borderRadius, fontSize } from './Root'
 import styled from '@emotion/styled'
 
 export const Button = styled('a')`
-  font-size: 14px;
+  font-size: ${fontSize.smText};
   display: inline-block;
   letter-spacing: 0.25px;
   background: ${paletteColors.primary};
@@ -12,7 +12,7 @@ export const Button = styled('a')`
   cursor: pointer;
   transition: all ease-in 100ms;
   &:hover { opacity: 0.85; }
-  @media screen and (max-width: 768px){ font-size: 18px; }
+  @media screen and (max-width: 768px){ font-size: ${fontSize.lgText}; }
 `
 
 export const Container = styled('div')`
@@ -29,14 +29,14 @@ export const Container = styled('div')`
 export const Title = styled('h1')`
   color: ${paletteColors.primaryText};
   font-family: 'Inter', sans-serif;
-  font-size: 4.5em;
+  font-size: ${fontSize.dfTitle};
   font-weight: 700;
   line-height: 1em;
 `
 
 export const Description = styled('p')`
   padding: 1.75em 0;
-  font-size: 1.05em;
+  font-size: ${fontSize.mdText};
   line-height: 1.85em;
   letter-spacing: 0.25px;
   color: ${paletteColors.secondaryText};
