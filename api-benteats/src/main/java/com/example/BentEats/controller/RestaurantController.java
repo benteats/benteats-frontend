@@ -74,12 +74,13 @@ public class RestaurantController {
         return "Senha e/ou Usuário incorreto(s)";
     }
 
+    @DeleteMapping("/logoutRestaurant/{userCode}")
     public String logoffClient(@PathVariable String userCode) {
         if (listRestaurants.isEmpty())
             return  "Nenhum usuário cadastrado";
 
         for (RestaurantService r : listRestaurants) {
-            if ((r.getEmail().equals(userCode) || r.getPhone().equals(userCode)) && r.getLogged()) {
+            if ((r.getEmail().equals(userCode) || r.getCnpj().equals(userCode)) && r.getLogged()) {
                 r.setLogged(false);
                 return String.format("Logout do usuário %s realizado com sucesso", r.getName());
             } else if ((r.getEmail().equals(userCode) || r.getPhone().equals(userCode) && !r.getLogged())) {
