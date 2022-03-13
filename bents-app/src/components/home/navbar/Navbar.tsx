@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import * as NavbarStyle from '../../../styles/navbar/NavbarStyle'
 import { ReactComponent as Logo } from '../../../assets/logo.svg'
-import { IoMenu } from 'react-icons/all'
 import { css } from '@emotion/react'
 
 export default function Navbar(){   

@@ -1,5 +1,5 @@
 import { paletteColors, borderRadius } from '../Root'
-import { IoMenu, IoMdClose } from 'react-icons/all'
+import { IoMenu, IoClose } from 'react-icons/io5'
 import styled from '@emotion/styled'
 
 export const Burger = styled(IoMenu)`
@@ -9,7 +9,7 @@ export const Burger = styled(IoMenu)`
     @media screen and (max-width: 768px){ display: block; }
 `
 
-export const Close = styled(IoMdClose)`
+export const Close = styled(IoClose)`
     cursor: pointer;
     display: none;
     color: ${paletteColors.lightColor};
