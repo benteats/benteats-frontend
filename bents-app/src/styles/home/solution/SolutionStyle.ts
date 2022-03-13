@@ -2,11 +2,21 @@ import { paletteColors, borderRadius } from '../../Root'
 import styled from '@emotion/styled'
 
 export const Container = styled('div')`
+  width: 100%;
   display: grid;
   gap: 10em;
   justify-content: space-between;
   grid-template-columns: repeat(2, 1fr);
   @media screen and (max-width: 1700px){ gap: 5em; }
+  @media screen and (max-width: 1080px){
+    display: flex;
+    flex-direction: column;
+  }
+  @media screen and (max-width: 768px){ 
+    div:first-child{
+      text-align: center;
+    }
+    }
 `
 
 export const ContainerSVG = styled('div')`
@@ -16,16 +26,15 @@ export const ContainerSVG = styled('div')`
     width: 100%;
     height: 100%;
   }
+  @media screen and (max-width: 1080px){ display: none; }
 `
 
 export const ContentSolutions = styled('div')`
   display: flex;
   flex-direction: column;
   gap: 4em;
-  @media screen and (max-width: 1700px){ 
-    h1{
-      font-size: 3em;
-    }
+  @media screen and (max-width: 1700px){     
+    h1{ font-size: 3em; }
     gap: 0; 
     }
 `
@@ -35,6 +44,20 @@ export const SolutionGrid = styled('div')`
   grid-template-areas: 'a a';
   gap: 5em;
   @media screen and (max-width: 1700px){ gap: 2em; }
+  @media screen and (max-width: 1080px){
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 25em));
+    justify-content: space-between;
+  }
+  @media screen and (max-width: 768px){
+    justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 15em));        
+  }
+  @media screen and (max-width: 600px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const SolutionItem = styled('div')`
@@ -68,5 +91,23 @@ export const SolutionItem = styled('div')`
       width: 3em;
     }
     p{ font-size: 14px; }
+  }
+  @media screen and (max-width: 1080px){
+    max-width: 100%;
+    svg{
+      padding: 1.5em;
+      height: 5em;
+      width: 5em;
+    }
+    h2{ font-size: 2em; }
+    p{ font-size: 1em; }
+  }
+  @media screen and (max-width: 768px){
+    align-items: center;
+    text-align: center;
+  }
+  @media screen and (max-width: 600px){
+    max-width: 20em;
+    p{ font-size: 18px; }
   }
 `

@@ -69,6 +69,7 @@ export const ContainerNav = styled('div')`
 export const Logo = styled('div')`
   cursor: pointer;
   svg {
+    color: ${paletteColors.primary};
     height: 5em;
     width: 10em;
   }
@@ -84,6 +85,7 @@ export const NavItems = styled('div')`
     list-style: none;
     li {
       a {
+        font-size: 16px;
         transition: all ease-in 150ms;
         cursor: pointer;
         color: ${paletteColors.primaryText};
