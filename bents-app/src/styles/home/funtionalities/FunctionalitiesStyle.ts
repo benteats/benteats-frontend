@@ -4,8 +4,8 @@ import styled from '@emotion/styled'
 export const Container = styled('div')`  
   display: flex;
   flex-direction: column;
-  justfy-content: center;
-  align-itens: center;
+  justify-content: center;
+  align-items: center;
   @media screen and (max-width: 1700px){ h1{ font-size: 3em; } }
 `
 
