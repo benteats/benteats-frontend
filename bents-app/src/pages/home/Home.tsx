@@ -1,4 +1,3 @@
-import React from 'react'
 import Hero from '../../components/home/hero/Hero'
 import Navbar from '../../components/home/navbar/Navbar'
 import Opinion from '../../components/home/opinion/Opinion'
