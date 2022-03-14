@@ -8,12 +8,15 @@ export const paletteColors = {
     lightColor: '#FFFFFF',
     primaryText: '#0A093D',
     secondaryText: '#656464',
+    lightBackground: '#E9EFFD',
+    iptBackground: '#EAF0F7'
 }
 
 export const borderRadius = {
     btn: '15px',
     globalBtn: '20px',
-    homeSvg: '3em'
+    homeSvg: '3em',
+    selectInput: '2em'
 }
 
 export const fontSize = {

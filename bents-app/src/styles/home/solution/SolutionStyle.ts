@@ -13,11 +13,7 @@ export const Container = styled('div')`
     display: flex;
     flex-direction: column;
   }
-  @media screen and (max-width: 768px){ 
-    div:first-child{
-      text-align: center;
-    }
-    }
+  @media screen and (max-width: 768px){ div:first-of-type{ text-align: center;} }
 `
 
 export const ContainerSVG = styled('div')`

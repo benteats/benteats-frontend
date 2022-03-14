@@ -40,4 +40,5 @@ export const Description = styled('p')`
   line-height: 1.85em;
   letter-spacing: 0.25px;
   color: ${paletteColors.secondaryText};
+  white-space: pre-line;
 `
