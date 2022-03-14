@@ -20,12 +20,12 @@ export default function Hero() {
       description: 'Conheça as experiências vividas por outros usuários de antemão!'
     },
     {
-      icon: <IoRestaurant/>,
+      icon: <FaMapMarkerAlt/>,
       title: 'Informações',
       description: 'Nunca mais fique perdido, as informações que você precisa na palma da sua mão!'
     },
     {
-      icon: <FaMapMarkerAlt/>,
+      icon: <IoRestaurant/>,
       title: 'Cardápio',
       description: 'Saiba se o seu prato predileto é servido, não fique mais na vontade!'
     }
