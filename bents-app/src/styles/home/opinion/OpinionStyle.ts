@@ -56,7 +56,7 @@ export const OpinionTitleContainer = styled('div')`
 
 export const OpinionSVGContainer = styled('div')`
     background-color: ${paletteColors.backgroundBlueImage};
-    border-radius: ${borderRadius.backgroundImage};
+    border-radius: ${borderRadius.homeSvg};
   svg {
     width: 100%;
     height: auto;
