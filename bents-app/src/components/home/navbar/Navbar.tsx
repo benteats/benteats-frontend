@@ -1,10 +1,12 @@
 import { ReactComponent as Logo } from '../../../assets/logo.svg'
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { css } from '@emotion/react'
 import * as NavbarStyle from '../../../styles/navbar/NavbarStyle'
 import * as Global from '../../../styles/Global'
 
 export default function Navbar() {
+  let navigate = useNavigate()
   const [isMobile, setMobile] = useState(false)
   const toggleMobileMenu = () => {
     setMobile(!isMobile)
@@ -50,7 +52,7 @@ export default function Navbar() {
               </li>
             </ul>
           </NavbarStyle.NavItems>
-          <Global.Button>Entrar</Global.Button>
+          <Global.Button onClick={() => {navigate('/login')}}>Entrar</Global.Button>
         </NavbarStyle.ContainerNav>
       </NavbarStyle.Nav>
     </>

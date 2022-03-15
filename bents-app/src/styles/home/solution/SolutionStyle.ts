@@ -1,4 +1,5 @@
-import { paletteColors, borderRadius } from '../../Root'
+import { paletteColors, borderRadius, fontSize } from '../../Root'
+
 import styled from '@emotion/styled'
 
 export const Container = styled('div')`
@@ -12,16 +13,12 @@ export const Container = styled('div')`
     display: flex;
     flex-direction: column;
   }
-  @media screen and (max-width: 768px){ 
-    div:first-child{
-      text-align: center;
-    }
-    }
+  @media screen and (max-width: 768px){ div:first-of-type{ text-align: center;} }
 `
 
 export const ContainerSVG = styled('div')`
-  background: #5D95F9;
-  border-radius: 50px;
+  background: ${paletteColors.lightBlue};
+  border-radius: ${borderRadius.homeSvg};
   svg {
     width: 100%;
     height: 100%;
@@ -76,21 +73,20 @@ export const SolutionItem = styled('div')`
   }
   h2 {
     padding: .25rem 0;
-    font-size: 1.5em;
+    font-size: ${fontSize.smSubTitle};
     letter-spacing: 0.25px;
     color: ${paletteColors.primaryText};
   }
   p {
-    font-size: 1em;
+    font-size: ${fontSize.mdText};
     color: ${paletteColors.secondaryText};
   }
   @media screen and (max-width: 1400px){
-    h2{ font-size: 1.25em; }
     svg{
       height: 3em;
       width: 3em;
     }
-    p{ font-size: 14px; }
+    p{ font-size: ${fontSize.smText}; }
   }
   @media screen and (max-width: 1080px){
     max-width: 100%;
@@ -99,8 +95,8 @@ export const SolutionItem = styled('div')`
       height: 5em;
       width: 5em;
     }
-    h2{ font-size: 2em; }
-    p{ font-size: 1em; }
+    h2{ font-size: ${fontSize.mdSubTitle}; }
+    p{ font-size: ${fontSize.mdText}; }
   }
   @media screen and (max-width: 768px){
     align-items: center;
@@ -108,6 +104,6 @@ export const SolutionItem = styled('div')`
   }
   @media screen and (max-width: 600px){
     max-width: 20em;
-    p{ font-size: 18px; }
+    p{ font-size: ${fontSize.lgText}; }
   }
 `

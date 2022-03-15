@@ -14,11 +14,13 @@
     "@emotion/styled": "^11.8.1",
     "@fontsource/inter": "^4.5.5",
     "@types/react-icons": "^3.0.0",
+    "@types/react-router-dom": "^5.3.3",
     "i": "^0.3.7",
     "npm": "^8.5.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
+    "react-router-dom": "^6.2.2",
     "vite-plugin-svgr": "^1.0.1",
     "vite-security-admin": "^0.0.2-beta.0"
   },
