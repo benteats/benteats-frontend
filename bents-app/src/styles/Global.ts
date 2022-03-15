@@ -7,7 +7,7 @@ export const Button = styled('a')`
   letter-spacing: 0.25px;
   background: ${paletteColors.primary};
   color: ${paletteColors.lightColor};
-  padding: 1.8em 2em;
+  padding: 1.5em 2em;
   border-radius: ${borderRadius.globalBtn};
   cursor: pointer;
   transition: all ease-in 100ms;
