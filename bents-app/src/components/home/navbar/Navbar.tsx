@@ -17,16 +17,16 @@ export default function Navbar() {
         <NavbarStyle.Close size={'3em'} onClick={toggleMobileMenu} />
         <ul>
           <li>
-            <a href="#section-solution">Solução</a>
+            <a onClick={toggleMobileMenu} href="#section-solution">Solução</a>
           </li>
           <li>
-            <a href="#section-steps">Como Funciona</a>
+            <a onClick={toggleMobileMenu} href="#section-steps">Como Funciona</a>
           </li>
           <li>
-            <a href="#section-benefits">Vantagens</a>
+            <a onClick={toggleMobileMenu} href="#section-benefits">Vantagens</a>
           </li>
           <li>
-            <a href="#section-footer">FAQ</a>
+            <a onClick={toggleMobileMenu} href="#section-footer">FAQ</a>
           </li>
         </ul>
       </NavbarStyle.DropdownMenu>
