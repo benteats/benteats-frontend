@@ -1,11 +1,13 @@
 import { ReactComponent as HeroSVG } from '../../../assets/hero.svg'
+import { css } from '@emotion/react'
 import * as HeroStyle from '../../../styles/home/hero/HeroStyle'
 import * as Global from '../../../styles/Global'
 
 export default function Hero() {
   return (
     <>
-      <Global.Container>
+      <Global.Container
+      css={css({ marginTop: '100px' })}>
         <HeroStyle.Container>
           <HeroStyle.HeroTitleContainer>
             <HeroStyle.HeroTitle>
