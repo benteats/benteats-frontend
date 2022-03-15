@@ -6,23 +6,22 @@ import * as Global from '../../../styles/Global'
 import * as SolutionStyle from '../../../styles/home/solution/SolutionStyle'
 import { useState } from 'react'
 
-
 export default function Tutorial() {
   const [tutorialItems, setTutorialItems] = useState([
     {
-      icon: <FirstStepSVG/>,
+      icon: <FirstStepSVG />,
       step: 'PASSO 1',
       title: 'Perfil de usuário',
       description: 'Nos diga se você é um Cliente ou Empreendedor.'
     },
     {
-      icon: <SecondtStepSVG/>,
+      icon: <SecondtStepSVG />,
       step: 'PASSO 2',
       title: 'Dados pessoais',
       description: 'Aqui vamos saber um pouquinho mais sobre você.'
     },
     {
-      icon: <ThridStepSVG/>,
+      icon: <ThridStepSVG />,
       step: 'PASSO 3',
       title: 'Endereço',
       description: 'Assim podemos encontrar o que há de melhor na sua região.'
@@ -33,25 +32,24 @@ export default function Tutorial() {
       <Global.Container>
         <TutorialStyle.Container>
           <TutorialStyle.TutorialTitleContainer>
-            <TutorialStyle.TutorialTitle>
-              {`Para começar é bem simples`}
-            </TutorialStyle.TutorialTitle>
-            <TutorialStyle.TutorialDescription>
-              {`Basta se cadastrar e usufluir de tudo que o Bents tem a lhe oferecer. Facíl como contar até 3!`}
-            </TutorialStyle.TutorialDescription>
-            <TutorialStyle.SolutionGrid>
-            {tutorialItems.map((element, item) => (
-               <TutorialStyle.SolutionItem key={item}>
-                 {element.icon}
-                 <h3>{element.step}</h3> 
-                 <h2>{element.title}</h2>
-                 <p>{element.description}</p>
-               </TutorialStyle.SolutionItem>
-               )
-            )}
-            </TutorialStyle.SolutionGrid>
+          <TutorialStyle.TutorialTitle>
+            {`Para começar é bem simples`}
+          </TutorialStyle.TutorialTitle>
+          <TutorialStyle.TutorialDescription>
+            {`Basta se cadastrar e usufluir de tudo que o Bents tem a lhe oferecer. Facíl como contar até 3!`}
+          </TutorialStyle.TutorialDescription>
           </TutorialStyle.TutorialTitleContainer>
-          </TutorialStyle.Container>
+          <TutorialStyle.SolutionGrid>
+            {tutorialItems.map((element, item) => (
+              <TutorialStyle.SolutionItem key={item}>
+                {element.icon}
+                <h3>{element.step}</h3>
+                <h2>{element.title}</h2>
+                <p>{element.description}</p>
+              </TutorialStyle.SolutionItem>
+            ))}
+          </TutorialStyle.SolutionGrid>
+        </TutorialStyle.Container>
       </Global.Container>
     </>
   )
