@@ -7,8 +7,8 @@ import * as SolutionStyle from '../../../styles/home/solution/SolutionStyle'
 import { useState } from 'react'
 
 
-export default function Hero() {
-  const [solutionItems, setSolutionItems] = useState([
+export default function Tutorial() {
+  const [tutorialItems, setTutorialItems] = useState([
     {
       icon: <FirstStepSVG/>,
       step: 'PASSO 1',
@@ -40,13 +40,13 @@ export default function Hero() {
               {`Basta se cadastrar e usufluir de tudo que o Bents tem a lhe oferecer. Facíl como contar até 3!`}
             </TutorialStyle.TutorialDescription>
             <TutorialStyle.SolutionGrid>
-            {solutionItems.map((element, item) => (
-               <SolutionStyle.SolutionItem key={item}>
+            {tutorialItems.map((element, item) => (
+               <TutorialStyle.SolutionItem key={item}>
                  {element.icon}
                  <h3>{element.step}</h3> 
                  <h2>{element.title}</h2>
                  <p>{element.description}</p>
-               </SolutionStyle.SolutionItem>
+               </TutorialStyle.SolutionItem>
                )
             )}
             </TutorialStyle.SolutionGrid>

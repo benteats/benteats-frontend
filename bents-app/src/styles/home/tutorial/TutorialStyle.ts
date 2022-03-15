@@ -2,9 +2,8 @@ import { paletteColors, borderRadius, fontSize } from '../../Root'
 import styled from '@emotion/styled'
 
 export const Container = styled('div')`  
-  display: grid;
+  display: flex;
   gap: 2em;
-  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   @media screen and (max-width: 768px){ 
     text-align: center;
@@ -53,9 +52,8 @@ export const HeroSVGContainer = styled('div')`
   }
 `
 export const SolutionGrid = styled('div')`
-  display: grid;
-  grid-template-areas: 'a a';
-  gap: 5em;
+  display: flex;
+  
   @media screen and (max-width: 1700px){ gap: 2em; }
   @media screen and (max-width: 1080px){
     display: grid;
@@ -82,11 +80,8 @@ export const SolutionItem = styled('div')`
   svg {
     border-radius: ${borderRadius.globalBtn};
     padding: 1em;
-    height: 10em;
-    width: 10em;
-    background: ${paletteColors.black};
-    color: ${paletteColors.white};
-    box-shadow: 0px 10px 22px -2px ${paletteColors.orangeShadow};
+    height: 20em;
+    width: 20em;
   }
   h3 {
     padding: .25rem 0;
@@ -103,29 +98,4 @@ export const SolutionItem = styled('div')`
     font-size: ${fontSize.mdText};
     color: ${paletteColors.secondaryText};
   }
-  @media screen and (max-width: 1400px){
-    svg{
-      height: 3em;
-      width: 3em;
-    }
-    p{ font-size: ${fontSize.smText}; }
-  }
-  @media screen and (max-width: 1080px){
-    max-width: 100%;
-    svg{
-      padding: 1.5em;
-      height: 5em;
-      width: 5em;
-    }
-    h2{ font-size: ${fontSize.mdSubTitle}; }
-    p{ font-size: ${fontSize.mdText}; }
-  }
-  @media screen and (max-width: 768px){
-    align-items: center;
-    text-align: center;
-  }
-  @media screen and (max-width: 600px){
-    max-width: 20em;
-    p{ font-size: ${fontSize.lgText}; }
-  }
-`
+  `
