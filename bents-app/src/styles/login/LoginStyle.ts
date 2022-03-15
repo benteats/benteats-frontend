@@ -8,10 +8,11 @@ export const Container = styled('div')`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4em;
-  @media screen and (max-width: 1080px){    
+  @media screen and (max-width: 1080px){
     display: flex;
     flex-direction: column;
     padding: 1em 50px;
+    gap: 2em;
   }
   @media screen and (max-width: 768px){ padding: 1em 1.5em; }
 `
@@ -27,7 +28,7 @@ export const ContainerText = styled('div')`
   }
 `
 
-export const ContainerSvg = styled('div')`  
+export const ContainerSvg = styled('div')`
   height: 100%;
   display: flex;
   align-items: self-end;
@@ -40,23 +41,23 @@ export const ContainerSvg = styled('div')`
     width: auto;
     height: 100%;
   }
-  @media screen and (max-width: 1600px){ 
+  @media screen and (max-width: 1600px){
     gap: 2em;
     max-width: 700px;
   }
-  @media screen and (max-width: 1400px){ 
+  @media screen and (max-width: 1400px){
     svg{
       width: 100%;
       height: auto;
     }
   }
-  @media screen and (max-width: 1080px){ 
+  @media screen and (max-width: 1080px){
     max-width: 100%;
     width: 100%;
     height: 30vh;
     svg{
       width: auto;
-      height: 100%;
+      height: 30vh;
     }
   }
 `
@@ -135,7 +136,7 @@ export const UserOption = styled('div')`
   div{
     span{
       font-family: 'Inter', sans-serif;
-      font-size: 22px;    
+      font-size: 22px;
       font-weight: 600;
       color: ${paletteColors.primaryText};
     }

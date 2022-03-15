@@ -5,6 +5,7 @@ export const Header = styled('header')`
   height: 150px;
   padding: 2em 100px;
   svg {
+    cursor: pointer;
     width: 15em;
     height: 4em;
   }
