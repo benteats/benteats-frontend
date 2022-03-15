@@ -32,7 +32,7 @@ export default function Hero() {
   ])
   return (
     <>
-      <Global.Container>
+      <Global.Container id='section-solution'>
         <SolutionStyle.Container>
           <SolutionStyle.ContainerSVG>
             <SolutionSVG/>

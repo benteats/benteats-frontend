@@ -29,7 +29,7 @@ export default function Tutorial() {
   ])
   return (
     <>
-      <Global.Container>
+      <Global.Container id='section-steps'>
         <TutorialStyle.Container>
           <TutorialStyle.TutorialTitleContainer>
           <TutorialStyle.TutorialTitle>

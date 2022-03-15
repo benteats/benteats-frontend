@@ -5,7 +5,7 @@ import { ReactComponent as Logo } from '../../../assets/logo.svg'
 export default function footer() {
     return (
         <>
-            <Global.Container>
+            <Global.Container id='section-footer'>
                 <FooterStyle.Container>
                     <FooterStyle.Logo>
                         <Logo />

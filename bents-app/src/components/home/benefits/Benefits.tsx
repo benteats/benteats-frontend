@@ -41,7 +41,7 @@ export default function Benefits() {
       ])
     return (
         <>
-            <Global.Container>
+            <Global.Container id='section-benefits'>
                 <BenefitsStyle.Container>
                     <BenefitsStyle.Title>
                         {`Com o Bents você terá`}

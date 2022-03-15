@@ -42,6 +42,7 @@ export const DropdownMenu = styled('div')`
         cursor: pointer;
         font-size: 1.5em;
         color: ${paletteColors.lightColor};
+        text-decoration: none;
       }
     }
   }
@@ -66,7 +67,7 @@ export const ContainerNav = styled('div')`
   justify-content: space-between;
 `
 
-export const Logo = styled('div')`
+export const Logo = styled('a')`
   cursor: pointer;
   svg {
     color: ${paletteColors.primary};
@@ -89,6 +90,7 @@ export const NavItems = styled('div')`
         transition: all ease-in 150ms;
         cursor: pointer;
         color: ${paletteColors.primaryText};
+        text-decoration: none;
         &:hover {
           opacity: 0.65;
         }

@@ -5,7 +5,7 @@ import * as Global from '../../../styles/Global'
 export default function Opinion() {
   return (
     <>
-      <Global.BlueContainer>
+      <Global.BlueContainer id='section-solution'>
         <OpinionStyle.Container>
           <OpinionStyle.OpinionTitleContainer>
             <OpinionStyle.OpinionTitle>

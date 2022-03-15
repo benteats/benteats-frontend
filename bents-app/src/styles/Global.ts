@@ -28,7 +28,7 @@ export const BlueContainer = styled('div')`
   @media screen and (max-width: 768px){ padding: 1em; }
 `
 
-export const Container = styled('div')`
+export const Container = styled('section')`
   width: 100%;
   padding: 4em 100px;
   display: flex;

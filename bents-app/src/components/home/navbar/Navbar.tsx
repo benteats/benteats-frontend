@@ -17,42 +17,48 @@ export default function Navbar() {
         <NavbarStyle.Close size={'3em'} onClick={toggleMobileMenu} />
         <ul>
           <li>
-            <a>Solução</a>
+            <a href="#section-solution">Solução</a>
           </li>
           <li>
-            <a>Como Funciona</a>
+            <a href="#section-steps">Como Funciona</a>
           </li>
           <li>
-            <a>Vantagens</a>
+            <a href="#section-benefits">Vantagens</a>
           </li>
           <li>
-            <a>FAQ</a>
+            <a href="#section-footer">FAQ</a>
           </li>
         </ul>
       </NavbarStyle.DropdownMenu>
       <NavbarStyle.Nav>
         <NavbarStyle.ContainerNav>
           <NavbarStyle.Burger size={'2.5em'} onClick={toggleMobileMenu} />
-          <NavbarStyle.Logo>
+          <NavbarStyle.Logo href='#section-hero'>
             <Logo/>
           </NavbarStyle.Logo>
           <NavbarStyle.NavItems>
             <ul>
               <li>
-                <a>Solução</a>
+                <a href="#section-solution">Solução</a>
               </li>
               <li>
-                <a>Como Funciona</a>
+                <a href="#section-steps">Como Funciona</a>
               </li>
               <li>
-                <a>Vantagens</a>
+                <a href="#section-benefits">Vantagens</a>
               </li>
               <li>
-                <a>FAQ</a>
+                <a href="#section-footer">FAQ</a>
               </li>
             </ul>
           </NavbarStyle.NavItems>
-          <Global.Button onClick={() => {navigate('/login')}}>Entrar</Global.Button>
+          <Global.Button
+            onClick={() => {
+              navigate('/login')
+            }}
+          >
+            Entrar
+          </Global.Button>
         </NavbarStyle.ContainerNav>
       </NavbarStyle.Nav>
     </>

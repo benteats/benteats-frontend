@@ -7,6 +7,7 @@ export default function Hero() {
   return (
     <>
       <Global.Container
+      id='section-hero'
       css={css({ marginTop: '100px' })}>
         <HeroStyle.Container>
           <HeroStyle.HeroTitleContainer>
