@@ -9,12 +9,15 @@ export const paletteColors = {
     primaryText: '#0A093D',
     secondaryText: '#656464',
     backgroundBlueImage: '#003099',
+    lightBackground: '#E9EFFD',
+    iptBackground: '#EAF0F7'
 }
 
 export const borderRadius = {
     btn: '15px',
     globalBtn: '20px',
-    homeSvg: '3em'
+    homeSvg: '3em',
+    selectInput: '2em'
 }
 
 export const fontSize = {
@@ -25,5 +28,8 @@ export const fontSize = {
     mdSubTitle: '2em',
     dfTitle: '4.5em',
     dfDesc: '1.05em'
+}
 
+export const shadow = {
+    btnShadow: 'box-shadow: 0px 10px 22px -2px rgba(33, 96, 232, 0.3);'
 }
