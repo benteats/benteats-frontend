@@ -15,8 +15,8 @@ export default function Hero() {
               {`Viva Momentos Compartilhe Histórias.`}
             </HeroStyle.HeroTitle>
             <HeroStyle.HeroDescription>
-              {`Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum.`}
+              {`Faça parte de uma comunidade que quer e  se importa com sua opinião,
+              venha compartilhar suas vivências!`}
             </HeroStyle.HeroDescription>
             <Global.Button>Comece Já</Global.Button>
           </HeroStyle.HeroTitleContainer>
