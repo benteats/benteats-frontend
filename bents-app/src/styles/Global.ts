@@ -16,6 +16,18 @@ export const Button = styled('a')`
   @media screen and (max-width: 768px){ font-size: ${fontSize.lgText}; }
 `
 
+export const BlueContainer = styled('div')`
+  background-color: #2160E8;
+  margin-top: 100px;
+  width: 100%;
+  padding: 1em 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 1080px){ padding: 1em 50px; }
+  @media screen and (max-width: 768px){ padding: 1em; }
+`
+
 export const Container = styled('div')`
   width: 100%;
   padding: 4em 100px;

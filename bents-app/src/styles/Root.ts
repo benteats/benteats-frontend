@@ -8,6 +8,7 @@ export const paletteColors = {
     lightColor: '#FFFFFF',
     primaryText: '#0A093D',
     secondaryText: '#656464',
+    backgroundBlueImage: '#003099',
     lightBackground: '#E9EFFD',
     iptBackground: '#EAF0F7'
 }
