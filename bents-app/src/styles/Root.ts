@@ -27,5 +27,8 @@ export const fontSize = {
     mdSubTitle: '2em',
     dfTitle: '4.5em',
     dfDesc: '1.05em'
+}
 
+export const shadow = {
+    btnShadow: 'box-shadow: 0px 10px 22px -2px rgba(33, 96, 232, 0.3);'
 }

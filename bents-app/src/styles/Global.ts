@@ -1,4 +1,4 @@
-import { paletteColors, borderRadius, fontSize } from './Root'
+import { paletteColors, borderRadius, fontSize, shadow } from './Root'
 import styled from '@emotion/styled'
 
 export const Button = styled('a')`
@@ -7,10 +7,11 @@ export const Button = styled('a')`
   letter-spacing: 0.25px;
   background: ${paletteColors.primary};
   color: ${paletteColors.lightColor};
-  padding: 1rem 1.5em;
+  padding: 1.8em 2em;
   border-radius: ${borderRadius.globalBtn};
   cursor: pointer;
   transition: all ease-in 100ms;
+  ${shadow.btnShadow}
   &:hover { opacity: 0.85; }
   @media screen and (max-width: 768px){ font-size: ${fontSize.lgText}; }
 `

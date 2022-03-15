@@ -1,37 +1,74 @@
-import { paletteColors, borderRadius, fontSize } from '../Root'
+import { paletteColors, borderRadius, fontSize, shadow } from '../Root'
 import styled from '@emotion/styled'
 
 export const Container = styled('div')`
+  height: calc(100vh - 150px);
   align-items: center;
   padding: 1em 100px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2em;
+  gap: 4em;
+  @media screen and (max-width: 1080px){    
+    display: flex;
+    flex-direction: column;
+    padding: 1em 50px;
+  }
+  @media screen and (max-width: 768px){ padding: 1em 1.5em; }
 `
 
 export const ContainerText = styled('div')`
-
+  width: 100%;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  @media screen and (max-width: 1080px){
+    h1{ display: none; }
+    p{ display: none; }
+  }
 `
 
-export const ContainerSvg = styled('div')`
+export const ContainerSvg = styled('div')`  
   height: 100%;
   display: flex;
   align-items: self-end;
   background: ${paletteColors.primary};
   padding: 2em 2em 0 2em;
   border-radius: ${borderRadius.homeSvg};
+  justify-content: center;
   svg{
     display: block;
+    width: auto;
+    height: 100%;
+  }
+  @media screen and (max-width: 1600px){ 
+    gap: 2em;
+    max-width: 700px;
+  }
+  @media screen and (max-width: 1400px){ 
+    svg{
+      width: 100%;
+      height: auto;
+    }
+  }
+  @media screen and (max-width: 1080px){ 
+    max-width: 100%;
     width: 100%;
-    height: auto;
+    height: 30vh;
+    svg{
+      width: auto;
+      height: 100%;
+    }
   }
 `
 export const Form = styled('form')`
+  width: 100%;
   text-align: center;
   max-width: 550px;
   display: flex;
   flex-direction: column;
   gap: 1em;
+  @media screen and (max-width: 1080px){ max-width: 100%; }
+  @media screen and (max-width: 768px){ span:nth-child(3){ display: none; } }
 `
 
 export const FormContainer = styled('div')`
@@ -54,6 +91,7 @@ export const Button = styled('a')`
   border-radius: ${borderRadius.globalBtn};
   cursor: pointer;
   transition: all ease-in 100ms;
+  ${shadow.btnShadow}
   &:hover { opacity: 0.85; }
   @media screen and (max-width: 768px){ font-size: ${fontSize.lgText}; }
 `
