@@ -1,44 +1,45 @@
 import * as Global from '../../../styles/Global'
 import * as Funcionalities from '../../../styles/home/funtionalities/FunctionalitiesStyle'
 import { useState } from 'react'
-import { FaStar, FaMapMarkerAlt } from 'react-icons/fa'
-import { BsChatSquareTextFill } from 'react-icons/bs'
-import { IoRestaurant } from 'react-icons/io5'
+import { FaUserFriends, FaBell } from 'react-icons/fa'
+import { GiProgression } from 'react-icons/gi'
+import { IoPodium, IoMegaphone } from 'react-icons/io5'
+import { MdOutlineWifiTethering } from 'react-icons/md'
 import * as SolutionStyle from '../../../styles/home/solution/SolutionStyle'
 
 
 export default function functionalities() {
     const [funcionalitiesItem, setSolutionItems] = useState([
         {
-          icon: <FaStar/>,
+          icon: <IoPodium/>,
           title: 'Ranking da Região',
           description: 'Saiba o que há de melhor para se deliciar em sua região.'
         },
         {
-          icon: <BsChatSquareTextFill/>,
+          icon: <FaUserFriends/>,
           title: 'Compartilhar críticas',
           description: 'Sua opinião deve ser levada em conta. Ajude a comunidade aravés de suas indicações.'
         },
         {
-          icon: <IoRestaurant/>,
+          icon: <FaBell/>,
           title: 'Alertas sobre favoritos',
           description: 'Receba alertas quando seus Restaurantes favoritos alteram alguma informação ou postam algo.'
         },
         {
-          icon: <FaMapMarkerAlt/>,
+          icon: <IoMegaphone/>,
           title: 'Interação com os Clientes',
           description: 'Você pdoerá interagir com as crítica feitas, assim podendo agradecer ou melhorar o ponto citado'
         },
         {
-            icon: <FaMapMarkerAlt/>,
+            icon: <GiProgression/>,
             title: 'Maior atratividade de Clientela',
             description: 'Estar entre os amis bem avaliados é um markting fluído e natural trazendo prestigio ao seu empreendimento'
         },
         {
-            icon: <FaMapMarkerAlt/>,
+            icon: <MdOutlineWifiTethering/>,
             title: 'Divulgação de suas novidades',
             description: 'Não deixe seus clientes de fora de suas novidades e lançamentos através das notificações'
-        }  
+        }
       ])
     return (
         <>
@@ -60,7 +61,7 @@ export default function functionalities() {
                             <h2>{element.title}</h2>
                             <p>{element.description}</p>
                         </Funcionalities.FuncionalitiesItem>
-                        )    
+                        )
                     )}
                     </Funcionalities.FuncionalitiesGrid>
 
