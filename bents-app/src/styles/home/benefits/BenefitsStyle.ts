@@ -2,6 +2,7 @@ import { paletteColors, borderRadius } from '../../Root'
 import styled from '@emotion/styled'
 
 export const Container = styled('div')`  
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,10 +25,12 @@ export const DescriptionText = styled('p')`
   padding: 1.75em 0;
 `
 
-export const FuncionalitiesGrid = styled('div')`
+export const BenefitsGrid = styled('div')`
+  width: 100%;
   display: grid;
   gap: 5em;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, auto);
+  justify-content: space-between;
   @media screen and (max-width: 1700px){ gap: 2em; }
   @media screen and (max-width: 1080px){
     display: grid;
@@ -45,12 +48,12 @@ export const FuncionalitiesGrid = styled('div')`
   }
 `
 
-export const FuncionalitiesItem = styled('div')`
+export const BenefitsItem = styled('div')`
 display: flex;
 flex-direction: column;
 justify-content: space-between;
 align-items: center;
-max-width: 500px;
+max-width: 350px;
 svg {
   border-radius: ${borderRadius.globalBtn};
   padding: 1em;
@@ -73,15 +76,17 @@ p {
   color: ${paletteColors.secondaryText};
 }
 @media screen and (max-width: 1400px){
+  max-width: 250px;
   h2{ font-size: 1.25em; }
   svg{
     height: 3em;
     width: 3em;
   }
-  p{ font-size: 14px; }
+  p{ font-size: 14px; }  
 }
 @media screen and (max-width: 1080px){
   max-width: 100%;
+  justify-content: space-evenly;
   svg{
     padding: 1.5em;
     height: 5em;

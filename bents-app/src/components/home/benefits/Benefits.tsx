@@ -1,15 +1,13 @@
 import * as Global from '../../../styles/Global'
-import * as Funcionalities from '../../../styles/home/funtionalities/FunctionalitiesStyle'
+import * as BenefitsStyle from '../../../styles/home/benefits/BenefitsStyle'
 import { useState } from 'react'
 import { FaUserFriends, FaBell } from 'react-icons/fa'
 import { GiProgression } from 'react-icons/gi'
 import { IoPodium, IoMegaphone } from 'react-icons/io5'
 import { MdOutlineWifiTethering } from 'react-icons/md'
-import * as SolutionStyle from '../../../styles/home/solution/SolutionStyle'
 
-
-export default function functionalities() {
-    const [funcionalitiesItem, setSolutionItems] = useState([
+export default function Benefits() {
+    const [BenefitsStyleItem, setBenefitsItems] = useState([
         {
           icon: <IoPodium/>,
           title: 'Ranking da Região',
@@ -44,28 +42,28 @@ export default function functionalities() {
     return (
         <>
             <Global.Container>
-                <Funcionalities.Container>
-                    <Funcionalities.Title>
+                <BenefitsStyle.Container>
+                    <BenefitsStyle.Title>
                         {`Com o Bents você terá`}
-                    </Funcionalities.Title>
-                    <Funcionalities.DescriptionText>
+                    </BenefitsStyle.Title>
+                    <BenefitsStyle.DescriptionText>
                         {`Funcionalidades que irão beneficiar tanto o Cliente como
                          Empreendedores buscando a melhor
                           qualidade possível.`}
-                    </Funcionalities.DescriptionText>
+                    </BenefitsStyle.DescriptionText>
 
-                    <Funcionalities.FuncionalitiesGrid>
-                    {funcionalitiesItem.map((element, item) => (
-                        <Funcionalities.FuncionalitiesItem key={item}>
+                    <BenefitsStyle.BenefitsGrid>
+                    {BenefitsStyleItem.map((element, item) => (
+                        <BenefitsStyle.BenefitsItem key={item}>
                             {element.icon}
                             <h2>{element.title}</h2>
                             <p>{element.description}</p>
-                        </Funcionalities.FuncionalitiesItem>
+                        </BenefitsStyle.BenefitsItem>
                         )
                     )}
-                    </Funcionalities.FuncionalitiesGrid>
+                    </BenefitsStyle.BenefitsGrid>
 
-                </Funcionalities.Container>
+                </BenefitsStyle.Container>
             </Global.Container>
         </>
     )
