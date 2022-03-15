@@ -1,4 +1,4 @@
-import { ReactComponent as HeroSVG } from '../../../assets/hero.svg'
+import { ReactComponent as EatingSVG } from '../../../assets/eating.svg'
 import * as OpinionStyle from '../../../styles/home/opinion/OpinionStyle'
 import * as Global from '../../../styles/Global'
 
@@ -17,7 +17,7 @@ export default function Opinion() {
             <OpinionStyle.Button>Faça Parte!</OpinionStyle.Button>
           </OpinionStyle.OpinionTitleContainer>
           <OpinionStyle.OpinionSVGContainer>
-            <HeroSVG />
+            <EatingSVG />
           </OpinionStyle.OpinionSVGContainer>
         </OpinionStyle.Container>
       </Global.BlueContainer>

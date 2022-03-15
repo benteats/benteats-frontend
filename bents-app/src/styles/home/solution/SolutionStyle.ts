@@ -75,6 +75,11 @@ export const SolutionItem = styled('div')`
     color: ${paletteColors.white};
     box-shadow: 0px 10px 22px -2px ${paletteColors.orangeShadow};
   }
+  h3 {
+    padding: .25rem 0;
+    font-size: ${fontSize.mdText};
+    color: ${paletteColors.primary};
+  }
   h2 {
     padding: .25rem 0;
     font-size: ${fontSize.smSubTitle};

@@ -6,6 +6,7 @@ export const Container = styled('div')`
   gap: 2em;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
+  padding: 2em 1em;
   @media screen and (max-width: 768px){ 
     text-align: center;
     display: flex;
@@ -58,6 +59,7 @@ export const OpinionSVGContainer = styled('div')`
     background-color: ${paletteColors.backgroundBlueImage};
     border-radius: ${borderRadius.homeSvg};
   svg {
+    padding: 1em;
     width: 100%;
     height: auto;
   }
