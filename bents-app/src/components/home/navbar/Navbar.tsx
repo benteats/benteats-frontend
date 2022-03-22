@@ -2,6 +2,7 @@ import { ReactComponent as Logo } from '../../../assets/logo.svg'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { css } from '@emotion/react'
+import { navbarMap } from './NavbarMap'
 import * as NavbarStyle from './Navbar.style'
 import * as Global from '../../../styles/Global'
 
@@ -16,40 +17,30 @@ export default function Navbar() {
       <NavbarStyle.DropdownMenu css={css({ left: isMobile ? '0%' : '-150%' })}>
         <NavbarStyle.Close size={'3em'} onClick={toggleMobileMenu} />
         <ul>
-          <li>
-            <a onClick={toggleMobileMenu} href="#section-solution">Solução</a>
-          </li>
-          <li>
-            <a onClick={toggleMobileMenu} href="#section-steps">Como Funciona</a>
-          </li>
-          <li>
-            <a onClick={toggleMobileMenu} href="#section-benefits">Vantagens</a>
-          </li>
-          <li>
-            <a onClick={toggleMobileMenu} href="#section-footer">FAQ</a>
-          </li>
+          {navbarMap.map((element, item) => (
+            <li key={item}>
+              <a onClick={toggleMobileMenu} href={element.section}>
+                {element.name}
+              </a>
+            </li>
+          ))}
         </ul>
       </NavbarStyle.DropdownMenu>
       <NavbarStyle.Nav>
         <NavbarStyle.ContainerNav>
           <NavbarStyle.Burger size={'2.5em'} onClick={toggleMobileMenu} />
           <NavbarStyle.Logo href='#section-hero'>
-            <Logo/>
+            <Logo />
           </NavbarStyle.Logo>
           <NavbarStyle.NavItems>
             <ul>
-              <li>
-                <a href="#section-solution">Solução</a>
-              </li>
-              <li>
-                <a href="#section-steps">Como Funciona</a>
-              </li>
-              <li>
-                <a href="#section-benefits">Vantagens</a>
-              </li>
-              <li>
-                <a href="#section-footer">FAQ</a>
-              </li>
+              {navbarMap.map((element, item) => (
+                <li key={item}>
+                  <a href={element.section}>
+                    {element.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </NavbarStyle.NavItems>
           <Global.Button
