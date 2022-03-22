@@ -1,13 +1,13 @@
-import { paletteColors, borderRadius, fontSize } from '../../Root'
+import { paletteColors, borderRadius, fontSize } from '../../../styles/Root'
 import styled from '@emotion/styled'
 
-export const Container = styled('div')`  
+export const Container = styled('div')`
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2em;
   align-items: flex-start;
-  @media screen and (max-width: 768px){ 
+  @media screen and (max-width: 768px){
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -33,14 +33,14 @@ export const TutorialDescription = styled('p')`
   font-size: clamp(14px,1vw,16px);
   white-space: pre-line;
   padding: .5rem 0;
-  @media screen and (max-width: 768px){ 
+  @media screen and (max-width: 768px){
     white-space: unset;
-    font-size: 1.25em; 
+    font-size: 1.25em;
   }
 `
 
 export const TutorialTitleContainer = styled('div')`
-  
+
 `
 
 export const HeroSVGContainer = styled('div')`
@@ -49,7 +49,7 @@ export const HeroSVGContainer = styled('div')`
     height: auto;
   }
   @media screen and (max-width: 768px){
-    width: 100%;    
+    width: 100%;
     svg{
       height: 30vh;
     }
@@ -57,7 +57,7 @@ export const HeroSVGContainer = styled('div')`
 `
 export const SolutionGrid = styled('div')`
   width: 100%;
-  display: flex;  
+  display: flex;
   justify-content: space-between;
   @media screen and (max-width: 768px){
     flex-direction: column;

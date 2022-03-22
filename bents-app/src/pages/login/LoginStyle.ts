@@ -1,10 +1,10 @@
-import { paletteColors, borderRadius, fontSize, shadow } from '../Root'
+import { paletteColors, borderRadius, fontSize, shadow } from '../../styles/Root'
 import styled from '@emotion/styled'
 
 export const Container = styled('div')`
   height: calc(100vh - 150px);
   align-items: center;
-  padding: 1em 100px;
+  padding: .5rem 100px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4em;

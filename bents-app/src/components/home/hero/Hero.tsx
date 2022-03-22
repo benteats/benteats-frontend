@@ -1,6 +1,6 @@
 import { ReactComponent as HeroSVG } from '../../../assets/hero.svg'
 import { css } from '@emotion/react'
-import * as HeroStyle from '../../../styles/home/hero/HeroStyle'
+import * as HeroStyle from './Hero.style'
 import * as Global from '../../../styles/Global'
 
 export default function Hero() {
@@ -8,7 +8,7 @@ export default function Hero() {
     <>
       <Global.Container
       id='section-hero'
-      css={css({ marginTop: '100px' })}>
+      css={css({ marginTop: '50px' })}>
         <HeroStyle.Container>
           <HeroStyle.HeroTitleContainer>
             <HeroStyle.HeroTitle>

@@ -2,7 +2,7 @@ import { FaStar, FaMapMarkerAlt } from 'react-icons/fa'
 import { BsChatSquareTextFill } from 'react-icons/bs'
 import { IoRestaurant } from 'react-icons/io5'
 import { ReactComponent as SolutionSVG } from '../../../assets/solution.svg'
-import * as SolutionStyle from '../../../styles/home/solution/SolutionStyle'
+import * as SolutionStyle from './Solution.style'
 import * as Global from '../../../styles/Global'
 import { useState } from 'react'
 
@@ -46,7 +46,7 @@ export default function Hero() {
               <Global.Description>
                 Bents é um aplicativo totalmente voltado para o
                 compartilhamento de experiências. O que importa é a sua opinião!
-              </Global.Description>            
+              </Global.Description>
             </div>
             <SolutionStyle.SolutionGrid>
             {solutionItems.map((element, item) => (

@@ -1,5 +1,5 @@
 import { ReactComponent as EatingSVG } from '../../../assets/eating.svg'
-import * as OpinionStyle from '../../../styles/home/opinion/OpinionStyle'
+import * as OpinionStyle from './Opinion.style'
 import * as Global from '../../../styles/Global'
 
 export default function Opinion() {

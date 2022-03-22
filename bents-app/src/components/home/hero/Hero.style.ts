@@ -1,12 +1,12 @@
-import { paletteColors, borderRadius } from '../../Root'
+import { paletteColors, borderRadius } from '../../../styles/Root'
 import styled from '@emotion/styled'
 
-export const Container = styled('div')`  
+export const Container = styled('div')`
   display: grid;
   gap: 2em;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  @media screen and (max-width: 768px){ 
+  @media screen and (max-width: 768px){
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -30,14 +30,14 @@ export const HeroDescription = styled('p')`
   font-size: clamp(14px,1vw,16px);
   white-space: pre-line;
   padding: 2em 0;
-  @media screen and (max-width: 768px){ 
+  @media screen and (max-width: 768px){
     white-space: unset;
-    font-size: 1.25em; 
+    font-size: 1.25em;
   }
 `
 
 export const HeroTitleContainer = styled('div')`
-  
+
 `
 
 export const HeroSVGContainer = styled('div')`
@@ -46,7 +46,7 @@ export const HeroSVGContainer = styled('div')`
     height: auto;
   }
   @media screen and (max-width: 768px){
-    width: 100%;    
+    width: 100%;
     svg{
       height: 30vh;
     }

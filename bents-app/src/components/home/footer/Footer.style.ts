@@ -1,7 +1,7 @@
-import { paletteColors, borderRadius } from '../Root'
+import { paletteColors, borderRadius } from '../../../styles/Root'
 import styled from '@emotion/styled'
 
-export const Container = styled('div')`  
+export const Container = styled('div')`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 15em;

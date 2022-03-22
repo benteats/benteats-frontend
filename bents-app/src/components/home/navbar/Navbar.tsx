@@ -2,7 +2,7 @@ import { ReactComponent as Logo } from '../../../assets/logo.svg'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { css } from '@emotion/react'
-import * as NavbarStyle from '../../../styles/navbar/NavbarStyle'
+import * as NavbarStyle from './Navbar.style'
 import * as Global from '../../../styles/Global'
 
 export default function Navbar() {

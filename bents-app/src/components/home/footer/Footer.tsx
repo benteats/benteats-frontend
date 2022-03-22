@@ -1,8 +1,8 @@
-import * as FooterStyle from '../../../styles/footer/FooterStyle'
+import * as FooterStyle from './Footer.style'
 import * as Global from '../../../styles/Global'
 import { ReactComponent as Logo } from '../../../assets/logo.svg'
 
-export default function footer() {
+export default function Footer() {
     return (
         <>
             <Global.Container id='section-footer'>
@@ -23,7 +23,7 @@ export default function footer() {
                         {`FAQ`}
                     </FooterStyle.FooterItems>
                 </FooterStyle.Container>
-            </Global.Container>    
+            </Global.Container>
         </>
     )
 }

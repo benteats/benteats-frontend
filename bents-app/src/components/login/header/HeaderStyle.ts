@@ -1,9 +1,9 @@
-import { paletteColors, borderRadius, fontSize } from '../../Root'
+import { paletteColors, borderRadius, fontSize } from '../../../styles/Root'
 import styled from '@emotion/styled'
 
 export const Header = styled('header')`
-  height: 150px;
-  padding: 2em 100px;
+  height: auto;
+  padding: 1em 100px;
   svg {
     cursor: pointer;
     width: 15em;

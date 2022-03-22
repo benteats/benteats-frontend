@@ -1,4 +1,4 @@
-import { paletteColors, borderRadius } from '../Root'
+import { paletteColors, borderRadius } from '../../../styles/Root'
 import { IoMenu, IoClose } from 'react-icons/io5'
 import styled from '@emotion/styled'
 
@@ -48,7 +48,7 @@ export const DropdownMenu = styled('div')`
   }
 `
 
-export const Nav = styled.nav`  
+export const Nav = styled.nav`
   background: ${paletteColors.white};
   z-index: 5;
   top: 0;

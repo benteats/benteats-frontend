@@ -1,4 +1,4 @@
-import { paletteColors, borderRadius, fontSize } from '../../Root'
+import { paletteColors, borderRadius, fontSize } from '../../../styles/Root'
 
 import styled from '@emotion/styled'
 
@@ -30,9 +30,9 @@ export const ContentSolutions = styled('div')`
   display: flex;
   flex-direction: column;
   gap: 4em;
-  @media screen and (max-width: 1700px){     
+  @media screen and (max-width: 1700px){
     h1{ font-size: 3em; }
-    gap: 0; 
+    gap: 0;
     }
 `
 
@@ -48,7 +48,7 @@ export const SolutionGrid = styled('div')`
   }
   @media screen and (max-width: 768px){
     justify-content: space-evenly;
-    grid-template-columns: repeat(auto-fit, minmax(auto, 15em));        
+    grid-template-columns: repeat(auto-fit, minmax(auto, 15em));
   }
   @media screen and (max-width: 600px){
     display: flex;

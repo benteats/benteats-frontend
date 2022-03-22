@@ -1,12 +1,11 @@
 import { ReactComponent as FirstStepSVG } from '../../../assets/first-step.svg'
 import { ReactComponent as SecondtStepSVG } from '../../../assets/second-step.svg'
 import { ReactComponent as ThridStepSVG } from '../../../assets/thrid-step.svg'
-import * as TutorialStyle from '../../../styles/home/tutorial/TutorialStyle'
+import * as TutorialStyle from './Steps.style'
 import * as Global from '../../../styles/Global'
-import * as SolutionStyle from '../../../styles/home/solution/SolutionStyle'
 import { useState } from 'react'
 
-export default function Tutorial() {
+export default function Steps() {
   const [tutorialItems, setTutorialItems] = useState([
     {
       icon: <FirstStepSVG />,

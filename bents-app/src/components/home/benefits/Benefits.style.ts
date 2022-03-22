@@ -1,7 +1,7 @@
-import { paletteColors, borderRadius } from '../../Root'
+import { paletteColors, borderRadius } from '../../../styles/Root'
 import styled from '@emotion/styled'
 
-export const Container = styled('div')`  
+export const Container = styled('div')`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -34,12 +34,12 @@ export const BenefitsGrid = styled('div')`
   @media screen and (max-width: 1700px){ gap: 2em; }
   @media screen and (max-width: 1080px){
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(auto, 15em));    
+    grid-template-columns: repeat(auto-fit, minmax(auto, 15em));
     justify-content: space-between;
   }
   @media screen and (max-width: 768px){
     justify-content: space-evenly;
-    grid-template-columns: repeat(auto-fit, minmax(auto, 15em));        
+    grid-template-columns: repeat(auto-fit, minmax(auto, 15em));
   }
   @media screen and (max-width: 600px){
     display: flex;
@@ -82,7 +82,7 @@ p {
     height: 3em;
     width: 3em;
   }
-  p{ font-size: 14px; }  
+  p{ font-size: 14px; }
 }
 @media screen and (max-width: 1080px){
   max-width: 100%;

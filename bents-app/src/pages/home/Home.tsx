@@ -3,8 +3,8 @@ import Navbar from '../../components/home/navbar/Navbar'
 import Opinion from '../../components/home/opinion/Opinion'
 import Solution from '../../components/home/solution/Solution'
 import Benefits from '../../components/home/benefits/Benefits'
-import Footer from '../../components/home/footer/FooterComponent'
-import Tutorial from '../../components/home/tutorial/Tutorial'
+import Footer from '../../components/home/footer/Footer'
+import Steps from '../../components/home/steps/Steps'
 
 export default function Home(){
     return(
@@ -12,7 +12,7 @@ export default function Home(){
         <Hero />
         <Solution />
         <Opinion />
-        <Tutorial />
+        <Steps />
         <Benefits />
         <Navbar />
         <Footer />

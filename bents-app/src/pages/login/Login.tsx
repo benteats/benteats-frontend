@@ -3,13 +3,12 @@ import { FaUserFriends } from 'react-icons/fa'
 import { IoRestaurant } from 'react-icons/io5'
 import { css } from '@emotion/react'
 import { IoIosEye, IoMdEyeOff } from 'react-icons/io'
-import Header from '../login/header/Header'
+import Header from '../../components/login/header/Header'
 import * as FormStyle from '../../styles/form/FormStyle'
-import * as LoginStyle from '../../styles/login/LoginStyle'
+import * as LoginStyle from './LoginStyle'
 import * as Global from '../../styles/Global'
 
 export default function Login() {
-  let typeUser = ''
   return (
     <>
       <Header />
@@ -37,35 +36,6 @@ export default function Login() {
             </LoginStyle.Span>
           </LoginStyle.Form>
         </LoginStyle.ContainerText>
-        {/* <LoginStyle.ContainerText>
-          <Global.Title>Você está conectando como?</Global.Title>
-          <Global.Description>
-            {`Você irá os contar uma experiência sua? ou irá ver como anda as
-            avaliações sobre seu Restaurante`}
-          </Global.Description>
-          <LoginStyle.UserOption
-          onClick={() => { typeUser='user' }}>
-            <FaUserFriends />
-            <div>
-              <span>Usuário</span>
-              <p>
-                Compartilhe suas impressôes vividas! ou descubra o que há na
-                região.
-              </p>
-            </div>
-          </LoginStyle.UserOption>
-          <LoginStyle.UserOption
-          onClick={() => { typeUser='restaurant' }}>
-            <IoRestaurant />
-            <div>
-              <span>Restaurante</span>
-              <p>
-                Vamos descobrir como anda o seu restaurante? ou iremos atualizar
-                alguma informação?
-              </p>
-            </div>
-          </LoginStyle.UserOption>
-        </LoginStyle.ContainerText> */}
       </LoginStyle.Container>
     </>
   )
