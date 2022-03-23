@@ -3,7 +3,7 @@ import { GiProgression } from 'react-icons/gi'
 import { IoPodium, IoMegaphone } from 'react-icons/io5'
 import { MdOutlineWifiTethering } from 'react-icons/md'
 
-export const BenefitsItems = [
+export const benefitsItems = [
   {
     icon: <IoPodium />,
     title: 'Ranking da Região',

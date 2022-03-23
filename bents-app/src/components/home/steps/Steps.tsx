@@ -1,31 +1,8 @@
-import { ReactComponent as FirstStepSVG } from '../../../assets/first-step.svg'
-import { ReactComponent as SecondtStepSVG } from '../../../assets/second-step.svg'
-import { ReactComponent as ThridStepSVG } from '../../../assets/thrid-step.svg'
+import { stepsItems } from './StepsMap'
 import * as TutorialStyle from './Steps.style'
 import * as Global from '../../../styles/Global'
-import { useState } from 'react'
 
 export default function Steps() {
-  const [tutorialItems, setTutorialItems] = useState([
-    {
-      icon: <FirstStepSVG />,
-      step: 'PASSO 1',
-      title: 'Perfil de usuário',
-      description: 'Nos diga se você é um Cliente ou Empreendedor.'
-    },
-    {
-      icon: <SecondtStepSVG />,
-      step: 'PASSO 2',
-      title: 'Dados pessoais',
-      description: 'Aqui vamos saber um pouquinho mais sobre você.'
-    },
-    {
-      icon: <ThridStepSVG />,
-      step: 'PASSO 3',
-      title: 'Endereço',
-      description: 'Assim podemos encontrar o que há de melhor na sua região.'
-    }
-  ])
   return (
     <>
       <Global.Container id='section-steps'>
@@ -39,7 +16,7 @@ export default function Steps() {
           </TutorialStyle.TutorialDescription>
           </TutorialStyle.TutorialTitleContainer>
           <TutorialStyle.SolutionGrid>
-            {tutorialItems.map((element, item) => (
+            {stepsItems.map((element, item) => (
               <TutorialStyle.SolutionItem key={item}>
                 {element.icon}
                 <h3>{element.step}</h3>

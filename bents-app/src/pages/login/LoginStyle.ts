@@ -93,7 +93,10 @@ export const Button = styled('a')`
   cursor: pointer;
   transition: all ease-in 100ms;
   ${shadow.btnShadow}
-  &:hover { opacity: 0.85; }
+  &:hover {
+    opacity: 0.85;
+    text-decoration: none;
+  }
   @media screen and (max-width: 768px){ font-size: ${fontSize.lgText}; }
 `
 

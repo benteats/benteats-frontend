@@ -113,5 +113,6 @@ export const ButtonLogin = styled('a')`
   transition: all ease-in 100ms;
   &:hover {
     opacity: 0.85;
+    text-decoration: none;
   }
 `

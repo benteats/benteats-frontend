@@ -2,6 +2,7 @@ import { paletteColors, borderRadius, fontSize, shadow } from './Root'
 import styled from '@emotion/styled'
 
 export const Button = styled('a')`
+
   font-size: ${fontSize.smText};
   display: inline-block;
   letter-spacing: 0.25px;
@@ -12,7 +13,10 @@ export const Button = styled('a')`
   cursor: pointer;
   transition: all ease-in 100ms;
   ${shadow.btnShadow}
-  &:hover { opacity: 0.85; }
+  &:hover {
+    opacity: 0.85;
+    text-decoration: none;
+  }
   @media screen and (max-width: 768px){ font-size: ${fontSize.lgText}; }
 `
 

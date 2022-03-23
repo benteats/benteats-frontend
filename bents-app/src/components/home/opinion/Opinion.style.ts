@@ -47,7 +47,10 @@ export const Button = styled('a')`
   border-radius: ${borderRadius.globalBtn};
   cursor: pointer;
   transition: all ease-in 100ms;
-  &:hover { opacity: 0.85; }
+  &:hover {
+    opacity: 0.85;
+    text-decoration: none;
+  }
   @media screen and (max-width: 768px){ font-size: 18px; }
 `
 

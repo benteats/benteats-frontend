@@ -1,12 +1,8 @@
 import * as Global from '../../../styles/Global'
 import * as BenefitsStyle from './Benefits.style'
-import * as BenefitsMap from './BenefitsMap'
-import { FaUserFriends, FaBell } from 'react-icons/fa'
-import { GiProgression } from 'react-icons/gi'
-import { IoPodium, IoMegaphone } from 'react-icons/io5'
-import { MdOutlineWifiTethering } from 'react-icons/md'
+import { benefitsItems } from './BenefitsMap'
 
-export default function Benefits() {
+export default function benefits() {
     return (
         <>
             <Global.Container id='section-benefits'>
@@ -21,7 +17,7 @@ export default function Benefits() {
                     </BenefitsStyle.DescriptionText>
 
                     <BenefitsStyle.BenefitsGrid>
-                    {BenefitsMap.BenefitsItems.map((element, item) => (
+                    {benefitsItems.map((element, item) => (
                       <BenefitsStyle.BenefitsItem key={item}>
                           {element.icon}
                           <h2>{element.title}</h2>
