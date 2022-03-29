@@ -45,6 +45,7 @@ export const Container = styled('section')`
 export const Title = styled('h1')`
   color: ${paletteColors.primaryText};
   font-family: 'Inter', sans-serif;
+  /* font-size: ${fontSize.dfTitle}; */
   font-size: ${fontSize.dfTitle};
   font-weight: 700;
   line-height: 1em;

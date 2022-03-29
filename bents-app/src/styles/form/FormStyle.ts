@@ -2,6 +2,7 @@ import { paletteColors, borderRadius, fontSize } from '../Root'
 import styled from '@emotion/styled'
 
 export const Input = styled('input')`
+  height: 80px;
   cursor: pointer;
   outline: none;
   border-radius: ${borderRadius.globalBtn};

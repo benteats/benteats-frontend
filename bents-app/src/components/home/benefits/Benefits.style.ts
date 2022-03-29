@@ -13,7 +13,7 @@ export const Container = styled('div')`
 export const Title = styled('h1')`
   color: ${paletteColors.primaryText};
   font-family: 'Inter', sans-serif;
-  font-size: 4.5em;
+  font-size: 3.5em;
   font-weight: 700;
   line-height: 1em;
   text-align: center;
