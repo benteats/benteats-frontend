@@ -9,13 +9,13 @@ export const Header = styled('header')`
     width: 15em;
     height: 4em;
   }
-  @media screen and (max-width: 1080px){
+  @media screen and (max-width: 1080px) {
     display: flex;
     justify-content: flex-end;
     height: auto;
     padding: 2em 1em;
   }
-  @media screen and (max-width: 768px){
-    padding: .5rem;
+  @media screen and (max-width: 768px) {
+    padding: 0.5rem;
   }
 `

@@ -1,6 +1,3 @@
-export default function UserType(){
-  return(
-    <>
-    </>
-  )
+export default function UserType() {
+  return <></>
 }

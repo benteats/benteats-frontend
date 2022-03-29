@@ -1,20 +1,27 @@
-import { paletteColors, borderRadius, fontSize, shadow } from '../../styles/Root'
+import {
+  paletteColors,
+  borderRadius,
+  fontSize,
+  shadow
+} from '../../styles/Root'
 import styled from '@emotion/styled'
 
 export const Container = styled('div')`
   height: calc(100vh - 150px);
   align-items: center;
-  padding: .5rem 100px;
+  padding: 0.5rem 100px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4em;
-  @media screen and (max-width: 1080px){
+  @media screen and (max-width: 1080px) {
     display: flex;
     flex-direction: column;
     padding: 1em 50px;
     gap: 2em;
   }
-  @media screen and (max-width: 768px){ padding: 1em 1.5em; }
+  @media screen and (max-width: 768px) {
+    padding: 1em 1.5em;
+  }
 `
 
 export const ContainerText = styled('div')`
@@ -22,9 +29,13 @@ export const ContainerText = styled('div')`
   text-align: center;
   display: grid;
   place-items: center;
-  @media screen and (max-width: 1080px){
-    h1{ display: none; }
-    p{ display: none; }
+  @media screen and (max-width: 1080px) {
+    h1 {
+      display: none;
+    }
+    p {
+      display: none;
+    }
   }
 `
 
@@ -36,26 +47,26 @@ export const ContainerSvg = styled('div')`
   padding: 2em 2em 0 2em;
   border-radius: ${borderRadius.homeSvg};
   justify-content: center;
-  svg{
+  svg {
     display: block;
     width: auto;
     height: 100%;
   }
-  @media screen and (max-width: 1600px){
+  @media screen and (max-width: 1600px) {
     gap: 2em;
     max-width: 700px;
   }
-  @media screen and (max-width: 1400px){
-    svg{
+  @media screen and (max-width: 1400px) {
+    svg {
       width: 100%;
       height: auto;
     }
   }
-  @media screen and (max-width: 1080px){
+  @media screen and (max-width: 1080px) {
     max-width: 100%;
     width: 100%;
     height: 30vh;
-    svg{
+    svg {
       width: auto;
       height: 30vh;
     }
@@ -68,15 +79,23 @@ export const Form = styled('form')`
   display: flex;
   flex-direction: column;
   gap: 1em;
-  @media screen and (max-width: 1080px){ max-width: 100%; }
-  @media screen and (max-width: 768px){ span:nth-child(3){ display: none; } }
+  @media screen and (max-width: 1080px) {
+    max-width: 100%;
+  }
+  @media screen and (max-width: 768px) {
+    span:nth-child(3) {
+      display: none;
+    }
+  }
 `
 
 export const FormContainer = styled('div')`
   display: flex;
   align-items: center;
-  input{ width: 100% }
-  svg{
+  input {
+    width: 100%;
+  }
+  svg {
     margin-left: -3em;
     color: ${paletteColors.secondaryText};
   }
@@ -97,7 +116,9 @@ export const Button = styled('a')`
     opacity: 0.85;
     text-decoration: none;
   }
-  @media screen and (max-width: 768px){ font-size: ${fontSize.lgText}; }
+  @media screen and (max-width: 768px) {
+    font-size: ${fontSize.lgText};
+  }
 `
 
 export const Span = styled('span')`
@@ -123,12 +144,14 @@ export const UserOption = styled('div')`
   border-radius: ${borderRadius.selectInput};
   padding: 2.25em 2.5em;
   background: ${paletteColors.lightBackground};
-  &:hover{ opacity: 0.75; }
+  &:hover {
+    opacity: 0.75;
+  }
   display: grid;
   grid-template-columns: repeat(2, auto);
   align-items: center;
   gap: 2em;
-  svg{
+  svg {
     padding: 1em;
     height: 4.25em;
     width: 4.25em;
@@ -136,15 +159,15 @@ export const UserOption = styled('div')`
     color: ${paletteColors.primary};
     border-radius: ${borderRadius.globalBtn};
   }
-  div{
-    span{
+  div {
+    span {
       font-family: 'Inter', sans-serif;
       font-size: 22px;
       font-weight: 600;
       color: ${paletteColors.primaryText};
     }
-    p{
-      padding-top: .5rem;
+    p {
+      padding-top: 0.5rem;
       color: ${paletteColors.secondaryText};
       font-size: ${fontSize.smText};
       letter-spacing: 0.5px;

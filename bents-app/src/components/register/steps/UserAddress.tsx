@@ -1,6 +1,3 @@
-export default function UserAddress(){
-  return(
-    <>
-    </>
-  )
+export default function UserAddress() {
+  return <></>
 }

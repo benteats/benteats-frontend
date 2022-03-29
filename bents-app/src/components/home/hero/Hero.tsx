@@ -6,9 +6,7 @@ import * as Global from '../../../styles/Global'
 export default function Hero() {
   return (
     <>
-      <Global.Container
-      id='section-hero'
-      css={css({ marginTop: '50px' })}>
+      <Global.Container id="section-hero" css={css({ marginTop: '50px' })}>
         <HeroStyle.Container>
           <HeroStyle.HeroTitleContainer>
             <HeroStyle.HeroTitle>

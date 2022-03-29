@@ -10,5 +10,7 @@ export const Input = styled('input')`
   padding: 1.8em 2.5em;
   background: ${paletteColors.iptBackground};
   border: none;
-  &::placeholder{ color: ${paletteColors.secondaryText}; }
+  &::placeholder {
+    color: ${paletteColors.secondaryText};
+  }
 `

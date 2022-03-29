@@ -23,10 +23,17 @@ export default function Login() {
           </Global.Description>
           <LoginStyle.Form>
             <LoginStyle.FormContainer>
-              <FormStyle.Input placeholder="Seu usuário ou email" maxLength={35} />
+              <FormStyle.Input
+                placeholder="Seu usuário ou email"
+                maxLength={35}
+              />
             </LoginStyle.FormContainer>
             <LoginStyle.FormContainer>
-              <FormStyle.Input placeholder="Senha" type="password" maxLength={20} />
+              <FormStyle.Input
+                placeholder="Senha"
+                type="password"
+                maxLength={20}
+              />
               <IoMdEyeOff size={'1.75em'} />
             </LoginStyle.FormContainer>
             <LoginStyle.Span>Recuperar senha</LoginStyle.Span>

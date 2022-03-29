@@ -29,16 +29,14 @@ export default function Navbar() {
       <NavbarStyle.Nav>
         <NavbarStyle.ContainerNav>
           <NavbarStyle.Burger size={'2.5em'} onClick={toggleMobileMenu} />
-          <NavbarStyle.Logo href='#section-hero'>
+          <NavbarStyle.Logo href="#section-hero">
             <Logo />
           </NavbarStyle.Logo>
           <NavbarStyle.NavItems>
             <ul>
               {navbarMap.map((element, item) => (
                 <li key={item}>
-                  <a href={element.section}>
-                    {element.name}
-                  </a>
+                  <a href={element.section}>{element.name}</a>
                 </li>
               ))}
             </ul>

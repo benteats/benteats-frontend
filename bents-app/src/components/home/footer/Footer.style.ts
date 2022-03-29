@@ -5,9 +5,11 @@ export const Container = styled('div')`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 15em;
-  @media screen and (max-width: 1700px) {gap: 10em}
+  @media screen and (max-width: 1700px) {
+    gap: 10em;
+  }
   @media screen and (max-width: 1080px) {
-    gap: 5em
+    gap: 5em;
   }
   @media screen and (max-width: 800px) {
     display: flex;

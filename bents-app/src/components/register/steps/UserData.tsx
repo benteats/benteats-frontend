@@ -1,6 +1,3 @@
-export default function UserData(){
-  return(
-    <>
-    </>
-  )
+export default function UserData() {
+  return <></>
 }

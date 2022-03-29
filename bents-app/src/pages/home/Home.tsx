@@ -6,16 +6,16 @@ import Benefits from '../../components/home/benefits/Benefits'
 import Footer from '../../components/home/footer/Footer'
 import Steps from '../../components/home/steps/Steps'
 
-export default function Home(){
-    return(
+export default function Home() {
+  return (
     <>
-        <Hero />
-        <Solution />
-        <Opinion />
-        <Steps />
-        <Benefits />
-        <Navbar />
-        <Footer />
+      <Hero />
+      <Solution />
+      <Opinion />
+      <Steps />
+      <Benefits />
+      <Navbar />
+      <Footer />
     </>
-    )
+  )
 }

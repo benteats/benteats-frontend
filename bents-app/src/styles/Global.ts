@@ -2,7 +2,6 @@ import { paletteColors, borderRadius, fontSize, shadow } from './Root'
 import styled from '@emotion/styled'
 
 export const Button = styled('a')`
-
   font-size: ${fontSize.smText};
   display: inline-block;
   letter-spacing: 0.25px;
@@ -17,19 +16,25 @@ export const Button = styled('a')`
     opacity: 0.85;
     text-decoration: none;
   }
-  @media screen and (max-width: 768px){ font-size: ${fontSize.lgText}; }
+  @media screen and (max-width: 768px) {
+    font-size: ${fontSize.lgText};
+  }
 `
 
 export const BlueContainer = styled('div')`
-  background-color: #2160E8;
+  background-color: #2160e8;
   margin-top: 100px;
   width: 100%;
   padding: 1em 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  @media screen and (max-width: 1080px){ padding: 1em 50px; }
-  @media screen and (max-width: 768px){ padding: 1em; }
+  @media screen and (max-width: 1080px) {
+    padding: 1em 50px;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 1em;
+  }
 `
 
 export const Container = styled('section')`
@@ -38,8 +43,12 @@ export const Container = styled('section')`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media screen and (max-width: 1080px){ padding: 4em 50px; }
-  @media screen and (max-width: 768px){ padding: 3em; }
+  @media screen and (max-width: 1080px) {
+    padding: 4em 50px;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 3em;
+  }
 `
 
 export const Title = styled('h1')`
