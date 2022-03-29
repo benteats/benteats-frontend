@@ -3,16 +3,29 @@ package com.example.BentEats.entidade;
 import com.example.BentEats.service.ClientService;
 import com.example.BentEats.service.UserService;
 
+import javax.persistence.Entity;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+
+@Entity
 public abstract class User {
 
     //Atributos do usuário
-    private String name;
-    private String phone;
-    private String email;
-    private String password;
-    private String cep;
-    private String address;
-    private Integer addressNumber;
+    @NotBlank
+    private String name; //não pode ser em branco
+    @NotNull
+    private String phone; //não pode ser em branco
+    @NotBlank
+    private String email; //não pode ser em branco
+    @NotBlank
+    private String password; //não pode ser em branco
+    @NotBlank
+    private String cep; //não pode ser em branco
+    @NotBlank
+    private String address; //não pode ser em branco
+    @NotNull
+    private Integer addressNumber; //não pode ser em branco
     private Boolean isLogged;
 
     public User(String name, String phone, String email, String password, String cep, String address, Integer addressNumber) {
