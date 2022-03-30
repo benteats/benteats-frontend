@@ -5,6 +5,7 @@ import com.example.BentEats.service.ClientService;
 import com.example.BentEats.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,27 +16,30 @@ public class ClientController {
     private List<ClientService> listUsers = new ArrayList<>();
 
     @PostMapping("/registerClient")
-    public String registerUser(@RequestBody ClientService client) {
-        if (client.getName() == null || client.getName().equals(""))
-            return "É necessário informar um nome para cadastrar um usuário";
+    public String registerUser(@RequestBody @Valid ClientService client) {
+        //O código foi comentado pois o @Valid fará a verificação se o campo está vazio
+        //Poupando os if e else
 
-        if (client.getEmail() == null || client.getEmail().equals(""))
-            return "É necessário infomar um email para cadastrar um usuário";
-
-        if (client.getPhone() == null || client.getPhone().equals(""))
-            return "É necessário infomar um telefone para cadastrar um usuário";
-
-        if (client.getCep() == null || client.getPhone().equals(""))
-            return "É necessário infomar um CEP para cadastrar um usuário";
-
-        if (client.getCep() == null || client.getCep().equals(""))
-            return "É necessário infomar um CEP para cadastrar um usuário";
-
-        if (client.getAddress() == null || client.getAddress().equals(""))
-            return "É necessário infomar um endereço para cadastrar um usuário";
-
-        if (client.getAddress() == null || client.getAddress().equals(""))
-            return "É necessário infomar um endereço para cadastrar um usuário";
+//        if (client.getName() == null || client.getName().equals(""))
+//            return "É necessário informar um nome para cadastrar um usuário";
+//
+//        if (client.getEmail() == null || client.getEmail().equals(""))
+//            return "É necessário infomar um email para cadastrar um usuário";
+//
+//        if (client.getPhone() == null || client.getPhone().equals(""))
+//            return "É necessário infomar um telefone para cadastrar um usuário";
+//
+//        if (client.getCep() == null || client.getPhone().equals(""))
+//            return "É necessário infomar um CEP para cadastrar um usuário";
+//
+//        if (client.getCep() == null || client.getCep().equals(""))
+//            return "É necessário infomar um CEP para cadastrar um usuário";
+//
+//        if (client.getAddress() == null || client.getAddress().equals(""))
+//            return "É necessário infomar um endereço para cadastrar um usuário";
+//
+//        if (client.getAddress() == null || client.getAddress().equals(""))
+//            return "É necessário infomar um endereço para cadastrar um usuário";
 
         List<ClientService> allUsers = getListUsers();
 
