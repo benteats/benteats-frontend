@@ -1,4 +1,4 @@
-import * as FormStyle from '../../../styles/form/FormStyle'
+import * as FormStyle from '../../../styles/form/Form.style'
 import * as StepsStyle from './Steps.style'
 
 export default function UserData({

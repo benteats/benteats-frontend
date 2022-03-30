@@ -1,14 +1,14 @@
 import { ReactComponent as CoupleSVG } from '../../assets/couple.svg'
-import { FaUserFriends } from 'react-icons/fa'
-import { IoRestaurant } from 'react-icons/io5'
+import { useNavigate } from 'react-router-dom'
 import { css } from '@emotion/react'
 import { IoIosEye, IoMdEyeOff } from 'react-icons/io'
 import Header from '../../components/login/header/Header'
-import * as FormStyle from '../../styles/form/FormStyle'
-import * as LoginStyle from './LoginStyle'
+import * as FormStyle from '../../styles/form/Form.style'
+import * as LoginStyle from './Login.style'
 import * as Global from '../../styles/Global'
 
 export default function Login() {
+  let navigate = useNavigate()
   return (
     <>
       <Header />
@@ -39,7 +39,7 @@ export default function Login() {
             <LoginStyle.Span>Recuperar senha</LoginStyle.Span>
             <LoginStyle.Button>Iniciar</LoginStyle.Button>
             <LoginStyle.Span css={css({ textAlign: 'start' })}>
-              Não é membro? <LoginStyle.Link>Registre agora!</LoginStyle.Link>
+              Não é membro? <LoginStyle.Link onClick={() => {navigate('/registro') }}>Registre agora!</LoginStyle.Link>
             </LoginStyle.Span>
           </LoginStyle.Form>
         </LoginStyle.ContainerText>
