@@ -1,9 +1,10 @@
 import { useState } from 'react'
+import { StepDetails, StepTitles, StepDescription } from './RegisterMap'
+import * as RegisterStyle from './Register.style'
 import Header from '../../components/login/header/Header'
 import UserAddress from '../../components/register/steps/UserAddress'
 import UserData from '../../components/register/steps/UserData'
 import UserType from '../../components/register/steps/UserType'
-import { StepDetails, StepTitles, StepDescription } from './RegisterMap'
 
 export default function Register() {
   const [page, setPage] = useState(0)
@@ -23,34 +24,32 @@ export default function Register() {
     message: ''
   })
 
-  // const StepPage = () => {
-  //   if (page === 0) {
-  //     return (
-  //       <UserType
-  //         page={page}
-  //         setPage={setPage}
-  //         formData={formData}
-  //         setFormData={setFormData}
-  //       />
-  //     )
-  //   } else if (page === 1) {
-  //     return <UserData page={page} setPage={setPage} formData={formData} />
-  //   } else {
-  //     return (
-  //       <UserAddress
-  //         page={page}
-  //         setPage={setPage}
-  //         formData={formData}
-  //         setFormData={setFormData}
-  //       />
-  //     )
-  //   }
-  // }
+  const StepPage = () => {
+    if (page === 0) {
+      return <UserType page={page} setPage={setPage} />
+    }
+  }
 
   return (
     <>
       <Header />
-      <UserType />
+      <RegisterStyle.Container>
+        <RegisterStyle.Form>
+          <RegisterStyle.Span>{StepDetails[page]}</RegisterStyle.Span>
+          <RegisterStyle.ProgressBar>
+            <RegisterStyle.ProgessBarUse
+              style={{
+                width: page === 0 ? '33.3%' : page == 1 ? '66.6%' : '100%'
+              }}
+            />
+          </RegisterStyle.ProgressBar>
+          <RegisterStyle.Title>{StepTitles[page]}</RegisterStyle.Title>
+          <RegisterStyle.Description>
+            {StepDescription[page]}
+          </RegisterStyle.Description>
+          {StepPage()}
+        </RegisterStyle.Form>
+      </RegisterStyle.Container>
     </>
   )
 }
