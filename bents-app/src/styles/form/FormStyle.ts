@@ -1,4 +1,4 @@
-import { paletteColors, borderRadius, fontSize } from '../Root'
+import { paletteColors, borderRadius, fontSize, shadow } from '../Root'
 import styled from '@emotion/styled'
 
 export const Input = styled('input')`
@@ -12,5 +12,39 @@ export const Input = styled('input')`
   border: none;
   &::placeholder {
     color: ${paletteColors.secondaryText};
+  }
+`
+
+export const PrevButton = styled('button')`
+  background: none;
+  width: 200px;
+  border: none;
+  font-size: ${fontSize.smText};
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  color: ${paletteColors.primary};
+  cursor: pointer;
+  transition: all ease-in 100ms;
+  &:hover {
+    opacity: 0.85;
+    text-decoration: none;
+  }
+`
+
+export const Button = styled('button')`
+  width: 200px;
+  border: none;
+  font-size: ${fontSize.smText};
+  letter-spacing: 0.25px;
+  background: ${paletteColors.primary};
+  color: ${paletteColors.lightColor};
+  padding: 2em 2em;
+  border-radius: ${borderRadius.globalBtn};
+  cursor: pointer;
+  transition: all ease-in 100ms;
+  ${shadow.btnShadow}
+  &:hover {
+    opacity: 0.85;
+    text-decoration: none;
   }
 `

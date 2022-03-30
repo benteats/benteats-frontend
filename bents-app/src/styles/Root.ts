@@ -17,7 +17,8 @@ export const borderRadius = {
   btn: '15px',
   globalBtn: '20px',
   homeSvg: '3em',
-  selectInput: '2em'
+  selectInput: '2em',
+  checkboxIcon: '25px'
 }
 
 export const fontSize = {
