@@ -43,3 +43,15 @@ export const Checkbox = styled('div')`
     font-size: ${fontSize.mdText};
   }
 `
+
+export const ContainerForm = styled('div')`
+  display: grid;
+  grid-template-areas: 'a a';
+  gap: 2.5em 4em;
+`
+
+export const ContainerInput = styled('div')`
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+`

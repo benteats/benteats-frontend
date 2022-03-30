@@ -2,7 +2,7 @@ import { paletteColors, borderRadius, fontSize } from '../../styles/Root'
 import styled from '@emotion/styled'
 
 export const Container = styled('section')`
-  height: calc(100vh - 100px);
+  padding: 1em 2em;
   width: 100%;
   display: grid;
   place-content: center;
