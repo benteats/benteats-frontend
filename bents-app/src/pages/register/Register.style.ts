@@ -9,7 +9,7 @@ export const Container = styled('section')`
 `
 
 export const Form = styled('form')`
-  max-width: 768px;
+  width: 768px;
 `
 
 export const Span = styled('span')`
