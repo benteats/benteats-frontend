@@ -13,15 +13,10 @@ export default function Register() {
     name: '',
     email: '',
     tel: '',
-    date: '',
-    formattedDate: '',
-    address: '',
-    services: {
-      listServices: ''
-    },
-    typeClient: '',
-    area: '',
-    message: ''
+    password: '',
+    cep: '',
+    state: '',
+    address: ''
   })
 
   const StepPage = () => {
@@ -29,7 +24,14 @@ export default function Register() {
       return <UserType page={page} setPage={setPage} />
     }
     if (page === 1) {
-      return <UserData page={page} setPage={setPage} />
+      return (
+        <UserData
+          formData={formData}
+          setFormData={setFormData}
+          page={page}
+          setPage={setPage}
+        />
+      )
     }
     if (page === 2) {
       return <UserAddress page={page} setPage={setPage} />

@@ -1,39 +1,39 @@
+import { useState } from 'react'
 import * as FormStyle from '../../../styles/form/Form.style'
 import * as StepsStyle from './Steps.style'
+import { userDataItems } from './StepsMap'
 
-export default function UserData({
-  page,
-  setPage
-}: {
-  page: any
-  setPage: any
-}) {
+export default function UserData({ formData, setFormData, page, setPage }) {
+  const handleChange = e => {
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+  }
   return (
     <>
       <StepsStyle.Container>
         <StepsStyle.ContainerForm>
-        <StepsStyle.ContainerInput>
-          <FormStyle.Label>Nome</FormStyle.Label>
-          <FormStyle.Input placeholder="Seu nome" maxLength={35} />
-        </StepsStyle.ContainerInput>
-        <StepsStyle.ContainerInput>
-          <FormStyle.Label>E-mail</FormStyle.Label>
-          <FormStyle.Input placeholder="email@dominio.com" maxLength={35} />
-        </StepsStyle.ContainerInput>
-        <StepsStyle.ContainerInput>
-          <FormStyle.Label>Telefone</FormStyle.Label>
-          <FormStyle.Input placeholder="(11) 1234-5678" maxLength={35} />
-        </StepsStyle.ContainerInput>
-        <StepsStyle.ContainerInput>
-          <FormStyle.Label>Senha</FormStyle.Label>
-        <FormStyle.Input placeholder="Escolha uma senha forte" maxLength={35} />
-        </StepsStyle.ContainerInput>
+          {userDataItems.map((element, item) => {
+            const formDataValue = formData[Object.keys(formData)[element.value]]
+            return (
+              <StepsStyle.ContainerInput key={item}>
+                <FormStyle.Label>{element.label}</FormStyle.Label>
+                <FormStyle.Input
+                  placeholder={element.placeholder}
+                  maxLength={element.maxLength}
+                  name={element.name}
+                  type={element.type}
+                  value={formDataValue}
+                  onChange={handleChange}
+                />
+              </StepsStyle.ContainerInput>
+            )
+          })}
         </StepsStyle.ContainerForm>
         <StepsStyle.ContainerButton>
           <FormStyle.PrevButton
             type="button"
             onClick={() => {
-              setPage((currPage: number) => currPage - 1)
+              setPage(currPage => currPage - 1)
             }}
           >
             Anterior
@@ -41,7 +41,7 @@ export default function UserData({
           <FormStyle.Button
             type="button"
             onClick={() => {
-              setPage((currPage: number) => currPage + 1)
+              setPage(currPage => currPage + 1)
             }}
           >
             Próximo

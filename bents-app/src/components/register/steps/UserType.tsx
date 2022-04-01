@@ -1,18 +1,12 @@
 import * as FormStyle from '../../../styles/form/Form.style'
 import * as StepsStyle from './Steps.style'
-import { userType } from './StepsMap'
+import { userTypeItems } from './StepsMap'
 
-export default function UserType({
-  page,
-  setPage
-}: {
-  page: any
-  setPage: any
-}) {
+export default function UserType({ page, setPage }) {
   return (
     <>
       <StepsStyle.Container>
-        {userType.map((element, item) => (
+        {userTypeItems.map((element, item) => (
           <StepsStyle.Checkbox key={item}>
             {element.icon}
             <StepsStyle.Content>
@@ -25,7 +19,7 @@ export default function UserType({
           <FormStyle.Button
             type="button"
             onClick={() => {
-              setPage((currPage: number) => currPage + 1)
+              setPage(currPage => currPage + 1)
             }}
           >
             Próximo
