@@ -10,31 +10,57 @@ export default function Register() {
   const [page, setPage] = useState(0)
 
   const [formData, setFormData] = useState({
+    userType: '',
     name: '',
     email: '',
     tel: '',
     password: '',
     cep: '',
     state: '',
-    address: ''
+    address: '',
+    addressNumber: ''
   })
+
+  const [checkboxItems, setCheckboxItems] = useState([
+    {
+      checked: false,
+      name: 'user'
+    },
+    {
+      checked: false,
+      name: 'restaurant'
+    }
+  ])
 
   const StepPage = () => {
     if (page === 0) {
-      return <UserType page={page} setPage={setPage} />
+      return (
+        <UserType
+          formData={formData}
+          setFormData={setFormData}
+          setPage={setPage}
+          checkboxItems={checkboxItems}
+          setCheckboxItems={setCheckboxItems}
+        />
+      )
     }
     if (page === 1) {
       return (
         <UserData
           formData={formData}
           setFormData={setFormData}
-          page={page}
           setPage={setPage}
         />
       )
     }
     if (page === 2) {
-      return <UserAddress page={page} setPage={setPage} />
+      return (
+        <UserAddress
+          formData={formData}
+          setFormData={setFormData}
+          setPage={setPage}
+        />
+      )
     }
   }
 

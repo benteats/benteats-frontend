@@ -54,3 +54,8 @@ export const Button = styled('button')`
     text-decoration: none;
   }
 `
+
+export const ErrorMessage = styled('span')`
+  font-size: ${fontSize.smText};
+  color: ${paletteColors.spanError};
+`

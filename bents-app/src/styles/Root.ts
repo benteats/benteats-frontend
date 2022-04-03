@@ -10,7 +10,9 @@ export const paletteColors = {
   secondaryText: '#656464',
   backgroundBlueImage: '#003099',
   lightBackground: '#E9EFFD',
-  iptBackground: '#EAF0F7'
+  iptBackground: '#EAF0F7',
+  darkBlue: '#2C2BCA',
+  spanError: '#DE071C'
 }
 
 export const borderRadius = {

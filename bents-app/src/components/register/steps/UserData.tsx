@@ -3,17 +3,68 @@ import * as FormStyle from '../../../styles/form/Form.style'
 import * as StepsStyle from './Steps.style'
 import { userDataItems } from './StepsMap'
 
-export default function UserData({ formData, setFormData, page, setPage }) {
+export default function UserData({ formData, setFormData, setPage }) {
+  const [formErrors, setFormErrors] = useState({
+    name: '',
+    tel: '',
+    email: '',
+    password: ''
+  })
+
   const handleChange = e => {
     const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
+    if (name == 'tel') {
+      let maskedValue = e.target.value
+      maskedValue = maskedValue
+        .replace(/\D+/g, '')
+        .replace(/(\d{2})(\d)/, '($1) $2')
+        .replace(/(\d{4})(\d)/, '$1-$2')
+        .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')
+        .replace(/(-\d{4})\d+?$/, '$1')
+      return setFormData({ ...formData, tel: maskedValue })
+    }
+    return setFormData({ ...formData, [name]: value })
   }
+
+  const validateFormStep = values => {
+    let errors = { name: '', tel: '', email: '', password: '' }
+    const defaultMessage = 'Campo obrigatório'
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i
+    const regexPassword = /^(?=.*[0-9]{3})(?=.*[A-z]{1})[A-z0-9]{6,}$/
+
+    if (values.name.length < 3) {
+      errors.name = defaultMessage
+    }
+    if (values.tel.length < 15) {
+      errors.tel = defaultMessage
+    }
+    if (!values.email) {
+      errors.email = defaultMessage
+    } else if (!regexEmail.test(values.email)) {
+      errors.email = 'Formato inválido!'
+    }
+    if (!values.password) {
+      errors.password = defaultMessage
+    } else if (!regexPassword.test(values.password)) {
+      errors.password = 'É necessário conter letras maiúsculas e números'
+    }
+    if (Object.values(errors).every(o => o === '')) {
+      setPage(currPage => currPage + 1)
+    }
+
+    return errors
+  }
+
+  const handleSubmitStep = e => {
+    e.preventDefault()
+    setFormErrors(validateFormStep(formData))
+  }
+
   return (
     <>
       <StepsStyle.Container>
         <StepsStyle.ContainerForm>
           {userDataItems.map((element, item) => {
-            const formDataValue = formData[Object.keys(formData)[element.value]]
             return (
               <StepsStyle.ContainerInput key={item}>
                 <FormStyle.Label>{element.label}</FormStyle.Label>
@@ -22,9 +73,12 @@ export default function UserData({ formData, setFormData, page, setPage }) {
                   maxLength={element.maxLength}
                   name={element.name}
                   type={element.type}
-                  value={formDataValue}
+                  value={formData[element.name]}
                   onChange={handleChange}
                 />
+                <FormStyle.ErrorMessage>
+                  {formErrors[element.name]}
+                </FormStyle.ErrorMessage>
               </StepsStyle.ContainerInput>
             )
           })}
@@ -38,12 +92,7 @@ export default function UserData({ formData, setFormData, page, setPage }) {
           >
             Anterior
           </FormStyle.PrevButton>
-          <FormStyle.Button
-            type="button"
-            onClick={() => {
-              setPage(currPage => currPage + 1)
-            }}
-          >
+          <FormStyle.Button type="button" onClick={handleSubmitStep}>
             Próximo
           </FormStyle.Button>
         </StepsStyle.ContainerButton>
