@@ -44,6 +44,23 @@ export const Checkbox = styled('div')`
   }
 `
 
+export const Input = styled('input')`
+  display: none;
+  &[type='checkbox']:checked ~ div {
+    background: ${paletteColors.primary};
+    svg {
+      background: ${paletteColors.darkBlue};
+      color: ${paletteColors.white};
+    }
+    h2 {
+      color: ${paletteColors.white};
+    }
+    span {
+      color: ${paletteColors.iptBackground};
+    }
+  }
+`
+
 export const ContainerForm = styled('div')`
   display: grid;
   grid-template-areas: 'a a';
@@ -53,5 +70,5 @@ export const ContainerForm = styled('div')`
 export const ContainerInput = styled('div')`
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.5rem;
 `
