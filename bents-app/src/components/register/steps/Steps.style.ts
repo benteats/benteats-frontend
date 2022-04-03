@@ -12,6 +12,9 @@ export const Content = styled('div')``
 export const ContainerButton = styled('div')`
   display: flex;
   padding-top: 1.5em;
+  @media screen and (max-width: 1080px) {
+    /* flex-direction: column; */
+  }
 `
 
 export const Checkbox = styled('div')`
@@ -42,6 +45,15 @@ export const Checkbox = styled('div')`
     color: ${paletteColors.secondaryText};
     font-size: ${fontSize.mdText};
   }
+  @media screen and (max-width: 768px) {
+    height: auto;
+  }
+  @media screen and (max-width: 480px) {
+    grid-template-columns: auto;
+    place-items: center;
+    text-align: center;
+    padding: 2em;
+  }
 `
 
 export const Input = styled('input')`
@@ -65,6 +77,10 @@ export const ContainerForm = styled('div')`
   display: grid;
   grid-template-areas: 'a a';
   gap: 2.5em 4em;
+  @media screen and (max-width: 1080px) {
+    width: 100%;
+    grid-template-areas: 'a';
+  }
 `
 
 export const ContainerInput = styled('div')`

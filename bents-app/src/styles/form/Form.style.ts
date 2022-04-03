@@ -35,6 +35,10 @@ export const PrevButton = styled('button')`
     opacity: 0.85;
     text-decoration: none;
   }
+  @media screen and (max-width: 1080px) {
+    padding: 2em;
+    width: auto;
+  }
 `
 
 export const Button = styled('button')`
@@ -52,6 +56,9 @@ export const Button = styled('button')`
   &:hover {
     opacity: 0.85;
     text-decoration: none;
+  }
+  @media screen and (max-width: 1080px) {
+    width: auto;
   }
 `
 

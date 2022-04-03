@@ -10,6 +10,9 @@ export const Container = styled('section')`
 
 export const Form = styled('form')`
   width: 768px;
+  @media screen and (max-width: 1080px) {
+    width: 100%;
+  }
 `
 
 export const Span = styled('span')`
