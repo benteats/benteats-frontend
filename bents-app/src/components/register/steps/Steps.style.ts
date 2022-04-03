@@ -12,12 +12,10 @@ export const Content = styled('div')``
 export const ContainerButton = styled('div')`
   display: flex;
   padding-top: 1.5em;
-  @media screen and (max-width: 1080px) {
-    /* flex-direction: column; */
-  }
 `
 
 export const Checkbox = styled('div')`
+  transition: ease-in 100ms all;
   display: grid;
   grid-template-columns: 75px auto;
   align-items: center;
