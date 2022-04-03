@@ -51,7 +51,7 @@ export const Button = styled('button')`
   padding: 2em 2em;
   border-radius: ${borderRadius.globalBtn};
   cursor: pointer;
-  transition: all ease-in 100ms;
+  transition: all ease-in 300ms;
   ${shadow.btnShadow}
   &:hover {
     opacity: 0.85;
