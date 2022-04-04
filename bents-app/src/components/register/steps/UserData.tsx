@@ -29,11 +29,14 @@ export default function UserData({ formData, setFormData, setPage }) {
   const validateFormStep = values => {
     let errors = { name: '', tel: '', email: '', password: '' }
     const defaultMessage = 'Campo obrigatório'
+    const regexName = /^(?=.{2,50}$)[a-zA-Z'.]+(?:\s[a-zA-Z'.]+)*$/
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i
     const regexPassword = /^(?=.*[0-9]{3})(?=.*[A-z]{1})[A-z0-9]{6,}$/
 
     if (values.name.length < 3) {
       errors.name = defaultMessage
+    } else if (!regexName.test(values.name)) {
+      errors.name = 'Contém espaços em branco'
     }
     if (values.tel.length < 15) {
       errors.tel = defaultMessage
@@ -50,6 +53,7 @@ export default function UserData({ formData, setFormData, setPage }) {
     }
     if (Object.values(errors).every(o => o === '')) {
       setPage(currPage => currPage + 1)
+      window.scrollTo(0, 0)
     }
 
     return errors

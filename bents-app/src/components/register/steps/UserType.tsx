@@ -48,6 +48,7 @@ export default function UserType({
       return setError('Escolha um tipo de usuário para continuar')
     }
     setPage(currPage => currPage + 1)
+    window.scrollTo(0, 0)
   }
 
   return (
