@@ -82,11 +82,6 @@ export const Form = styled('form')`
   @media screen and (max-width: 1080px) {
     max-width: 100%;
   }
-  @media screen and (max-width: 768px) {
-    span:nth-child(3) {
-      display: none;
-    }
-  }
 `
 
 export const FormContainer = styled('div')`
