@@ -2,6 +2,10 @@ import { ReactComponent as EatingSVG } from '../../../assets/eating.svg'
 import * as OpinionStyle from './Opinion.style'
 import * as Global from '../../../styles/Global'
 
+// RiSearchLine
+// AiOutlineMenu
+
+
 export default function Opinion() {
   return (
     <>
