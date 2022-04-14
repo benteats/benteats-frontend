@@ -51,8 +51,8 @@ border: 1px solid #EAF0F7;
 border-radius: 27pt;
 height: 2.5em;
 width: 5em;
-padding-left: 5px;
-padding-right: 5px;
+padding-left: 6px;
+padding-right: 6px;
 
 svg {
     width: 40%;
@@ -69,10 +69,7 @@ width: 15em;
 color: #0A093D;
 border-radius: 27pt;
 padding: 0 10px 0 15px;
-:focus {
-  border: 1px solid #EAF0F7;
-
-}
+outline: none;
 `
 
 export const Icon = styled('img')`

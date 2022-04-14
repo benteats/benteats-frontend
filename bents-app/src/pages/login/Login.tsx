@@ -37,7 +37,7 @@ export default function Login() {
               <IoMdEyeOff size={'1.75em'} />
             </LoginStyle.FormContainer>
             <LoginStyle.Span>Recuperar senha</LoginStyle.Span>
-            <LoginStyle.Button>Iniciar</LoginStyle.Button>
+            <LoginStyle.Button onClick={() => {navigate('/application') }}>Iniciar</LoginStyle.Button>
             <LoginStyle.Span css={css({ textAlign: 'start' })}>
               Não é membro? <LoginStyle.Link onClick={() => {navigate('/registro') }}>Registre agora!</LoginStyle.Link>
             </LoginStyle.Span>
