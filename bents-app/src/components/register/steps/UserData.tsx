@@ -6,14 +6,14 @@ import { userDataItems } from './StepsMap'
 export default function UserData({ formData, setFormData, setPage }) {
   const [formErrors, setFormErrors] = useState({
     name: '',
-    tel: '',
+    phone: '',
     email: '',
     password: ''
   })
 
   const handleChange = e => {
     const { name, value } = e.target
-    if (name == 'tel') {
+    if (name == 'phone') {
       let maskedValue = e.target.value
       maskedValue = maskedValue
         .replace(/\D+/g, '')
@@ -21,13 +21,13 @@ export default function UserData({ formData, setFormData, setPage }) {
         .replace(/(\d{4})(\d)/, '$1-$2')
         .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')
         .replace(/(-\d{4})\d+?$/, '$1')
-      return setFormData({ ...formData, tel: maskedValue })
+      return setFormData({ ...formData, phone: maskedValue })
     }
     return setFormData({ ...formData, [name]: value })
   }
 
   const validateFormStep = values => {
-    let errors = { name: '', tel: '', email: '', password: '' }
+    let errors = { name: '', phone: '', email: '', password: '' }
     const defaultMessage = 'Campo obrigatório'
     const regexName = /^(?=.{2,50}$)[a-zA-Z'.]+(?:\s[a-zA-Z'.]+)*$/
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i
@@ -38,8 +38,8 @@ export default function UserData({ formData, setFormData, setPage }) {
     } else if (!regexName.test(values.name)) {
       errors.name = 'Contém espaços em branco'
     }
-    if (values.tel.length < 15) {
-      errors.tel = defaultMessage
+    if (values.phone.length < 15) {
+      errors.phone = defaultMessage
     }
     if (!values.email) {
       errors.email = defaultMessage
