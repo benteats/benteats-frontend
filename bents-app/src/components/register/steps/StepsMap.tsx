@@ -29,11 +29,11 @@ export const userDataItems = [
   },
   {
     label: 'Telefone',
-    name: 'tel',
+    name: 'phone',
     type: 'text',
     maxLength: 35,
     placeholder: '(11) 1234-5678',
-    value: 'tel'
+    value: 'phone'
   },
   {
     label: 'E-mail',
