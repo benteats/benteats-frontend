@@ -2,8 +2,10 @@ import { useState } from 'react'
 import * as FormStyle from '../../../styles/form/Form.style'
 import * as StepsStyle from './Steps.style'
 import { userAddressItems } from './StepsMap'
+import axios from 'axios'
 
 export default function UserAddress({ formData, setFormData, setPage }) {
+  const [errorPostUser, setErrorPostUser] = useState('')
   const [formErrors, setFormErrors] = useState({
     cep: '',
     state: '',
@@ -28,20 +30,21 @@ export default function UserAddress({ formData, setFormData, setPage }) {
   const findCEP = name => {
     fetch(`https://cep.awesomeapi.com.br/json/${name}`).then(res =>
       res.json().then(data => {
-        console.log(data)
         setFormData({
           ...formData,
           cep: name,
           address: `${data.address} - ${data.district}`,
           state: `${data.state} - ${data.city}`,
-          fullAddress: data
+          city: data.city,
+          district: data.district,
+          lat: data.lat,
+          lng: data.lng
         })
       })
     )
   }
 
   const validateFormStep = values => {
-    console.log(values)
     let errors = { cep: '', state: '', address: '', addressNumber: '' }
     const defaultMessage = 'Campo obrigatório'
 
@@ -59,15 +62,29 @@ export default function UserAddress({ formData, setFormData, setPage }) {
     }
 
     if (Object.values(errors).every(o => o === '')) {
-      console.log('Enviado!')
+      console.log(formData)
+      postUser()
     }
     return errors
+  }
+
+  async function postUser() {
+    try {
+      const response = await axios.post("http://localhost:8080/users", formData)
+      console.log(response)
+      // setPage(3)
+    }
+    catch (e) {
+      console.error('error postUser =>', e)
+      setErrorPostUser('Houve um erro! Verifique os campos preenchidos!');
+    }
   }
 
   const handleSubmitStep = e => {
     e.preventDefault()
     setFormErrors(validateFormStep(formData))
   }
+
 
   return (
     <>
@@ -92,6 +109,9 @@ export default function UserAddress({ formData, setFormData, setPage }) {
               </StepsStyle.ContainerInput>
             )
           })}
+          <FormStyle.ErrorMessage>
+            {errorPostUser}
+          </FormStyle.ErrorMessage>
         </StepsStyle.ContainerForm>
         <StepsStyle.ContainerButton>
           <FormStyle.PrevButton
@@ -110,3 +130,7 @@ export default function UserAddress({ formData, setFormData, setPage }) {
     </>
   )
 }
+function postUser() {
+  throw new Error('Function not implemented.')
+}
+
