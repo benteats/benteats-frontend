@@ -12,13 +12,17 @@ export default function Register() {
   const [formData, setFormData] = useState({
     userType: '',
     name: '',
-    email: '',
-    tel: '',
     password: '',
+    email: '',
+    phone: '',
     cep: '',
     state: '',
+    city: '',
+    district: '',
     address: '',
-    addressNumber: ''
+    addressNumber: '',
+    lat: '',
+    lng: ''
   })
 
   const [checkboxItems, setCheckboxItems] = useState([
@@ -60,6 +64,11 @@ export default function Register() {
           setFormData={setFormData}
           setPage={setPage}
         />
+      )
+    }
+    if (page === 3) {
+      return (
+        <h2>Renderizar</h2>
       )
     }
   }
