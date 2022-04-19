@@ -1,4 +1,4 @@
-import { paletteColors, borderRadius } from '../../../styles/Root'
+import { paletteColors, borderRadius, fontSize } from '../../../styles/Root'
 import { IoMenu, IoClose } from 'react-icons/io5'
 import styled from '@emotion/styled'
 
@@ -16,10 +16,10 @@ export const Nav = styled.nav`
   z-index: 5;
   top: 0;
   position: fixed;
-  height: 100px;
-  padding: 1em 50px;
+  height: 75px;
+  padding: 0 50px;
   width: 100%;
-  font-size: 14px;
+  font-size: ${fontSize.smText};
   @media screen and (max-width: 768px) {
     padding: 1em 1.5em;
   }
@@ -32,18 +32,27 @@ export const ContainerNav = styled('div')`
 
 export const ContainerInput = styled('div')`
 display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 .5rem;
 background-color: #EAF0F7;
 border: none;
 border-radius: 27pt;
 height: 2.5em;
 width: 22em;
 svg {
-    width: 9%;
-    height: auto;
+  cursor: pointer;
+  padding: 3px;
+  width: 25px;
+  background-color: ${paletteColors.primary};
+  color: ${paletteColors.white};
+  border-radius: ${borderRadius.btn};
+  height: auto;
   }
 `
 
 export const ContainerMoreOptions = styled('div')`
+cursor: pointer;
 display: flex;
 justify-content: space-between;
 background-color: #FFFFFF;
@@ -61,11 +70,13 @@ svg {
 `
 
 export const Input = styled('input')`
-font-size: 18px;
+font-family: 'Inter', sans-serif;
+font-size: ${fontSize.smText};
+font-weight: 500;
 border: none;
 background-color: #EAF0F7;
 height: 1.9em;
-width: 15em;
+width: 100%;
 color: #0A093D;
 border-radius: 27pt;
 padding: 0 10px 0 15px;
@@ -75,7 +86,6 @@ outline: none;
 export const Icon = styled('img')`
 height: 1px;
 width: 1px;
-
 
 `
 

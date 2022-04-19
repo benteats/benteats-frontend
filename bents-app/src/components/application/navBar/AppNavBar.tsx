@@ -20,12 +20,12 @@ export default function AppNavbar() {
             <Logo />
           </NavbarStyle.Logo>
           <NavbarStyle.ContainerInput>
-            <NavbarStyle.Input/>
-            <AvatarSVG/>
+            <NavbarStyle.Input />
+            <RiSearchLine />
           </NavbarStyle.ContainerInput>
           <NavbarStyle.ContainerMoreOptions>
-            <AiOutlineMenu/>
-            <RiSearchLine/>
+            <AiOutlineMenu />
+            <AvatarSVG />
           </NavbarStyle.ContainerMoreOptions>
         </NavbarStyle.ContainerNav>
       </NavbarStyle.Nav>
