@@ -35,9 +35,9 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 padding: 0 .5rem;
-background-color: #EAF0F7;
+background-color: ${paletteColors.iptBackground};
 border: none;
-border-radius: 27pt;
+border-radius: ${borderRadius.btn};
 height: 2.5em;
 width: 22em;
 svg {
@@ -55,14 +55,13 @@ export const ContainerMoreOptions = styled('div')`
 cursor: pointer;
 display: flex;
 justify-content: space-between;
-background-color: #FFFFFF;
-border: 1px solid #EAF0F7;
+background-color: ${paletteColors.white};
+border: 1px solid ${paletteColors.iptBackground};
 border-radius: 27pt;
 height: 2.5em;
 width: 5em;
 padding-left: 6px;
 padding-right: 6px;
-
 svg {
     width: 40%;
     height: auto;
@@ -74,11 +73,11 @@ font-family: 'Inter', sans-serif;
 font-size: ${fontSize.smText};
 font-weight: 500;
 border: none;
-background-color: #EAF0F7;
+background-color: ${paletteColors.iptBackground};
 height: 1.9em;
 width: 100%;
-color: #0A093D;
-border-radius: 27pt;
+color: ${paletteColors.primaryText};
+border-radius: ${paletteColors.iptBackground};
 padding: 0 10px 0 15px;
 outline: none;
 `
@@ -86,7 +85,6 @@ outline: none;
 export const Icon = styled('img')`
 height: 1px;
 width: 1px;
-
 `
 
 export const Logo = styled('a')`
@@ -108,7 +106,7 @@ export const NavItems = styled('div')`
     list-style: none;
     li {
       a {
-        font-size: 16px;
+        font-size: ${fontSize.mdText};
         transition: all ease-in 150ms;
         cursor: pointer;
         color: ${paletteColors.primaryText};
