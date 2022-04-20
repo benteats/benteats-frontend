@@ -5,6 +5,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import * as NavbarStyle from './AppNavBar.style'
+import { Pin } from '../../../pages/searchRestaurant/SearchRestaurant.style';
 
 export default function AppNavbar() {
   let navigate = useNavigate()
