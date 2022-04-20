@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import Map, { Marker } from 'react-map-gl'
+import { useEffect, useState } from 'react'
 import { Pin } from '../../../pages/searchRestaurant/SearchRestaurant.style'
-import 'mapbox-gl/dist/mapbox-gl.css'
 import { apikey } from '../../../data/config'
+import Map, { Marker } from 'react-map-gl'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
-export default function MapGL() {
+export default function MapGL({ searchPlace }) {
   const [viewState, setViewState] = useState({
     longitude: -46.67051,
     latitude: -23.4888,
@@ -15,6 +15,13 @@ export default function MapGL() {
     width: '100%',
     height: '100%'
   }
+
+  useEffect(() => {
+    if (Object.values(searchPlace).every(o => o !== '')) {
+      console.log(searchPlace)
+      setViewState(searchPlace)
+    }
+  }, [searchPlace])
 
   return (
     <>

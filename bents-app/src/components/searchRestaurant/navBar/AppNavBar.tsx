@@ -5,9 +5,18 @@ import { RiSearchLine } from 'react-icons/ri'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { searchInput } from '../../../utils/searchInput'
 import * as NavbarStyle from './AppNavBar.style'
+import { useState, useEffect } from 'react'
 
-export default function AppNavbar() {
+export default function AppNavbar({ searchPlace, setSearchPlace }) {
   const address = searchInput('')
+
+  const handleChange = suggestion => {
+    setSearchPlace({
+      ...searchPlace,
+      longitude: suggestion[0],
+      latitude: suggestion[1]
+    })
+  }
 
   return (
     <>
@@ -29,7 +38,7 @@ export default function AppNavbar() {
                         onClick={() => {
                           address.setValue(suggestion.place_name)
                           address.setSuggestions([])
-                          console.log(address.suggestions)
+                          handleChange(suggestion.center)
                         }}
                       >
                         {suggestion.place_name}
