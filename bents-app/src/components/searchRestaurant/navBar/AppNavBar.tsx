@@ -1,28 +1,44 @@
+import { FaMapMarkerAlt } from 'react-icons/fa'
 import { ReactComponent as Logo } from '../../../assets/logo.svg'
 import { ReactComponent as AvatarSVG } from '../../../assets/avatar.svg'
-import { RiSearchLine } from "react-icons/ri";
-import { AiOutlineMenu } from "react-icons/ai";
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { RiSearchLine } from 'react-icons/ri'
+import { AiOutlineMenu } from 'react-icons/ai'
+import { searchInput } from '../../../utils/searchInput'
 import * as NavbarStyle from './AppNavBar.style'
-import { Pin } from '../../../pages/searchRestaurant/SearchRestaurant.style';
 
 export default function AppNavbar() {
-  let navigate = useNavigate()
-  const [isMobile, setMobile] = useState(false)
-  const toggleMobileMenu = () => {
-    setMobile(!isMobile)
-  }
+  const address = searchInput('')
+
   return (
     <>
       <NavbarStyle.Nav>
         <NavbarStyle.ContainerNav>
-          <NavbarStyle.Logo href="/">
+          <NavbarStyle.Logo>
             <Logo />
           </NavbarStyle.Logo>
           <NavbarStyle.ContainerInput>
-            <NavbarStyle.Input />
+            <NavbarStyle.Input placeholder="Qual o seu destino?" {...address} />
             <RiSearchLine />
+            {address.suggestions?.length > 0 && (
+              <NavbarStyle.SuggestionWrapper>
+                {address.suggestions.map((suggestion, index) => {
+                  return (
+                    <NavbarStyle.SuggestionContainer key={index}>
+                      <FaMapMarkerAlt />
+                      <NavbarStyle.Suggestion
+                        onClick={() => {
+                          address.setValue(suggestion.place_name)
+                          address.setSuggestions([])
+                          console.log(address.suggestions)
+                        }}
+                      >
+                        {suggestion.place_name}
+                      </NavbarStyle.Suggestion>
+                    </NavbarStyle.SuggestionContainer>
+                  )
+                })}
+              </NavbarStyle.SuggestionWrapper>
+            )}
           </NavbarStyle.ContainerInput>
           <NavbarStyle.ContainerMoreOptions>
             <AiOutlineMenu />

@@ -24,6 +24,7 @@ export const borderRadius = {
 }
 
 export const fontSize = {
+  smSubText: '12px',
   smText: '14px',
   mdText: '16px',
   lgText: '18px',
@@ -34,5 +35,6 @@ export const fontSize = {
 }
 
 export const shadow = {
-  btnShadow: 'box-shadow: 0px 10px 22px -2px rgba(33, 96, 232, 0.3);'
+  btnShadow: 'box-shadow: 0px 10px 22px -2px rgba(33, 96, 232, 0.3);',
+  dfBoxShadow: '0px 0px 2px rgba(9, 9, 41, 0.2)'
 }
