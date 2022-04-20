@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idUser;
 
     @NotBlank
     private String userType;
@@ -37,7 +37,7 @@ public class User {
     private String phone;
 
     @NotBlank
-    @Min(8)
+    @Size(min = 8, max = 8)
     private String cep;
 
     @NotBlank
@@ -61,12 +61,30 @@ public class User {
     @NotBlank
     private String lng;
 
+    private boolean isLogged;
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
+    public boolean isLogged() {
+        return isLogged;
+    }
+
+    public void setLogged(boolean logged) {
+        isLogged = logged;
+    }
+
     public int getId() {
-        return id;
+        return idUser;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idUser = id;
     }
 
     public String getUserType() {
@@ -83,10 +101,6 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public void setPassword(String password) {
