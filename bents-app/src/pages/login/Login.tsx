@@ -1,7 +1,7 @@
 import { ReactComponent as CoupleSVG } from '../../assets/couple.svg'
 import { useNavigate } from 'react-router-dom'
 import { css } from '@emotion/react'
-import { IoIosEye, IoMdEyeOff } from 'react-icons/io'
+import { IoMdEye, IoMdEyeOff } from 'react-icons/io'
 import Header from '../../components/login/header/Header'
 import * as FormStyle from '../../styles/form/Form.style'
 import * as LoginStyle from './Login.style'
@@ -39,7 +39,11 @@ export default function Login() {
                 type={isVisible ? 'text' : 'password'}
                 maxLength={20}
               />
-              <IoMdEyeOff size={'1.75em'} onClick={togglePassword} />
+              {isVisible ? (
+                <IoMdEye size={'1.75em'} onClick={togglePassword} />
+              ) : (
+                <IoMdEyeOff size={'1.75em'} onClick={togglePassword} />
+              )}
             </LoginStyle.FormContainer>
             <LoginStyle.Button>Iniciar</LoginStyle.Button>
             <LoginStyle.Span css={css({ textAlign: 'start' })}>
