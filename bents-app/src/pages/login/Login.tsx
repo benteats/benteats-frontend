@@ -6,9 +6,14 @@ import Header from '../../components/login/header/Header'
 import * as FormStyle from '../../styles/form/Form.style'
 import * as LoginStyle from './Login.style'
 import * as Global from '../../styles/Global'
+import { useState } from 'react'
 
 export default function Login() {
   let navigate = useNavigate()
+  const [isVisible, setVisisble] = useState(false)
+  const togglePassword = () => {
+    setVisisble(!isVisible)
+  }
   return (
     <>
       <Header />
@@ -31,12 +36,11 @@ export default function Login() {
             <LoginStyle.FormContainer>
               <FormStyle.Input
                 placeholder="Senha"
-                type="password"
+                type={isVisible ? 'text' : 'password'}
                 maxLength={20}
               />
-              <IoMdEyeOff size={'1.75em'} />
+              <IoMdEyeOff size={'1.75em'} onClick={togglePassword} />
             </LoginStyle.FormContainer>
-            {/* <LoginStyle.Span>Recuperar senha</LoginStyle.Span> */}
             <LoginStyle.Button>Iniciar</LoginStyle.Button>
             <LoginStyle.Span css={css({ textAlign: 'start' })}>
               Não é membro?{' '}
