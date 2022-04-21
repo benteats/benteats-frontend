@@ -5,7 +5,6 @@ import { RiSearchLine } from 'react-icons/ri'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { searchInput } from '../../../utils/searchInput'
 import * as NavbarStyle from './AppNavBar.style'
-import { useState, useEffect } from 'react'
 
 export default function AppNavbar({ searchPlace, setSearchPlace }) {
   const address = searchInput('')

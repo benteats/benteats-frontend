@@ -4,7 +4,7 @@ import {
   fontSize,
   shadow
 } from '../../../styles/Root'
-import { IoMenu, IoClose } from 'react-icons/io5'
+import { IoClose } from 'react-icons/io5'
 import styled from '@emotion/styled'
 
 export const Close = styled(IoClose)`
@@ -95,8 +95,8 @@ export const Input = styled('input')`
   padding: 0 10px 0 15px;
   outline: none;
   &::placeholder {
-    font-size: ${fontSize.smSubText};
-    font-weight: 400;
+    font-size: ${fontSize.smText};
+    font-weight: 500;
     opacity: 0.7;
   }
 `

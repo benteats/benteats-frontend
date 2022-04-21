@@ -8,9 +8,10 @@ import { IoRestaurant } from 'react-icons/io5'
 import styled from '@emotion/styled'
 
 export const Container = styled('div')`
-  display: flex;
-  width: 50%;
-  height: 100%;
+  display: grid;
+  grid-template-columns: 35% 65%;
+  width: 100%;
+  height: 100vh;
   position: fixed;
 `
 
