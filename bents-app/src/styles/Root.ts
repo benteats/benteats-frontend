@@ -14,7 +14,8 @@ export const paletteColors = {
   darkBlue: '#2C2BCA',
   spanError: '#DE071C',
   gray: '#6B7280',
-  grayBorder: '#C4C4C4'
+  grayBorder: '#C4C4C4',
+  lightGrayBorder: '#E5E7EB'
 }
 
 export const borderRadius = {
@@ -22,7 +23,8 @@ export const borderRadius = {
   globalBtn: '20px',
   homeSvg: '3em',
   selectInput: '2em',
-  checkboxIcon: '25px'
+  checkboxIcon: '25px',
+  imgRestaurant: '35px'
 }
 
 export const fontSize = {
@@ -30,6 +32,7 @@ export const fontSize = {
   smText: '14px',
   mdText: '16px',
   lgText: '18px',
+  dfSubTitle: '1.25em',
   smSubTitle: '1.5em',
   mdSubTitle: '2em',
   dfTitle: '4.5em',
