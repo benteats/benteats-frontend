@@ -4,10 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Entity
 public class User {
@@ -32,8 +29,9 @@ public class User {
     message = "E-mail inválido")
     private String email;
 
-    @Pattern(regexp = "(\\(?\\d{2}\\)?\\s)?(\\d{4,5}\\-\\d{4})",
-            message = "Informe um telefone válido com ou sem DDD")
+    @NotBlank
+    @Pattern(regexp = "(\\(?\\d{2}\\)?\\s)?(\\d{4,5}\\-\\d{4})" ,
+          message = "Informe um telefone válido com ou sem DDD")
     private String phone;
 
     @NotBlank
@@ -52,8 +50,8 @@ public class User {
     @NotBlank
     private String address;
 
-    @NotBlank
-    private String addressNumber;
+    @NotNull
+    private Integer addressNumber;
 
     @NotBlank
     private String lat;
@@ -62,6 +60,10 @@ public class User {
     private String lng;
 
     private boolean isLogged;
+
+    public User() {
+        this.isLogged = false;
+    }
 
     public int getIdUser() {
         return idUser;
@@ -163,11 +165,11 @@ public class User {
         this.address = address;
     }
 
-    public String getAddressNumber() {
+    public Integer getAddressNumber() {
         return addressNumber;
     }
 
-    public void setAddressNumber(String addressNumber) {
+    public void setAddressNumber(Integer addressNumber) {
         this.addressNumber = addressNumber;
     }
 

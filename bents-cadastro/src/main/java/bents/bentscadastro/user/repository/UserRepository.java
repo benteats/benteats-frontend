@@ -67,13 +67,20 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     boolean existsByEmailAndPassword(String email, String password);
 
+    boolean existsByPhoneAndPassword(String phone, String password);
+
     @Transactional
     @Modifying
-    @Query("update User u set u.isLogged = true where u.email = ?1 and u.password = ?2")
+    @Query("update User u set u.isLogged = true where u.email = ?1 or u.email = ?1 and u.password = ?2")
     void loginUser(String email, String password);
 
     @Transactional
     @Modifying
-    @Query("update User u set u.isLogged = false where u.email = ?1")
-    void logOff(String email);
+    @Query("update User u set u.isLogged = false where u.idUser = ?1")
+    void logOff(Integer idUser);
+
+    boolean existsByIdAndIsLoggedTrue(Integer idUser);
+    boolean existsByIdAndIsLoggedFalse(Integer idUser);
+
+
 }
