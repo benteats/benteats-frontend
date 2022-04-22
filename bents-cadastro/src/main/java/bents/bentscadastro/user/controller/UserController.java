@@ -139,4 +139,19 @@ public class UserController {
         return ResponseEntity.status(404).build();
     }
 
+
+    @GetMapping("/autenticateSession/{idUser}")
+    public ResponseEntity autenticateSession(@PathVariable Integer idUser) {
+        if (repository.existsById(idUser)) {
+            if (repository.existsByIdUserAndIsLoggedTrue(idUser)) {
+                return ResponseEntity.status(200).body(true);
+            }
+
+            if (repository.existsByIdUserAndIsLoggedFalse(idUser)) {
+                return ResponseEntity.status(200).body(false);
+            }
+        }
+
+        return ResponseEntity.status(404).build();
+    }
 }
