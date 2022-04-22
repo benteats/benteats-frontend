@@ -79,8 +79,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query("update User u set u.isLogged = false where u.idUser = ?1")
     void logOff(Integer idUser);
 
-    boolean existsByIdAndIsLoggedTrue(Integer idUser);
-    boolean existsByIdAndIsLoggedFalse(Integer idUser);
+    boolean existsByIdUserAndIsLoggedTrue(Integer idUser);
+    boolean existsByIdUserAndIsLoggedFalse(Integer idUser);
 
 
 }
