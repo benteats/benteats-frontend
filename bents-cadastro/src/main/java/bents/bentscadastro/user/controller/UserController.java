@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/users")
 public class UserController {
     @Autowired
@@ -38,12 +38,12 @@ public class UserController {
         ResponseEntity result = ResponseEntity.status(404).build();
         if (repository.existsById(idUser)) {
 
-            if (updateUser.getName() != null && !updateUser.getName().equals("")){
+            if (updateUser.getName() != null && !updateUser.getName().equals("")) {
                 repository.updateNameUserById(updateUser.getName(), idUser);
                 result = ResponseEntity.status(200).build();
             }
 
-            if (updateUser.getEmail() != null && !updateUser.getEmail().equals("")){
+            if (updateUser.getEmail() != null && !updateUser.getEmail().equals("")) {
                 repository.updateEmailUserById(updateUser.getEmail(), idUser);
                 result = ResponseEntity.status(200).build();
             }
@@ -139,9 +139,8 @@ public class UserController {
         return ResponseEntity.status(404).build();
     }
 
-
     @GetMapping("/autenticateSession/{idUser}")
-    public ResponseEntity autenticateSession(@PathVariable Integer idUser) {
+    public ResponseEntity authenticateSession(@PathVariable Integer idUser) {
         if (repository.existsById(idUser)) {
             if (repository.existsByIdUserAndIsLoggedTrue(idUser)) {
                 return ResponseEntity.status(200).body(true);
