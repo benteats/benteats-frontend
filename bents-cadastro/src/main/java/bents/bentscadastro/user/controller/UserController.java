@@ -129,16 +129,31 @@ public class UserController {
     @DeleteMapping("/logOffUser/{idUser}")
     public ResponseEntity logOffUser(@PathVariable Integer idUser) {
         if (repository.existsById(idUser)) {
-            if (repository.existsByIdAndIsLoggedTrue(idUser)) {
+            if (repository.existsByIdUserAndIsLoggedTrue(idUser)) {
                 repository.logOff(idUser);
                 return ResponseEntity.status(200).build();
             }
 
-            if (repository.existsByIdAndIsLoggedFalse(idUser))
+            if (repository.existsByIdUserAndIsLoggedFalse(idUser))
                 return ResponseEntity.status(406).build();
         }
 
         return ResponseEntity.status(404).build();
     }
 
+
+    @GetMapping("/autenticateSession/{idUser}")
+    public ResponseEntity autenticateSession(@PathVariable Integer idUser) {
+        if (repository.existsById(idUser)) {
+            if (repository.existsByIdUserAndIsLoggedTrue(idUser)) {
+                return ResponseEntity.status(200).body(true);
+            }
+
+            if (repository.existsByIdUserAndIsLoggedFalse(idUser)) {
+                return ResponseEntity.status(200).body(false);
+            }
+        }
+
+        return ResponseEntity.status(404).build();
+    }
 }
