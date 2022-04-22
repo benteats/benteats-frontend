@@ -29,7 +29,7 @@ export default function Login() {
           <LoginStyle.Form>
             <LoginStyle.FormContainer>
               <FormStyle.Input
-                placeholder="Seu usuário ou email"
+                placeholder="Seu telefone ou email"
                 maxLength={35}
               />
             </LoginStyle.FormContainer>
