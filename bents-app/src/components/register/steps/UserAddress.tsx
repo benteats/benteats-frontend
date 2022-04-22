@@ -62,7 +62,6 @@ export default function UserAddress({ formData, setFormData, setPage }) {
     }
 
     if (Object.values(errors).every(o => o === '')) {
-      console.log(formData)
       postUser()
     }
     return errors
@@ -70,13 +69,11 @@ export default function UserAddress({ formData, setFormData, setPage }) {
 
   async function postUser() {
     try {
-      const response = await axios.post("http://localhost:8080/users", formData)
-      console.log(response)
+      const response = await axios.post('http://localhost:8080/users', formData)
       // setPage(3)
-    }
-    catch (e) {
+    } catch (e) {
       console.error('error postUser =>', e)
-      setErrorPostUser('Houve um erro! Verifique os campos preenchidos!');
+      setErrorPostUser('Houve um erro! Verifique os campos preenchidos!')
     }
   }
 
@@ -84,7 +81,6 @@ export default function UserAddress({ formData, setFormData, setPage }) {
     e.preventDefault()
     setFormErrors(validateFormStep(formData))
   }
-
 
   return (
     <>
@@ -109,9 +105,7 @@ export default function UserAddress({ formData, setFormData, setPage }) {
               </StepsStyle.ContainerInput>
             )
           })}
-          <FormStyle.ErrorMessage>
-            {errorPostUser}
-          </FormStyle.ErrorMessage>
+          <FormStyle.ErrorMessage>{errorPostUser}</FormStyle.ErrorMessage>
         </StepsStyle.ContainerForm>
         <StepsStyle.ContainerButton>
           <FormStyle.PrevButton
@@ -133,4 +127,3 @@ export default function UserAddress({ formData, setFormData, setPage }) {
 function postUser() {
   throw new Error('Function not implemented.')
 }
-
