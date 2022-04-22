@@ -4,14 +4,12 @@ import bents.bentscadastro.user.DTO.request.LoginUserRequest;
 import bents.bentscadastro.user.DTO.request.UpdateUserDto;
 import bents.bentscadastro.user.entity.User;
 import bents.bentscadastro.user.repository.UserRepository;
-import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins="http://localhost:3000")
@@ -129,12 +127,12 @@ public class UserController {
     @DeleteMapping("/logOffUser/{idUser}")
     public ResponseEntity logOffUser(@PathVariable Integer idUser) {
         if (repository.existsById(idUser)) {
-            if (repository.existsByIdAndIsLoggedTrue(idUser)) {
+            if (repository.existsByIdUserAndIsLoggedTrue(idUser)) {
                 repository.logOff(idUser);
                 return ResponseEntity.status(200).build();
             }
 
-            if (repository.existsByIdAndIsLoggedFalse(idUser))
+            if (repository.existsByIdUserAndIsLoggedFalse(idUser))
                 return ResponseEntity.status(406).build();
         }
 

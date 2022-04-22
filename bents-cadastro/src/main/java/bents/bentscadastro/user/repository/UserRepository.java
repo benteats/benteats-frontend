@@ -4,7 +4,6 @@ import bents.bentscadastro.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 
@@ -79,8 +78,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query("update User u set u.isLogged = false where u.idUser = ?1")
     void logOff(Integer idUser);
 
-    boolean existsByIdAndIsLoggedTrue(Integer idUser);
-    boolean existsByIdAndIsLoggedFalse(Integer idUser);
+    boolean existsByIdUserAndIsLoggedTrue(Integer idUser);
+    boolean existsByIdUserAndIsLoggedFalse(Integer idUser);
 
 
 }
