@@ -10,7 +10,7 @@ import javax.validation.constraints.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUser;
+    private Integer idUser;
 
     @NotBlank
     private String userType;
@@ -79,10 +79,6 @@ public class User {
 
     public void setLogged(boolean logged) {
         isLogged = logged;
-    }
-
-    public int getId() {
-        return idUser;
     }
 
     public void setId(int id) {
