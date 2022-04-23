@@ -27,7 +27,7 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity getUsers() {
+    public ResponseEntity<List<User>> getUsers() {
         List<User> users = repository.findAll();
         if (users.isEmpty()) {
             return ResponseEntity.status(204).build();
@@ -36,7 +36,7 @@ public class UserController {
     }
 
     @PatchMapping("/updateUserById/{idUser}")
-    public ResponseEntity updateUserById(@PathVariable Integer idUser, @RequestBody UpdateUserDto updateUser) {
+        public ResponseEntity updateUserById(@PathVariable Integer idUser, @RequestBody UpdateUserDto updateUser) {
         ResponseEntity result = ResponseEntity.status(404).build();
         if (repository.existsById(idUser)) {
 
@@ -146,7 +146,7 @@ public class UserController {
     }
 
     @GetMapping("/autenticateSession/{idUser}")
-    public ResponseEntity authenticateSession(@PathVariable Integer idUser) {
+    public ResponseEntity<Boolean> authenticateSession(@PathVariable Integer idUser) {
         if (repository.existsById(idUser)) {
             if (repository.existsByIdUserAndIsLoggedTrue(idUser)) {
                 return ResponseEntity.status(200).body(true);
