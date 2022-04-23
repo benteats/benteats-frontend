@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+import static bents.bentscadastro.user.util.formatt.FormattUtil.formattPhone;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/users")
@@ -114,12 +116,16 @@ public class UserController {
             repository.loginUser(loginUser.getLogin(), loginUser.getPassword());
             return ResponseEntity.status(200).build();
         }
-
+        try {
+            loginUser.setLogin(formattPhone(loginUser.getLogin()));
+        }
+        catch (java.text.ParseException e) {
+            e.printStackTrace();
+        }
         if (repository.existsByPhoneAndPassword(loginUser.getLogin(), loginUser.getPassword())) {
             repository.loginUser(loginUser.getLogin(), loginUser.getPassword());
             return ResponseEntity.status(200).build();
         }
-
 
         return ResponseEntity.status(404).build();
     }
