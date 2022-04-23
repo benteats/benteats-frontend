@@ -86,3 +86,20 @@ export const ContainerInput = styled('div')`
   flex-direction: column;
   gap: 0.5rem;
 `
+
+export const ContainerCreatedAccount = styled('div')`
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  svg {
+    width: 20em;
+    height: auto;
+  }
+  span {
+    max-width: 600px;
+    padding: 1em 0;
+    line-height: 1.75em;
+  }
+`
