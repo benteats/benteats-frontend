@@ -70,7 +70,7 @@ export default function UserAddress({ formData, setFormData, setPage }) {
   async function postUser() {
     try {
       await axios.post('http://localhost:8080/users', formData)
-      // setPage(3)
+      setPage(3)
     } catch (e) {
       console.error('error postUser =>', e)
       setErrorPostUser('Houve um erro! Verifique os campos preenchidos!')
