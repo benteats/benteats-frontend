@@ -69,7 +69,7 @@ export default function UserAddress({ formData, setFormData, setPage }) {
 
   async function postUser() {
     try {
-      const response = await axios.post('http://localhost:8080/users', formData)
+      await axios.post('http://localhost:8080/users', formData)
       // setPage(3)
     } catch (e) {
       console.error('error postUser =>', e)
