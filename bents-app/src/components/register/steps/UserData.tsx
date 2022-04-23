@@ -30,6 +30,7 @@ export default function UserData({ formData, setFormData, setPage }) {
     let errors = { name: '', phone: '', email: '', password: '' }
     const defaultMessage = 'Campo obrigatório'
     const regexName = /^(?=.{2,50}$)[a-zA-Z'.]+(?:\s[a-zA-Z'.]+)*$/
+    const regexPhone = /^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$/
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i
     const regexPassword = /^(?=.*[0-9]{3})(?=.*[A-z]{1})[A-z0-9]{6,}$/
 
@@ -40,6 +41,8 @@ export default function UserData({ formData, setFormData, setPage }) {
     }
     if (values.phone.length < 15) {
       errors.phone = defaultMessage
+    } else if (!regexPhone.test(values.phone)) {
+      errors.phone = 'Telefone inválido'
     }
     if (!values.email) {
       errors.email = defaultMessage
