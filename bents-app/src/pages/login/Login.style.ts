@@ -87,6 +87,9 @@ export const Form = styled('form')`
 export const FormContainer = styled('div')`
   display: flex;
   align-items: center;
+  &:nth-of-type(1) {
+    flex-direction: column;
+  }
   input {
     width: 100%;
   }

@@ -62,6 +62,28 @@ export const Button = styled('button')`
   }
 `
 
+export const ErrorMessageLogin = styled('span')`
+  display: flex;
+  font-size: ${fontSize.smText};
+  font-weight: 700;
+  color: ${paletteColors.spanError};
+  padding-bottom: 1.5em;
+  gap: 0.25rem;
+  svg {
+    margin: 0;
+    color: ${paletteColors.spanError};
+    font-size: ${fontSize.smSubTitle};
+  }
+  @media screen and (max-width: 500px) {
+    max-width: 20em;
+    flex-direction: column;
+    align-items: center;
+    svg {
+      font-size: ${fontSize.mdSubTitle};
+    }
+  }
+`
+
 export const ErrorMessage = styled('span')`
   font-size: ${fontSize.smText};
   color: ${paletteColors.spanError};

@@ -5,6 +5,7 @@ import Header from '../../components/login/header/Header'
 import UserAddress from '../../components/register/steps/UserAddress'
 import UserData from '../../components/register/steps/UserData'
 import UserType from '../../components/register/steps/UserType'
+import CreatedAccount from '../../components/register/steps/CreatedAccount'
 
 export default function Register() {
   const [page, setPage] = useState(0)
@@ -67,9 +68,7 @@ export default function Register() {
       )
     }
     if (page === 3) {
-      return (
-        <h2>Renderizar</h2>
-      )
+      return <CreatedAccount />
     }
   }
 
@@ -79,7 +78,9 @@ export default function Register() {
       <RegisterStyle.Container>
         <RegisterStyle.Form>
           <RegisterStyle.Span>{StepDetails[page]}</RegisterStyle.Span>
-          <RegisterStyle.ProgressBar>
+          <RegisterStyle.ProgressBar
+            style={{ display: page === 3 ? 'none' : '' }}
+          >
             <RegisterStyle.ProgessBarUse
               style={{
                 width: page === 0 ? '33.3%' : page == 1 ? '66.6%' : '100%'

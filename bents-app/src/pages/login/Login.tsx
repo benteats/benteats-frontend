@@ -2,6 +2,7 @@ import { ReactComponent as CoupleSVG } from '../../assets/couple.svg'
 import { useNavigate } from 'react-router-dom'
 import { css } from '@emotion/react'
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io'
+import { MdOutlineError } from 'react-icons/md'
 import Header from '../../components/login/header/Header'
 import * as FormStyle from '../../styles/form/Form.style'
 import * as LoginStyle from './Login.style'
@@ -44,6 +45,14 @@ export default function Login() {
     if (errorPostUser == 200) {
       navigate('/searchRestaurant')
     }
+    if (errorPostUser != null) {
+      setErrorPostUser(
+        <>
+          <MdOutlineError />
+          Ops! Algum dos dados estão inválidos.
+        </>
+      )
+    }
   }, [errorPostUser])
 
   const handleLogin = () => {
@@ -64,6 +73,9 @@ export default function Login() {
           </Global.Description>
           <LoginStyle.Form>
             <LoginStyle.FormContainer>
+              <FormStyle.ErrorMessageLogin>
+                {errorPostUser}
+              </FormStyle.ErrorMessageLogin>
               <FormStyle.Input
                 placeholder="Seu telefone ou email"
                 maxLength={50}
