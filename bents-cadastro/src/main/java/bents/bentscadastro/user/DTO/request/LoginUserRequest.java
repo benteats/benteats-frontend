@@ -20,6 +20,10 @@ public class LoginUserRequest {
         return login;
     }
 
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
     public String getPassword() {
         return password;
     }
