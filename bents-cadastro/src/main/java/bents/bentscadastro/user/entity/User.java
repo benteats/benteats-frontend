@@ -10,7 +10,7 @@ import javax.validation.constraints.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idUser;
+    private int idUser;
 
     @NotBlank
     private String userType;
