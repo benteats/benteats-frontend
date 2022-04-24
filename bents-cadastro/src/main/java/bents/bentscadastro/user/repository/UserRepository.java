@@ -70,13 +70,17 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Transactional
     @Modifying
-    @Query("update User u set u.isLogged = true where u.email = ?1 or u.email = ?1 and u.password = ?2")
-    void loginUser(String email, String password);
+    @Query("update User u set u.isLogged = true where u.email = ?1 or u.phone = ?1 and u.password = ?2")
+    void loginUser(String login, String password);
 
     @Transactional
     @Modifying
     @Query("update User u set u.isLogged = false where u.idUser = ?1")
     void logOff(Integer idUser);
+
+    @Transactional
+    @Query("select u.idUser from User u where u.email = ?1 or u.phone = ?1")
+    Integer getIdUser(String login);
 
     boolean existsByIdUserAndIsLoggedTrue(Integer idUser);
     boolean existsByIdUserAndIsLoggedFalse(Integer idUser);
