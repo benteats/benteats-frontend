@@ -114,7 +114,8 @@ public class UserController {
     public ResponseEntity loginUser(@RequestBody LoginUserRequest loginUser) {
         if (repository.existsByEmailAndPassword(loginUser.getLogin(), loginUser.getPassword())) {
             repository.loginUser(loginUser.getLogin(), loginUser.getPassword());
-            return ResponseEntity.status(200).build();
+            Integer idUser = repository.getIdUser(loginUser.getLogin());
+            return ResponseEntity.status(200).body(idUser);
         }
         try {
             loginUser.setLogin(formattPhone(loginUser.getLogin()));
@@ -124,7 +125,8 @@ public class UserController {
         }
         if (repository.existsByPhoneAndPassword(loginUser.getLogin(), loginUser.getPassword())) {
             repository.loginUser(loginUser.getLogin(), loginUser.getPassword());
-            return ResponseEntity.status(200).build();
+            Integer idUser = repository.getIdUser(loginUser.getLogin());
+            return ResponseEntity.status(200).body(idUser);
         }
 
         return ResponseEntity.status(404).build();
@@ -145,7 +147,7 @@ public class UserController {
         return ResponseEntity.status(404).build();
     }
 
-    @GetMapping("/autenticateSession/{idUser}")
+    @GetMapping("/authenticateSession/{idUser}")
     public ResponseEntity<Boolean> authenticateSession(@PathVariable Integer idUser) {
         if (repository.existsById(idUser)) {
             if (repository.existsByIdUserAndIsLoggedTrue(idUser)) {
