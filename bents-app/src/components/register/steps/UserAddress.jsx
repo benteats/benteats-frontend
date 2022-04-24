@@ -102,6 +102,7 @@ export default function UserAddress({ formData, setFormData, setPage }) {
                   name={element.name}
                   type={element.type}
                   value={formDataValue}
+                  inputMode={element.inputMode}
                   onChange={handleChange}
                 />
                 <FormStyle.ErrorMessage>

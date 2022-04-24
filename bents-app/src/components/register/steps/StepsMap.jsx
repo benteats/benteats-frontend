@@ -33,7 +33,8 @@ export const userDataItems = [
     type: 'text',
     maxLength: 35,
     placeholder: '(11) 1234-5678',
-    value: 'phone'
+    value: 'phone',
+    inputMode: 'numeric'
   },
   {
     label: 'E-mail',
@@ -41,7 +42,8 @@ export const userDataItems = [
     type: 'text',
     maxLength: 50,
     placeholder: 'email@dominio.com',
-    value: 'email'
+    value: 'email',
+    inputMode: 'email'
   },
   {
     label: 'Senha',
@@ -60,7 +62,8 @@ export const userAddressItems = [
     type: 'text',
     maxLength: 8,
     placeholder: 'Digite seu CEP',
-    value: 'cep'
+    value: 'cep',
+    inputMode: 'numeric'
   },
   {
     label: 'Estado',
@@ -84,6 +87,7 @@ export const userAddressItems = [
     type: 'text',
     maxLength: 20,
     placeholder: 'Número da residência',
-    value: 'addressNumber'
+    value: 'addressNumber',
+    inputMode: 'numeric'
   }
 ]

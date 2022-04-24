@@ -81,6 +81,7 @@ export default function UserData({ formData, setFormData, setPage }) {
                   name={element.name}
                   type={element.type}
                   value={formData[element.name]}
+                  inputMode={element.inputMode}
                   onChange={handleChange}
                 />
                 <FormStyle.ErrorMessage>
