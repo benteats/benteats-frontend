@@ -1,16 +1,14 @@
 package bents.bentscadastro.user.controller;
 
-import bents.bentscadastro.user.DTO.request.RegisterRestaurant;
 import bents.bentscadastro.user.DTO.request.UserRestaurant;
 import bents.bentscadastro.user.entity.Restaurant;
-import bents.bentscadastro.user.entity.User;
 import bents.bentscadastro.user.repository.RestaurantRepository;
-import bents.bentscadastro.user.repository.UserRepository;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -19,23 +17,10 @@ public class RestaurantController {
     @Autowired
     private RestaurantRepository restaurantRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-
-//    public void teste()  {
-//        User user = new User("Restaurant", "teste", "teste123", "teste@gmail.com",
-//                "(11)99607-3601", "03251050", "teste", "")
-//    }
-
     @PostMapping
-    public ResponseEntity registerRestaurant(@RequestBody RegisterRestaurant newRestaurant) {
-        System.out.println(newRestaurant.getRestaurant());
-        System.out.println(newRestaurant.getUser());
-
-//        userRepository.save(newRestaurant.getUser());
-////        newRestaurant.setIdUser(user.getIdUser());
-//        restaurantRepository.save(newRestaurant.getRestaurant());
-        return ResponseEntity.status(200).build();
+    public ResponseEntity registerRestaurant(@RequestBody @Valid Restaurant restaurant) {
+        restaurantRepository.save(restaurant);
+        return ResponseEntity.status(201).build();
     }
 
     @GetMapping

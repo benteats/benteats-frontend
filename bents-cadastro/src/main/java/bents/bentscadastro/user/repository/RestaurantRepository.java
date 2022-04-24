@@ -33,4 +33,17 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Integer>
     @Transactional
     @Query("update Restaurant r set r.description = ?2 where r.idRestaurant = ?1")
     void updateDescriptionById(Integer idRestaurant, String value);
+
+    boolean existsByEmailAndPassword(String email, String password);
+
+    boolean existsByPhoneAndPassword(String email, String password);
+
+    @Transactional
+    @Query("select r.idRestaurant from Restaurant r where r.email = ?1 or r.phone = ?1")
+    Integer getIdUser(String login);
+
+    @Transactional
+    @Modifying
+    @Query("update Restaurant r set r.isLogged = true where r.email = ?1 or r.phone = ?1 and r.password = ?2")
+    void loginUser(String login, String password);
 }

@@ -3,6 +3,7 @@ package bents.bentscadastro.user.controller;
 import bents.bentscadastro.user.DTO.request.LoginUserRequest;
 import bents.bentscadastro.user.DTO.request.UpdateUserDto;
 import bents.bentscadastro.user.entity.User;
+import bents.bentscadastro.user.repository.RestaurantRepository;
 import bents.bentscadastro.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,8 @@ import static bents.bentscadastro.user.util.formatt.FormattUtil.formattPhone;
 public class UserController {
     @Autowired
     private UserRepository repository;
+    @Autowired
+    RestaurantRepository restaurantRepository;
 
     @PostMapping
     public ResponseEntity resgisterUser(@RequestBody @Valid User newUser) {
@@ -117,15 +120,28 @@ public class UserController {
             Integer idUser = repository.getIdUser(loginUser.getLogin());
             return ResponseEntity.status(200).body(idUser);
         }
+
+        if (restaurantRepository.existsByEmailAndPassword(loginUser.getLogin(), loginUser.getPassword())) {
+            restaurantRepository.loginUser(loginUser.getLogin(), loginUser.getPassword());
+            Integer idUser = restaurantRepository.getIdUser(loginUser.getLogin());
+            return ResponseEntity.status(200).body(idUser);
+        }
+
         try {
             loginUser.setLogin(formattPhone(loginUser.getLogin()));
-        }
-        catch (java.text.ParseException e) {
+        } catch (java.text.ParseException e) {
             e.printStackTrace();
         }
+
         if (repository.existsByPhoneAndPassword(loginUser.getLogin(), loginUser.getPassword())) {
             repository.loginUser(loginUser.getLogin(), loginUser.getPassword());
             Integer idUser = repository.getIdUser(loginUser.getLogin());
+            return ResponseEntity.status(200).body(idUser);
+        }
+
+        if (restaurantRepository.existsByPhoneAndPassword(loginUser.getLogin(), loginUser.getPassword())) {
+            restaurantRepository.loginUser(loginUser.getLogin(), loginUser.getPassword());
+            Integer idUser = restaurantRepository.getIdUser(loginUser.getLogin());
             return ResponseEntity.status(200).body(idUser);
         }
 
@@ -149,6 +165,7 @@ public class UserController {
 
     @GetMapping("/authenticateSession/{idUser}")
     public ResponseEntity<Boolean> authenticateSession(@PathVariable Integer idUser) {
+
         if (repository.existsById(idUser)) {
             if (repository.existsByIdUserAndIsLoggedTrue(idUser)) {
                 return ResponseEntity.status(200).body(true);
