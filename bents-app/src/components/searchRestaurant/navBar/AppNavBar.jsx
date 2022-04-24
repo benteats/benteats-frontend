@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { ReactComponent as Logo } from '../../../assets/logo.svg'
 import { ReactComponent as AvatarSVG } from '../../../assets/avatar.svg'
@@ -5,9 +6,14 @@ import { RiSearchLine } from 'react-icons/ri'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { searchInput } from '../../../utils/searchInput'
 import * as NavbarStyle from './AppNavBar.style'
+import  ProfileMenu from './profileMenu/ProfileMenu'
 
-export default function AppNavbar({ searchPlace, setSearchPlace }) {
+export default function AppNavbar({ searchPlace, setSearchPlace }) {  
   const address = searchInput('')
+  const [isOpen, setOpen] = useState(false)
+  const toggleProfileMenu = () => {
+    setOpen(!isOpen)
+  }
 
   const handleChange = suggestion => {
     setSearchPlace({
@@ -48,9 +54,10 @@ export default function AppNavbar({ searchPlace, setSearchPlace }) {
               </NavbarStyle.SuggestionWrapper>
             )}
           </NavbarStyle.ContainerInput>
-          <NavbarStyle.ContainerMoreOptions>
+          <NavbarStyle.ContainerMoreOptions onClick={toggleProfileMenu}>
             <AiOutlineMenu />
             <AvatarSVG />
+            {isOpen ? <ProfileMenu /> : ''}            
           </NavbarStyle.ContainerMoreOptions>
         </NavbarStyle.ContainerNav>
       </NavbarStyle.Nav>

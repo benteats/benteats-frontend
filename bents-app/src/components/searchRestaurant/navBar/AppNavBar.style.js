@@ -129,7 +129,7 @@ export const SuggestionWrapper = styled('div')`
   display: flex;
   flex-direction: column;
   gap: 1.5em 0;
-  ${shadow.dfBoxShadow}
+  border: 1px solid ${paletteColors.lightGrayBorder};
 `
 
 export const SuggestionContainer = styled('div')`

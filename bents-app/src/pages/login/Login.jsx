@@ -7,7 +7,7 @@ import Header from '../../components/login/header/Header'
 import * as FormStyle from '../../styles/form/Form.style'
 import * as LoginStyle from './Login.style'
 import * as Global from '../../styles/Global'
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export default function Login() {
@@ -34,18 +34,11 @@ export default function Login() {
         'http://localhost:8080/users/loginUser',
         formLogin
       )
-      setErrorPostUser(response.status)
+      localStorage.setItem("idUser", response.data)
+      navigate('/searchRestaurant')
     } catch (e) {
       console.error('error postUser =>', e)
       setErrorPostUser('Houve um erro! Verifique os campos preenchidos!')
-    }
-  }
-
-  useEffect(() => {
-    if (errorPostUser == 200) {
-      navigate('/searchRestaurant')
-    }
-    if (errorPostUser != null) {
       setErrorPostUser(
         <>
           <MdOutlineError />
@@ -53,10 +46,27 @@ export default function Login() {
         </>
       )
     }
-  }, [errorPostUser])
+  }
 
   const handleLogin = () => {
     postLogin()
+  }
+
+  useEffect(() => {
+    if(localStorage.idUser){
+      authUser()
+    }
+  });
+
+  async function authUser(){
+    try {
+      const response = await axios.get(`http://localhost:8080/users/authenticateSession/${localStorage.idUser}`)
+      if(response.data){
+        navigate('/searchRestaurant')
+      }
+    } catch (e) {
+      console.error('error authUser =>', e)
+    }
   }
 
   return (
