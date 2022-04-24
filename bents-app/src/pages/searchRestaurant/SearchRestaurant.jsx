@@ -21,15 +21,14 @@ export default function SearchRestaurant() {
       if(!response.data) {
         navigate('/login')
       }
-  } catch (e) {
+    } catch (e) {
       console.error('error authUser =>', e)
+      navigate('/login')
     }
   }
 
   useEffect(() => {    
-    if(localStorage.idUser){
-      authUser()
-    }
+    authUser()
   });
 
   return (
