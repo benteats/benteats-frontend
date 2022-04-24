@@ -30,16 +30,21 @@ export default function UserAddress({ formData, setFormData, setPage }) {
   const findCEP = name => {
     fetch(`https://cep.awesomeapi.com.br/json/${name}`).then(res =>
       res.json().then(data => {
-        setFormData({
-          ...formData,
-          cep: name,
-          address: `${data.address} - ${data.district}`,
-          state: `${data.state} - ${data.city}`,
-          city: data.city,
-          district: data.district,
-          lat: data.lat,
-          lng: data.lng
-        })
+        if(res.status == 200){
+          setErrorPostUser('')
+          setFormData({
+            ...formData,
+            cep: name,
+            address: `${data.address} - ${data.district}`,
+            state: `${data.state} - ${data.city}`,
+            city: data.city,
+            district: data.district,
+            lat: data.lat,
+            lng: data.lng
+          })
+        } else {
+          setErrorPostUser('Não conseguimos encontrar um endereço com o seu CEP ;(')
+        }
       })
     )
   }
@@ -123,7 +128,4 @@ export default function UserAddress({ formData, setFormData, setPage }) {
       </StepsStyle.Container>
     </>
   )
-}
-function postUser() {
-  throw new Error('Function not implemented.')
 }
