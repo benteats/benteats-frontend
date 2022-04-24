@@ -180,4 +180,20 @@ public class User {
     public void setLng(String lng) {
         this.lng = lng;
     }
+
+    public User(String userType, String name, String password, String email, String phone, String cep, String state, String city, String district, String address, Integer addressNumber, String lat, String lng) {
+        this.userType = userType;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.phone = phone;
+        this.cep = cep;
+        this.state = state;
+        this.city = city;
+        this.district = district;
+        this.address = address;
+        this.addressNumber = addressNumber;
+        this.lat = lat;
+        this.lng = lng;
+    }
 }

@@ -1,5 +1,6 @@
 package bents.bentscadastro.user.controller;
 
+import bents.bentscadastro.user.DTO.request.RegisterRestaurant;
 import bents.bentscadastro.user.DTO.request.UserRestaurant;
 import bents.bentscadastro.user.entity.Restaurant;
 import bents.bentscadastro.user.entity.User;
@@ -21,16 +22,21 @@ public class RestaurantController {
     @Autowired
     private UserRepository userRepository;
 
+//    public void teste()  {
+//        User user = new User("Restaurant", "teste", "teste123", "teste@gmail.com",
+//                "(11)99607-3601", "03251050", "teste", "")
+//    }
+
     @PostMapping
-    public ResponseEntity registerRestaurant(@RequestBody User user, @RequestBody Restaurant restaurant) {
-        userRepository.save(user);
-        restaurant.setIdUser(user.getIdUser());
-        restaurantRepository.save(restaurant);
+    public ResponseEntity registerRestaurant(@RequestBody RegisterRestaurant newRestaurant) {
+        System.out.println(newRestaurant.getRestaurant());
+        System.out.println(newRestaurant.getUser());
+
+//        userRepository.save(newRestaurant.getUser());
+////        newRestaurant.setIdUser(user.getIdUser());
+//        restaurantRepository.save(newRestaurant.getRestaurant());
         return ResponseEntity.status(200).build();
     }
-
-
-
 
     @GetMapping
     public ResponseEntity<List<Restaurant>> getAllRestaurants() {
