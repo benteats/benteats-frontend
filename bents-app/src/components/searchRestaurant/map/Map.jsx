@@ -8,7 +8,7 @@ export default function MapGL({ searchPlace }) {
   const [viewState, setViewState] = useState({
     longitude: -46.67051,
     latitude: -23.4888,
-    zoom: 14
+    zoom: 13.5
   })
 
   const styleMap = {
@@ -18,7 +18,6 @@ export default function MapGL({ searchPlace }) {
 
   useEffect(() => {
     if (Object.values(searchPlace).every(o => o !== '')) {
-      console.log(searchPlace)
       setViewState(searchPlace)
     }
   }, [searchPlace])

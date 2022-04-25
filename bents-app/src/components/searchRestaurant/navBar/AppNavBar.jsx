@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { ReactComponent as Logo } from '../../../assets/logo.svg'
 import { ReactComponent as AvatarSVG } from '../../../assets/avatar.svg'
@@ -7,8 +7,9 @@ import { AiOutlineMenu } from 'react-icons/ai'
 import { searchInput } from '../../../utils/searchInput'
 import * as NavbarStyle from './AppNavBar.style'
 import  ProfileMenu from './profileMenu/ProfileMenu'
+import axios from 'axios'
 
-export default function AppNavbar({ searchPlace, setSearchPlace }) {  
+export default function AppNavbar({ searchPlace, setSearchPlace, restaurantsResult, setRestaurantsResult }) {  
   const address = searchInput('')
   const [isOpen, setOpen] = useState(false)
   const toggleProfileMenu = () => {
@@ -22,6 +23,21 @@ export default function AppNavbar({ searchPlace, setSearchPlace }) {
       latitude: suggestion[1]
     })
   }
+
+  async function getRestaurantByCoordinates(searchPlace) {
+    try {
+      const response = await axios.get(`http://localhost:8080/restaurants/getRestaurantByCoordinates/${searchPlace.latitude}/${searchPlace.longitude}`)
+      setRestaurantsResult(response.data)      
+    } catch (e) {
+      console.error('error getRestaurantByCoordinates =>', e)
+    }
+  }
+
+  useEffect(() => {
+    if (Object.values(searchPlace).every(o => o !== '')) {
+      getRestaurantByCoordinates(searchPlace)
+    }
+  }, [searchPlace])
 
   return (
     <>
