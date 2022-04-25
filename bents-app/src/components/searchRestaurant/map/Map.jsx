@@ -4,7 +4,7 @@ import { apikey } from '../../../data/config'
 import Map, { Marker } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
-export default function MapGL({ searchPlace }) {
+export default function MapGL({ searchPlace, restaurantsResult }) {
   const [viewState, setViewState] = useState({
     longitude: -46.67051,
     latitude: -23.4888,
@@ -31,9 +31,13 @@ export default function MapGL({ searchPlace }) {
         mapStyle="mapbox://styles/mapbox/streets-v9"
         mapboxAccessToken={apikey}
       >
-        <Marker longitude={-46.67051} latitude={-23.4888}>
-          <Pin />
-        </Marker>
+        {restaurantsResult && restaurantsResult.map(result => (
+          <div key={result.lat} >
+            <Marker longitude={result.lng} latitude={result.lat}>
+              <Pin />
+            </Marker>
+          </div>
+        ))}
       </Map>
     </>
   )
