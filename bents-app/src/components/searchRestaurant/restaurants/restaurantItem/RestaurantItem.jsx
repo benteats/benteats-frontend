@@ -12,13 +12,14 @@ export default function RestaurantItem({
   priceAverage,
   openingTime,
   addressNumber,
-  description
+  description,
+  imgUrl
 }) {    
   return (
     <>
       <RestaurantStyle.Item>
         <RestaurantStyle.ContainerImg>
-          <RestaurantStyle.Img src="https://cdn.fs.teachablecdn.com/puXkl4zpSGDTuQy4Nziz" />
+          <RestaurantStyle.Img src={imgUrl} />
         </RestaurantStyle.ContainerImg>
         <RestaurantStyle.Detail>
           <RestaurantStyle.ContainerTitle>

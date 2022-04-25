@@ -6,7 +6,7 @@ export default function Restaurants({ restaurantsResult }) {
   return (
     <>
       <RestaurantStyle.Container>
-        <FilterOption />
+        <FilterOption restaurantsResult={restaurantsResult} />
         {restaurantsResult.map(
         ({
           name,
@@ -15,7 +15,8 @@ export default function Restaurants({ restaurantsResult }) {
           priceAverage,
           openingTime,
           addressNumber,
-          description
+          description,
+          imgUrl
         }) => (
           <RestaurantItem
           key={name}
@@ -26,6 +27,7 @@ export default function Restaurants({ restaurantsResult }) {
           openingTime={openingTime}
           addressNumber={addressNumber}
           description={description}
+          imgUrl={imgUrl}
           />
         )
       )}
