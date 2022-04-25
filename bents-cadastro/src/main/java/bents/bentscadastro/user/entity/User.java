@@ -13,9 +13,6 @@ public class User {
     private Integer idUser;
 
     @NotBlank
-    private String userType;
-
-    @NotBlank
     @Size(min = 3, max = 35)
     private String name;
 
@@ -79,14 +76,6 @@ public class User {
 
     public void setLogged(boolean logged) {
         isLogged = logged;
-    }
-
-    public String getUserType() {
-        return userType;
-    }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
     }
 
     public String getName() {
@@ -181,8 +170,7 @@ public class User {
         this.lng = lng;
     }
 
-    public User(String userType, String name, String password, String email, String phone, String cep, String state, String city, String district, String address, Integer addressNumber, String lat, String lng) {
-        this.userType = userType;
+    public User(String name, String password, String email, String phone, String cep, String state, String city, String district, String address, Integer addressNumber, String lat, String lng) {
         this.name = name;
         this.password = password;
         this.email = email;
