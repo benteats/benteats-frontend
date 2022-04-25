@@ -2,8 +2,8 @@ package bents.bentscadastro.user.controller;
 
 import bents.bentscadastro.user.DTO.request.UserRestaurant;
 import bents.bentscadastro.user.entity.Restaurant;
+import bents.bentscadastro.user.entity.RestaurantDetailDTO;
 import bents.bentscadastro.user.repository.RestaurantRepository;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/restaurants")
 public class RestaurantController {
     @Autowired
@@ -20,6 +21,12 @@ public class RestaurantController {
     @PostMapping
     public ResponseEntity registerRestaurant(@RequestBody @Valid Restaurant restaurant) {
         restaurantRepository.save(restaurant);
+        return ResponseEntity.status(201).build();
+    }
+
+    @PostMapping("/registerAllRestaurant")
+    public ResponseEntity registerAllRestaurant(@RequestBody @Valid List<Restaurant> listRestaurant) {
+        restaurantRepository.saveAll(listRestaurant);
         return ResponseEntity.status(201).build();
     }
 
@@ -72,5 +79,14 @@ public class RestaurantController {
             }
         }
         return result;
+    }
+
+    @GetMapping("/getRestaurantByCoordinates/{lat}/{lng}")
+    private ResponseEntity getRestaurantByCoordinates(@PathVariable Float lat, @PathVariable Float lng) {
+        List<RestaurantDetailDTO> restaurants = restaurantRepository.findRestaurantsWithInDistance(lat, lng, 5);
+        if (restaurants.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
+        return ResponseEntity.status(200).body(restaurants);
     }
 }

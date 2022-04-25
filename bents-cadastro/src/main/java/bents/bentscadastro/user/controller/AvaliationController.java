@@ -1,12 +1,9 @@
 package bents.bentscadastro.user.controller;
 
 import bents.bentscadastro.user.entity.Avaliation;
-import bents.bentscadastro.user.entity.Restaurant;
 import bents.bentscadastro.user.repository.AvaliationRepository;
 import bents.bentscadastro.user.repository.RestaurantRepository;
 import bents.bentscadastro.user.repository.UserRepository;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
