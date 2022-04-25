@@ -30,23 +30,29 @@ export default function SearchRestaurant() {
   }
 
   async function getRestaurantByCoordinates(latitude, longitude) {
+    console.log('getRestaurantByCoordinates')
     try {
       const response = await axios.get(
         `http://localhost:8080/restaurants/getRestaurantByCoordinates/${latitude}/${longitude}`
       )
+      console.log('respose => ',response.data)
       setRestaurantsResult(response.data)
+      console.log('restaurantsResult =>',restaurantsResult)
     } catch (e) {
       console.error('error getRestaurantByCoordinates =>', e)
     }
   }
 
   useEffect(() => {
-    console.log(restaurantsResult)
     authUser()
-    if (!restaurantsResult) {
-      getRestaurantByCoordinates(searchPlace.latitude, searchPlace.longitude)
-    }
   })
+
+  useEffect(() => {
+    authUser()    
+    if (!restaurantsResult) {      
+      getRestaurantByCoordinates(searchPlace.latitude, searchPlace.longitude)      
+    }
+  }, [restaurantsResult])
 
   return (
     <>
@@ -57,8 +63,9 @@ export default function SearchRestaurant() {
         setRestaurantsResult={setRestaurantsResult}
       />
       <SearchStyle.Container>
-        <Map searchPlace={searchPlace} />
-        <Restaurants restaurantsResult={restaurantsResult}/>
+        <Map searchPlace={searchPlace} restaurantsResult={restaurantsResult}/>
+        {restaurantsResult && <Restaurants restaurantsResult={restaurantsResult}/>}
+        {/* {!restaurantsResult && <Restau/>} */}
       </SearchStyle.Container>
     </>
   )
