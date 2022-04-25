@@ -29,7 +29,7 @@ export const filterButton = styled('button')`
 `
 
 export const ContainerButton = styled('div')`
-  padding: 2em 0;
+  padding: 1.25em 0;
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
 `
