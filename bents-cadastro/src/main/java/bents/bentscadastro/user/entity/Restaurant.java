@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -14,18 +15,16 @@ public class Restaurant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idRestaurant;
 
-    @NotBlank
     private String foodType;
-    private Double priceAverage;
 
-    @NotBlank
+    private String priceAverage;
+
     private String openingTime;
 
-    @NotBlank
     private String closingTime;
 
-    @NotBlank
     private String description;
+
     @Size(min = 3, max = 35)
     private String name;
 
@@ -40,7 +39,7 @@ public class Restaurant {
     private String password;
 
     @NotBlank
-    @Pattern(regexp = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$" ,
+    @Pattern(regexp = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$",
             message = "Informe um telefone válido com ou sem DDD")
     private String phone;
 
@@ -59,11 +58,14 @@ public class Restaurant {
     @NotBlank
     private String address;
 
-    private Integer addressNumber;
     @NotBlank
-    private String lat;
-    @NotBlank
-    private String lng;
+    private String addressNumber;
+
+    @NotNull
+    private Float lat;
+
+    @NotNull
+    private Float lng;
 
     private Boolean isLogged;
 
@@ -86,11 +88,11 @@ public class Restaurant {
         this.foodType = foodType;
     }
 
-    public Double getPriceAverage() {
+    public String getPriceAverage() {
         return priceAverage;
     }
 
-    public void setPriceAverage(Double priceAverage) {
+    public void setPriceAverage(String priceAverage) {
         this.priceAverage = priceAverage;
     }
 
@@ -197,27 +199,27 @@ public class Restaurant {
         this.address = address;
     }
 
-    public Integer getAddressNumber() {
+    public String getAddressNumber() {
         return addressNumber;
     }
 
-    public void setAddressNumber(Integer addressNumber) {
+    public void setAddressNumber(String addressNumber) {
         this.addressNumber = addressNumber;
     }
 
-    public String getLat() {
+    public Float getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
+    public void setLat(Float lat) {
         this.lat = lat;
     }
 
-    public String getLng() {
+    public Float getLng() {
         return lng;
     }
 
-    public void setLng(String lng) {
+    public void setLng(Float lng) {
         this.lng = lng;
     }
 }
