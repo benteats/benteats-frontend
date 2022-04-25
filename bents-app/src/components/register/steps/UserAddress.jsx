@@ -4,7 +4,7 @@ import * as StepsStyle from './Steps.style'
 import { userAddressItems } from './StepsMap'
 import axios from 'axios'
 
-export default function UserAddress({ formData, setFormData, setPage }) {
+export default function UserAddress({ formData, setFormData, setPage, userType }) {
   const [errorPostUser, setErrorPostUser] = useState('')
   const [formErrors, setFormErrors] = useState({
     cep: '',
@@ -67,7 +67,10 @@ export default function UserAddress({ formData, setFormData, setPage }) {
     }
 
     if (Object.values(errors).every(o => o === '')) {
-      postUser()
+      if(userType == 'user'){
+        return postUser()
+      }
+      return postRestaurant();
     }
     return errors
   }
@@ -78,6 +81,16 @@ export default function UserAddress({ formData, setFormData, setPage }) {
       setPage(3)
     } catch (e) {
       console.error('error postUser =>', e)
+      setErrorPostUser('Houve um erro! Verifique os campos preenchidos!')
+    }
+  }
+
+  async function postRestaurant() {
+    try {
+      await axios.post('http://localhost:8080/restaurants', formData)
+      setPage(3)
+    } catch (e) {
+      console.error('error postRestaurant =>', e)
       setErrorPostUser('Houve um erro! Verifique os campos preenchidos!')
     }
   }

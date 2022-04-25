@@ -8,7 +8,9 @@ export default function UserType({
   setCheckboxItems,
   formData,
   setFormData,
-  setPage
+  setPage,
+  userType,
+  setUserType
 }) {
   const [error, setError] = useState('')
 
@@ -32,19 +34,18 @@ export default function UserType({
   }
 
   useEffect(() => {
-    setFormData({
-      ...formData,
-      userType: checkboxItems.reduce((acc, cur) => {
+    setUserType(
+      checkboxItems.reduce((acc, cur) => {
         if (cur.checked == true) {
           acc = cur.name
         }
         return acc
       }, {})
-    })
+    )
   }, [checkboxItems])
 
   const validateFormStep = () => {
-    if (Object.keys(formData.userType).length === 0) {
+    if (Object.keys(userType).length === 0) {
       return setError('Escolha um tipo de usuário para continuar')
     }
     setPage(currPage => currPage + 1)

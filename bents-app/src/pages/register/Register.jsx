@@ -9,9 +9,8 @@ import CreatedAccount from '../../components/register/steps/CreatedAccount'
 
 export default function Register() {
   const [page, setPage] = useState(0)
-
+  const [userType, setUserType] = useState('')
   const [formData, setFormData] = useState({
-    userType: '',
     name: '',
     password: '',
     email: '',
@@ -41,29 +40,32 @@ export default function Register() {
     if (page === 0) {
       return (
         <UserType
-          formData={formData}
-          setFormData={setFormData}
-          setPage={setPage}
-          checkboxItems={checkboxItems}
-          setCheckboxItems={setCheckboxItems}
+        formData={formData}
+        setFormData={setFormData}
+        setPage={setPage}
+        checkboxItems={checkboxItems}
+        setCheckboxItems={setCheckboxItems}
+        userType={userType}
+        setUserType={setUserType}
         />
       )
     }
     if (page === 1) {
       return (
         <UserData
-          formData={formData}
-          setFormData={setFormData}
-          setPage={setPage}
+        formData={formData}
+        setFormData={setFormData}
+        setPage={setPage}
         />
       )
     }
     if (page === 2) {
       return (
         <UserAddress
-          formData={formData}
-          setFormData={setFormData}
-          setPage={setPage}
+        formData={formData}
+        setFormData={setFormData}
+        setPage={setPage}
+        userType={userType}
         />
       )
     }
