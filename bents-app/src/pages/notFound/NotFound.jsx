@@ -1,6 +1,7 @@
 import { ReactComponent as NotFoundSVG } from '../../assets/not-found.svg'
 import Header from '../../components/login/header/Header'
 import * as NotFoundStyle from './NotFound.style'
+import * as Global from '../../styles/Global'
 
 export default function NotFound() {        
     return (
@@ -20,6 +21,9 @@ export default function NotFound() {
                         Nos informe se você é um Usuário em busca de novos locais e opiniôes. Ou um empreendedor querendo melhorar através de feedbacks.
                         </NotFoundStyle.Description>
                     </NotFoundStyle.NotFoundDescription>
+                    <Global.Button>
+                        Voltar ao Inicio
+                    </Global.Button>
                 </NotFoundStyle.ContentNotFound>
                 <NotFoundStyle.NotFoundImage>
                     <NotFoundSVG />
