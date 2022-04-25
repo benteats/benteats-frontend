@@ -1,8 +1,8 @@
+import { ReactComponent as NotFoundSVG } from '../../assets/not-found.svg'
 import Header from '../../components/login/header/Header'
 import * as NotFoundStyle from './NotFound.style'
 
-export default function NotFound() {    
-    
+export default function NotFound() {        
     return (
         <>
             <Header />
@@ -21,7 +21,9 @@ export default function NotFound() {
                         </NotFoundStyle.Description>
                     </NotFoundStyle.NotFoundDescription>
                 </NotFoundStyle.ContentNotFound>
-                <NotFoundStyle.NotFoundImage></NotFoundStyle.NotFoundImage>
+                <NotFoundStyle.NotFoundImage>
+                    <NotFoundSVG />
+                </NotFoundStyle.NotFoundImage>
             </NotFoundStyle.Container>
         </>
     )
