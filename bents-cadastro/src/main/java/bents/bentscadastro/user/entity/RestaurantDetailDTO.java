@@ -14,4 +14,10 @@ public interface RestaurantDetailDTO {
     String getOpeningTime();
 
     String getDescription();
+
+    Float getLat();
+
+    Float getLng();
+
+    String getImgUrl();
 }

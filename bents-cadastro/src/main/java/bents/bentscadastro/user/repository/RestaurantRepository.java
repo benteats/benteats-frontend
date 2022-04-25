@@ -58,6 +58,9 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Integer>
             "r.foodType as foodType," +
             "r.priceAverage as priceAverage," +
             "r.openingTime as openingTime," +
-            "r.description as description FROM Restaurant r WHERE " + HAVERSINE_FORMULA + " < :distance ORDER BY "+ HAVERSINE_FORMULA + " DESC")
+            "r.description as description," +
+            "r.lat as lat," +
+            "r.lng as lng," +
+            "r.imgUrl as imgUrl FROM Restaurant r WHERE " + HAVERSINE_FORMULA + " < :distance ORDER BY "+ HAVERSINE_FORMULA + " DESC")
     List<RestaurantDetailDTO> findRestaurantsWithInDistance(@Param("lat") double lat, @Param("lng") double lng, @Param("distance") double distanceWithInKM);
 }

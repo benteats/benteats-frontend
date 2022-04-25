@@ -67,6 +67,8 @@ public class Restaurant {
     @NotNull
     private Float lng;
 
+    private String imgUrl;
+
     private Boolean isLogged;
 
     public Restaurant() {
@@ -221,5 +223,13 @@ public class Restaurant {
 
     public void setLng(Float lng) {
         this.lng = lng;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }
