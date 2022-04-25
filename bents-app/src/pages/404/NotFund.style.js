@@ -47,7 +47,10 @@ export const NotFundSubTitle = styled('p')`
     padding: 1em 50px;
     gap: 2em;
     }
-  @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1380px) {
+        font-size: 2em;
+    }
+    @media screen and (max-width: 768px) {
     padding: 1em 1.5em;
     }
     @media screen and (max-width: 450px) {
@@ -69,14 +72,14 @@ export const NotFundTitle = styled('h1')`
     font-size: 16em;
     font-family: 'Inter', sans-serif;
     @media screen and (max-width: 1380px) {
-        font-size: 10em;
-    }
-    @media screen and (max-width: 1080px) {
         font-size: 8em;
     }
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 1080px) {
         font-size: 6em;
     }
+    /* @media screen and (max-width: 450px) {
+        font-size: 6em;
+    } */
 `
 
 export const NotFundDescription = styled('div')`
