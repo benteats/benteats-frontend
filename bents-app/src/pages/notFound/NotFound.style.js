@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { paletteColors, fontSize } from '../../styles/Root'
 
 export const Container = styled('div')`
+  height: calc(100vh - 102.5px);
   align-items: center;
   padding: 0 100px;
   display: grid;
@@ -34,30 +35,32 @@ export const ContentNotFound = styled('div')`
   }
 `
 
-export const NotFoundSubTitle = styled('p')`
+export const NotFoundSubTitle = styled('h2')`
   font-size: 3em;
   font-weight: 700;
   color: ${paletteColors.primaryText};
   font-family: 'Inter', sans-serif;
   @media screen and (max-width: 1000px) {
     text-align: center;
-    padding: 1em 50px;
+    padding: 0.5rem 50px;
   }
   @media screen and (max-width: 768px) {
-    padding: 1em 1.5em;
+    padding: 0em 0.5rem;
   }
   @media screen and (max-width: 450px) {
-    font-size: 2em;
+    font-size: 0.5rem 2em;
   }
 `
 
 export const NotFoundImage = styled('figure')`
   height: 100%;
+  display: flex;
+  align-items: flex-end;
   svg {
-    height: 100%;
+    height: fit-content;
     width: 100%;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 980px) {
     display: none;
     width: 0;
   }
@@ -83,18 +86,23 @@ export const NotFoundDescription = styled('div')`
 `
 
 export const Description = styled('p')`
+  width: 100%;
+  max-width: 600px;
   padding: 1.75em 0;
   font-size: ${fontSize.mdText};
   line-height: 1.85em;
   letter-spacing: 0.25px;
   color: ${paletteColors.secondaryText};
   white-space: pre-line;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1000px) {
     text-align: center;
     padding: 15px;
   }
+  @media screen and (max-width: 768px) {
+    padding: 1.5em 0.5rem;
+  }
   @media screen and (max-width: 458px) {
     text-align: center;
-    padding: 4px;
+    padding: 1.5em 0.5rem;
   }
 `
