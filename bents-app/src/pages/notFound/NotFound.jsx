@@ -1,5 +1,5 @@
-import { useNavigate } from 'react-router-dom'
 import { ReactComponent as NotFoundSVG } from '../../assets/not-found.svg'
+import { useNavigate } from 'react-router-dom'
 import Header from '../../components/login/header/Header'
 import * as NotFoundStyle from './NotFound.style'
 import * as Global from '../../styles/Global'

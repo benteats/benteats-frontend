@@ -29,6 +29,11 @@ export const Item = styled('div')`
   @media screen and (max-width: 1366px) {
     padding: 20px 10px 20px 10px;
   }
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+  }
 `
 
 export const Detail = styled('div')`
@@ -41,6 +46,10 @@ export const Detail = styled('div')`
 export const ContainerImg = styled('div')`
   max-width: 300px;
   height: 195px;
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+    height: fit-content;
+  }
 `
 
 export const Img = styled('img')`
@@ -53,6 +62,10 @@ export const ContainerTitle = styled('div')`
   display: flex;
   justify-content: space-between;
   padding-bottom: 0.25rem;
+  @media screen and (max-width: 768px) {
+    justify-content: unset;
+    gap: 4em;
+  }
 `
 
 export const Title = styled('h1')`
@@ -83,6 +96,12 @@ export const RateContainer = styled('div')`
 export const Info = styled('div')`
   display: flex;
   padding-top: 25px;
+  @media screen and (max-width: 520px) {
+    display: grid;
+    grid-template-areas: 'a a';
+    justify-content: space-between;
+    gap: 1em;
+  }
 `
 
 export const InfoItem = styled('div')`
@@ -103,5 +122,8 @@ export const InfoItem = styled('div')`
     font-weight: 500;
     color: ${paletteColors.secondaryText};
     padding-right: 9px;
+  }
+  @media screen and (max-width: 520px) {
+    border: none;
   }
 `

@@ -17,6 +17,12 @@ export const NotFoundContainer = styled('div')`
   text-align: center;
   gap: 0.5rem;
   letter-spacing: 0.25px;
+  svg {
+    font-size: 10em;
+    path {
+      fill: ${paletteColors.primary};
+    }
+  }
   h1 {
     font-size: ${fontSize.mdSubTitle};
     color: ${paletteColors.primaryText};
