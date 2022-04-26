@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Map from '../../components/searchRestaurant/map/Map'
 import AppNavbar from '../../components/searchRestaurant/navBar/AppNavBar'
 import Restaurants from '../../components/searchRestaurant/restaurants/Restaurants'
-import RestaurantNotFound from '../../components/searchRestaurant/restaurants/restaurantNotFound/restaurantNotFound'
+import RestaurantNotFound from '../../components/searchRestaurant/restaurants/restaurantNotFound/RestaurantNotFound'
 import * as SearchStyle from './SearchRestaurant.style'
 import axios from 'axios'
 
