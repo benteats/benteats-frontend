@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Map from '../../components/searchRestaurant/map/Map'
 import AppNavbar from '../../components/searchRestaurant/navBar/AppNavBar'
 import Restaurants from '../../components/searchRestaurant/restaurants/Restaurants'
+import RestaurantNotFound from '../../components/searchRestaurant/restaurants/restaurantNotFound/restaurantNotFound'
 import * as SearchStyle from './SearchRestaurant.style'
 import axios from 'axios'
 
@@ -64,8 +65,7 @@ export default function SearchRestaurant() {
       />
       <SearchStyle.Container>
         <Map searchPlace={searchPlace} restaurantsResult={restaurantsResult}/>
-        {restaurantsResult && <Restaurants restaurantsResult={restaurantsResult}/>}
-        {/* {!restaurantsResult && <Restau/>} */}
+        {restaurantsResult ? <Restaurants restaurantsResult={restaurantsResult}/> : <RestaurantNotFound />}
       </SearchStyle.Container>
     </>
   )
