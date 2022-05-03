@@ -39,6 +39,7 @@ export const ContainerNav = styled('div')`
   justify-content: space-between;
   max-width: 1800px;
   width: 100%;
+  gap: 1em;
 `
 
 export const ContainerInput = styled('div')`
