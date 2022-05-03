@@ -20,7 +20,7 @@ export const Container = styled('div')`
 export const Item = styled('div')`
   max-height: 250px;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 300px 1fr;
   gap: 1.5em;
   cursor: pointer;
   padding: 20px 35px 20px 10px;
