@@ -9,7 +9,28 @@ import * as NavbarStyle from './AppNavBar.style'
 import ProfileMenu from './profileMenu/ProfileMenu'
 import axios from 'axios'
 
-export default function AppNavbar({ searchPlace, setSearchPlace, restaurantsResult, setRestaurantsResult }) {
+function reizeWindowSize() {
+  const [windowWidthSize, setWindowWidthSize] = useState(undefined)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      function handleResize() {
+        setWindowWidthSize(window.innerWidth)
+      }
+      window.addEventListener('resize', handleResize)
+      handleResize()
+      return () => window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+  return windowWidthSize
+}
+
+export default function AppNavbar({
+  searchPlace,
+  setSearchPlace,
+  setRestaurantsResult
+}) {
+  const widthSizeScreen = reizeWindowSize()
   const address = searchInput('')
   const [isOpen, setOpen] = useState(false)
   const toggleProfileMenu = () => {
@@ -26,7 +47,9 @@ export default function AppNavbar({ searchPlace, setSearchPlace, restaurantsResu
 
   async function getRestaurantByCoordinates(searchPlace) {
     try {
-      const response = await axios.get(`http://localhost:8080/restaurants/getRestaurantByCoordinates/${searchPlace.latitude}/${searchPlace.longitude}`)
+      const response = await axios.get(
+        `http://localhost:8080/restaurants/getRestaurantByCoordinates/${searchPlace.latitude}/${searchPlace.longitude}`
+      )
       setRestaurantsResult(response.data)
     } catch (e) {
       console.error('error getRestaurantByCoordinates =>', e)
@@ -38,7 +61,6 @@ export default function AppNavbar({ searchPlace, setSearchPlace, restaurantsResu
       getRestaurantByCoordinates(searchPlace)
     }
   }, [searchPlace])
-
   return (
     <>
       <NavbarStyle.Nav>
@@ -73,11 +95,11 @@ export default function AppNavbar({ searchPlace, setSearchPlace, restaurantsResu
           <NavbarStyle.ContainerMoreOptions onClick={toggleProfileMenu}>
             <GrMenu />
             <AvatarSVG />
-            {isOpen ? <ProfileMenu /> : ''}
+            {isOpen && widthSizeScreen >= 768 ? <ProfileMenu /> : ''}
           </NavbarStyle.ContainerMoreOptions>
         </NavbarStyle.ContainerNav>
       </NavbarStyle.Nav>
-      <ProfileMenu />
+      {isOpen && widthSizeScreen <= 768 ? <ProfileMenu /> : ''}
     </>
   )
 }
