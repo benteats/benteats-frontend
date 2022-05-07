@@ -99,7 +99,9 @@ export const FormContainer = styled('div')`
   }
 `
 
-export const Button = styled('a')`
+export const Button = styled('button')`
+  border: none;
+  outline: none;
   font-size: ${fontSize.lgText};
   display: inline-block;
   letter-spacing: 0.25px;

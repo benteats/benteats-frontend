@@ -48,7 +48,8 @@ export default function Login() {
     }
   }
 
-  const handleLogin = () => {
+  function handleLogin(e) {
+    e.preventDefault();
     postLogin()
   }
 
