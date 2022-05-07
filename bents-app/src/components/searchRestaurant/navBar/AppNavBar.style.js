@@ -76,6 +76,7 @@ export const ContainerMoreOptions = styled('div')`
   height: 45px;
   width: 80px;
   padding: 0 5px 0 12px;
+  gap: 0.5rem;
   svg {
     width: 2.25em;
     height: auto;
