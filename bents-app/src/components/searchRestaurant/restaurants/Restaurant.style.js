@@ -7,7 +7,7 @@ import {
 import styled from '@emotion/styled'
 
 export const Container = styled('div')`
-  padding: 75px 1em 1em 1em;
+  padding: 80px 1em 1em 1em;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -69,11 +69,13 @@ export const ContainerTitle = styled('div')`
 `
 
 export const Title = styled('h1')`
+  font-family: 'Inter', sans-serif;
   font-size: ${fontSize.dfSubTitle} !important;
   color: ${paletteColors.primaryText};
 `
 
 export const Address = styled('span')`
+  font-family: 'Inter', sans-serif;
   font-size: ${fontSize.smSubText};
   font-weight: 600;
   color: ${paletteColors.gray};
