@@ -9,23 +9,26 @@ import styled from '@emotion/styled'
 export const resultRestaurant = styled('span')`
   font-family: 'Poppins', sans-serif;
   font-size: ${fontSize.smText};
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.25px;
-  color: ${paletteColors.gray};
+  color: ${paletteColors.black};
 `
 
 export const filterButton = styled('button')`
-  font-family: 'Poppins', sans-serif;
+  transition: ease all 100ms;
   font-size: ${fontSize.smSubText};
-  font-weight: 500;
+  font-weight: 400;
   background: ${paletteColors.white};
-  border: 2px solid ${paletteColors.grayBorder};
-  border-radius: 9px;
+  border: 1px solid ${paletteColors.grayBorder};
+  border-radius: ${borderRadius.checkboxIcon};
   outline: none;
   cursor: pointer;
-  color: ${paletteColors.gray};
+  color: ${paletteColors.black};
   width: fit-content;
-  padding: 3px 10px;
+  padding: 8px 15px;
+  &:hover {
+    border: 1px solid ${paletteColors.black};
+  }
 `
 
 export const ContainerButton = styled('div')`
