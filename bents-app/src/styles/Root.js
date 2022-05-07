@@ -14,6 +14,7 @@ export const paletteColors = {
   darkBlue: '#2C2BCA',
   spanError: '#DE071C',
   gray: '#6B7280',
+  defaultBorder: '#DDDDDD',
   grayBorder: '#C4C4C4',
   lightGrayBorder: '#E5E7EB'
 }
