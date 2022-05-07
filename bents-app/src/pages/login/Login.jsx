@@ -35,7 +35,7 @@ export default function Login() {
         formLogin
       )
       localStorage.setItem("idUser", response.data)
-      navigate('/searchRestaurant')
+      navigate('/restaurantes')
     } catch (e) {
       console.error('error postUser =>', e)
       setErrorPostUser('Houve um erro! Verifique os campos preenchidos!')
@@ -53,16 +53,16 @@ export default function Login() {
   }
 
   useEffect(() => {
-    if(localStorage.idUser){
+    if (localStorage.idUser) {
       authUser()
     }
   });
 
-  async function authUser(){
+  async function authUser() {
     try {
       const response = await axios.get(`http://localhost:8080/users/authenticateSession/${localStorage.idUser}`)
-      if(response.data){
-        navigate('/searchRestaurant')
+      if (response.data) {
+        navigate('/restaurantes')
       }
     } catch (e) {
       console.error('error authUser =>', e)
@@ -77,7 +77,7 @@ export default function Login() {
           <CoupleSVG />
         </LoginStyle.ContainerSvg>
         <LoginStyle.ContainerText>
-          <Global.Title>Bem Vindo</Global.Title>
+          <Global.Title>Bem-Vindo</Global.Title>
           <Global.Description>
             Entre com seus dados cadastrados!
           </Global.Description>
