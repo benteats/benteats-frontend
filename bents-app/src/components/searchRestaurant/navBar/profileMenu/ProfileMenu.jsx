@@ -17,13 +17,16 @@ export default function ProfileMenu() {
   }
   return (
     <>
-      <ProfileMenuStyle.MenuWrapper>
+      <ProfileMenuStyle.MenuWrapperMobile>
         <ul>
+          <li>
+            <a>Configurações</a>
+          </li>
           <li>
             <a onClick={logOff}>Sair da Conta</a>
           </li>
         </ul>
-      </ProfileMenuStyle.MenuWrapper>
+      </ProfileMenuStyle.MenuWrapperMobile>
     </>
   )
 }
