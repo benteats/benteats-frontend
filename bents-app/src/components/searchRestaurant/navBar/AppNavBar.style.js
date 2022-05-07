@@ -22,7 +22,7 @@ export const Nav = styled.nav`
   font-size: ${fontSize.smText};
   z-index: 5;
   top: 0;
-  height: 65px;
+  height: 70px;
   padding: 0 50px;
   width: 100%;
   display: flex;
@@ -47,17 +47,18 @@ export const ContainerInput = styled('div')`
   align-items: center;
   justify-content: space-between;
   padding: 0 0.5rem;
-  background-color: ${paletteColors.iptBackground};
-  border: none;
-  border-radius: ${borderRadius.globalBtn};
-  height: 2.5em;
+  background: ${paletteColors.white};
+  border-radius: ${borderRadius.checkboxIcon};
+  height: 45px;
   max-width: 50vh;
   width: 100%;
+  border: 1px solid ${paletteColors.defaultBorder};
+  box-shadow: rgb(0 0 0 / 9%) 0px 1px 2px, rgb(0 0 0 / 6%) 0px 0px 2px;
   svg {
     cursor: pointer;
-    padding: 4px;
-    width: 25px;
-    background-color: ${paletteColors.primary};
+    padding: 6px;
+    width: 2.25em;
+    background: ${paletteColors.primary};
     color: ${paletteColors.white};
     border-radius: ${borderRadius.btn};
     height: auto;
@@ -69,17 +70,17 @@ export const ContainerMoreOptions = styled('div')`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${paletteColors.white};
-  border: 1px solid ${paletteColors.iptBackground};
+  background: ${paletteColors.white};
+  border: 1px solid ${paletteColors.defaultBorder};
   border-radius: 27pt;
-  height: 2.5em;
-  width: 5em;
+  height: 45px;
+  width: 80px;
   padding: 0 5px 0 12px;
   svg {
-    width: 20px;
+    width: 2.25em;
     height: auto;
     &:nth-of-type(1) {
-      width: 18px;
+      width: 1.35em;
     }
   }
 `
@@ -87,18 +88,21 @@ export const ContainerMoreOptions = styled('div')`
 export const Input = styled('input')`
   font-family: 'Inter', sans-serif;
   font-size: ${fontSize.smText};
-  font-weight: 500;
+  font-weight: 100;
   border: none;
-  background-color: ${paletteColors.iptBackground};
-  height: 1.9em;
+  background: ${paletteColors.white};
+  height: 35px;
   width: 100%;
   color: ${paletteColors.primaryText};
   padding: 0 10px 0 15px;
   outline: none;
   &::placeholder {
-    font-size: ${fontSize.smText};
+    color: ${paletteColors.secondaryText};
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400 !important;
+    font-size: 13px;
+    letter-spacing: 0.35px;
     font-weight: 500;
-    opacity: 0.7;
   }
 `
 
@@ -111,7 +115,7 @@ export const Logo = styled('a')`
   cursor: pointer;
   svg {
     color: ${paletteColors.primary};
-    height: 2.5em;
+    height: 45px;
     width: 10em;
   }
   @media screen and (max-width: 768px) {
@@ -130,7 +134,7 @@ export const SuggestionWrapper = styled('div')`
   display: flex;
   flex-direction: column;
   gap: 1.5em 0;
-  border: 1px solid ${paletteColors.lightGrayBorder};
+  border: 1px solid ${paletteColors.defaultBorder};
 `
 
 export const SuggestionContainer = styled('div')`
