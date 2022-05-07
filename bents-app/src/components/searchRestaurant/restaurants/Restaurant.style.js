@@ -63,8 +63,8 @@ export const ContainerTitle = styled('div')`
   justify-content: space-between;
   padding-bottom: 0.25rem;
   @media screen and (max-width: 768px) {
-    justify-content: space-between;
-    gap: 4em;
+    flex-direction: column;
+    gap: .5rem;
   }
 `
 
