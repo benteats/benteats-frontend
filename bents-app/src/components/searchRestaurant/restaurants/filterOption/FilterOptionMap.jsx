@@ -9,6 +9,6 @@ export const filterOptions = [
     value: 'A-Z',
   },
   {
-    value: 'Filtros',
+    value: 'Distância',
   }
 ]
