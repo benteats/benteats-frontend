@@ -1,37 +1,11 @@
-package sptech.bentscadastro.restaurant.entity;
+package sptech.bentscadastro.restaurant.form;
 
-import sptech.bentscadastro.user.entity.User;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.Optional;
-
-@Entity
-public class Restaurant {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idRestaurant;
-
-    @NotNull
+public class RestaurantUpdateForm {
     private String foodType;
-    private String priceAverage;
-    @NotNull
+    private Double priceAverage;
     private String openingTime;
-    @NotNull
     private String closingTime;
-    @NotNull
     private String description;
-    @ManyToOne
-    private User user;
-
-    public Integer getIdRestaurant() {
-        return idRestaurant;
-    }
-
-    public void setIdRestaurant(Integer idRestaurant) {
-        this.idRestaurant = idRestaurant;
-    }
 
     public String getFoodType() {
         return foodType;
@@ -41,11 +15,11 @@ public class Restaurant {
         this.foodType = foodType;
     }
 
-    public String getPriceAverage() {
+    public Double getPriceAverage() {
         return priceAverage;
     }
 
-    public void setPriceAverage(String priceAverage) {
+    public void setPriceAverage(Double priceAverage) {
         this.priceAverage = priceAverage;
     }
 
@@ -71,13 +45,5 @@ public class Restaurant {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }
