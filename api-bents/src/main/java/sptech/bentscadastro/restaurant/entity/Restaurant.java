@@ -4,6 +4,7 @@ import sptech.bentscadastro.user.entity.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
 @Entity
 public class Restaurant {
@@ -22,7 +23,6 @@ public class Restaurant {
     @NotNull
     private String description;
     @ManyToOne
-    @NotNull
     private User user;
 
     public Integer getIdRestaurant() {
