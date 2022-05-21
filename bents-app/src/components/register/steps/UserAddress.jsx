@@ -77,7 +77,7 @@ export default function UserAddress({ formData, setFormData, setPage, userType }
 
   async function postUser() {
     try {
-      await axios.post('http://localhost:8080/users', formData)
+      await axios.post('http://benteats.azurewebsites.net/users', formData)
       setPage(3)
     } catch (e) {
       console.error('error postUser =>', e)
