@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c20615fd-0a6c-42a3-857a-6ffa6daa84c7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/api-bents/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-bents/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-bents/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/.eslintignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/dist/assets/avatar.38ecf313.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/dist/assets/couple.9b432aef.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/dist/assets/eating.69d1d8c4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/dist/assets/first-step.3b1db542.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/dist/assets/hero.34bdc4d2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/dist/assets/index.bb74842e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/dist/assets/index.d7b5124c.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/dist/assets/logo.9a6ec2ef.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/dist/assets/mapbox-gl.e64ed0f7.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/dist/assets/second-step.3479d3e9.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/dist/assets/solution.df623278.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/dist/assets/thrid-step.dc3687f9.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/dist/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/prettier.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/App.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/assets/avatar.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/assets/bents-mini.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/assets/bents.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/assets/couple.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/assets/eating.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/assets/first-step.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/assets/hero.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/assets/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/assets/not-found.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/assets/second-step.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/assets/solution.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/assets/thrid-step.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/benefits/Benefits.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/benefits/Benefits.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/benefits/BenefitsMap.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/footer/Footer.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/footer/Footer.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/hero/Hero.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/hero/Hero.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/navbar/Navbar.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/navbar/Navbar.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/navbar/NavbarMap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/opinion/Opinion.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/opinion/Opinion.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/solution/Solution.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/solution/Solution.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/solution/SolutionMap.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/steps/Steps.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/steps/Steps.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/home/steps/StepsMap.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/login/header/Header.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/login/header/Header.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/login/header/HeaderStyle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/register/steps/CreatedAccount.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/register/steps/Steps.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/register/steps/StepsMap.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/register/steps/UserAddress.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/register/steps/UserData.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/register/steps/UserType.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/restaurant/restaurantPhoto/RestaurantPhoto.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/restaurant/restaurantPhoto/RestaurantPhoto.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/searchRestaurant/map/Map.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/searchRestaurant/navBar/AppNavBar.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/searchRestaurant/navBar/AppNavBar.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/searchRestaurant/navBar/profileMenu/ProfileMenu.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/searchRestaurant/navBar/profileMenu/ProfileMenu.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/searchRestaurant/restaurants/Restaurant.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/searchRestaurant/restaurants/Restaurants.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/searchRestaurant/restaurants/filterOption/FilterOption.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/searchRestaurant/restaurants/filterOption/FilterOption.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/searchRestaurant/restaurants/filterOption/FilterOptionMap.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/searchRestaurant/restaurants/restaurant/Restaurant.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/searchRestaurant/restaurants/restaurantItem/RestaurantItem.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/searchRestaurant/restaurants/restaurantNotFound/RestaurantNotFound.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/components/searchRestaurant/restaurants/restaurantNotFound/RestaurantNotFound.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/data/config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/main.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/pages/home/Home.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/pages/login/Login.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/pages/login/Login.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/pages/notFound/NotFound.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/pages/notFound/NotFound.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/pages/register/Register.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/pages/register/Register.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/pages/register/RegisterMap.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/pages/restaurant/Restaurant.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/pages/searchRestaurant/SearchRestaurant.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/pages/searchRestaurant/SearchRestaurant.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/styles/Global.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/styles/Root.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/styles/form/Form.style.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/src/utils/searchInput.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/vite.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bents-app/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/DerBdAtualizado.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/ModelBD.mwb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Regras do banco.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/bents-database-v2.mwb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/script_criacao_banco_v1.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagramas/busca.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentacao/Apresentacao_Projeto_BentEats.pptm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentacao/HLD-LLD/fluxo_hld_lld.odp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentacao/HLD-LLD/hld.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentacao/HLD-LLD/lld.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentacao/JSON_Restaurant.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentacao/Planilha - Gantt.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentacao/Product-Backlog/PBC-Product-Backlog.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prototipo/Landing Page.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prototipo/Login-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prototipo/Login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prototipo/Registro Step 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prototipo/Registro Step 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prototipo/Registro Step 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prototipo/logotipo/Branding/LOGO_BRANDING_AI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prototipo/logotipo/logo_svg.svg" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="29SLD7tL0nMBkOFBfeHFYooiLE3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "spring.configuration.checksum": "9aa05461fb77ba37df574d9785763cd1"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="ApiBentsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="bents-cadastro" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="sptech.bentscadastro.ApiBentsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c20615fd-0a6c-42a3-857a-6ffa6daa84c7" name="Changes" comment="" />
+      <created>1653101420630</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653101420630</updated>
+      <workItem from="1653101425950" duration="99000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
