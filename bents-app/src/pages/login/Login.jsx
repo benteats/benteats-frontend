@@ -38,7 +38,6 @@ export default function Login() {
       navigate('/restaurantes')
     } catch (e) {
       console.error('error postUser =>', e)
-      setErrorPostUser('Houve um erro! Verifique os campos preenchidos!')
       setErrorPostUser(
         <>
           <MdOutlineError />

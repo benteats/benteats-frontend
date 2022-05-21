@@ -29,7 +29,7 @@ export default function UserData({ formData, setFormData, setPage }) {
   const validateFormStep = values => {
     let errors = { name: '', phone: '', email: '', password: '' }
     const defaultMessage = 'Campo obrigatório'
-    const regexName = /^(?=.{2,50}$)[a-zA-Z'.]+(?:\s[a-zA-Z'.]+)*$/
+    const regexName = /^(?=.{2,50}$)[a-zA-ZZÀ-ú'.]+(?:\s[a-zA-ZZÀ-ú'.]+)*$/
     const regexPhone = /^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$/
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i
     const regexPassword = /^(?=.*[0-9]{3})(?=.*[A-z]{1})[A-z0-9]{6,}$/

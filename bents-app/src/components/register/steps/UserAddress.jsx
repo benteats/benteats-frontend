@@ -2,6 +2,7 @@ import { useState } from 'react'
 import * as FormStyle from '../../../styles/form/Form.style'
 import * as StepsStyle from './Steps.style'
 import { userAddressItems } from './StepsMap'
+import { MdOutlineError } from 'react-icons/md'
 import axios from 'axios'
 
 export default function UserAddress({ formData, setFormData, setPage, userType }) {
@@ -67,7 +68,8 @@ export default function UserAddress({ formData, setFormData, setPage, userType }
     }
 
     if (Object.values(errors).every(o => o === '')) {
-      if(userType == 'user'){
+      console.log(formData)
+      if(userType === 'user'){
         return postUser()
       }
       return postRestaurant();
@@ -77,21 +79,29 @@ export default function UserAddress({ formData, setFormData, setPage, userType }
 
   async function postUser() {
     try {
-      await axios.post('http://benteats.azurewebsites.net/users', formData)
+      await axios.post('http://localhost:8080/users', {...formData, userType: 'user'})
       setPage(3)
     } catch (e) {
       console.error('error postUser =>', e)
-      setErrorPostUser('Houve um erro! Verifique os campos preenchidos!')
+      setErrorPostUser(
+        <>
+          <MdOutlineError /> Houve um erro! Verifique os campos preenchidos!
+        </>
+      )
     }
   }
 
   async function postRestaurant() {
     try {
-      await axios.post('http://localhost:8080/restaurants', formData)
+      await axios.post('http://localhost:8080/restaurants', {...formData, userType: 'restaurant'})
       setPage(3)
     } catch (e) {
       console.error('error postRestaurant =>', e)
-      setErrorPostUser('Houve um erro! Verifique os campos preenchidos!')
+      setErrorPostUser(
+        <>
+          <MdOutlineError /> Houve um erro! Verifique os campos preenchidos!
+        </>
+      )
     }
   }
 
@@ -124,8 +134,8 @@ export default function UserAddress({ formData, setFormData, setPage, userType }
               </StepsStyle.ContainerInput>
             )
           })}
-          <FormStyle.ErrorMessage>{errorPostUser}</FormStyle.ErrorMessage>
         </StepsStyle.ContainerForm>
+        <FormStyle.ErrorMessageLogin>{errorPostUser}</FormStyle.ErrorMessageLogin>
         <StepsStyle.ContainerButton>
           <FormStyle.PrevButton
             type="button"
