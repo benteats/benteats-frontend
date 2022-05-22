@@ -12,7 +12,6 @@ import { URL_AZURE } from '../../constants/http.azure.request'
 import axios from 'axios'
 
 export default function Login() {
-  console.log(URL_AZURE)
   let navigate = useNavigate()
   const [errorPostUser, setErrorPostUser] = useState(null)
   const [formLogin, setFormLogin] = useState({

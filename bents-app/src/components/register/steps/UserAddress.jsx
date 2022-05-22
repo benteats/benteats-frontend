@@ -69,7 +69,6 @@ export default function UserAddress({ formData, setFormData, setPage, userType }
     }
 
     if (Object.values(errors).every(o => o === '')) {
-      console.log(formData)
       if(userType === 'user'){
         return postUser()
       }
