@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import * as ProfileMenuStyle from './ProfileMenu.style'
-import { URL_AZURE } from '../../../constants/http.azure.request'
+import { URL_AZURE } from '../../../../constants/http.azure.request'
 import axios from 'axios'
 
 export default function ProfileMenu() {
