@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import * as ProfileMenuStyle from './ProfileMenu.style'
+import { URL_AZURE } from '../../../constants/http.azure.request'
 import axios from 'axios'
 
 export default function ProfileMenu() {
@@ -7,7 +8,7 @@ export default function ProfileMenu() {
   async function logOff() {
     try {
       await axios.delete(
-        `http://localhost:8080/users/logOffUser/${localStorage.idUser}`
+        `${URL_AZURE}/users/logOffUser/${localStorage.idUser}`
       )
       localStorage.setItem("idUser", '')
       navigate('/login')

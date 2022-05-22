@@ -5,6 +5,7 @@ import AppNavbar from '../../components/searchRestaurant/navBar/AppNavBar'
 import Restaurants from '../../components/searchRestaurant/restaurants/Restaurants'
 import RestaurantNotFound from '../../components/searchRestaurant/restaurants/restaurantNotFound/RestaurantNotFound'
 import * as SearchStyle from './SearchRestaurant.style'
+import { URL_AZURE } from '../../constants/http.azure.request'
 import axios from 'axios'
 
 export default function SearchRestaurant() {
@@ -19,7 +20,7 @@ export default function SearchRestaurant() {
   async function authUser() {
     try {
       const response = await axios.get(
-        `http://localhost:8080/users/authenticateSession/${localStorage.idUser}`
+        `${URL_AZURE}/users/authenticateSession/${localStorage.idUser}`
       )
       if (!response.data) {
         navigate('/login')
@@ -31,14 +32,11 @@ export default function SearchRestaurant() {
   }
 
   async function getRestaurantByCoordinates(latitude, longitude) {
-    console.log('getRestaurantByCoordinates')
     try {
       const response = await axios.get(
-        `http://localhost:8080/restaurants/getRestaurantByCoordinates/${latitude}/${longitude}`
+        `${URL_AZURE}/restaurants/getRestaurantByCoordinates/${latitude}/${longitude}`
       )
-      console.log('respose => ',response.data)
       setRestaurantsResult(response.data)
-      console.log('restaurantsResult =>',restaurantsResult)
     } catch (e) {
       console.error('error getRestaurantByCoordinates =>', e)
     }
@@ -49,9 +47,9 @@ export default function SearchRestaurant() {
   })
 
   useEffect(() => {
-    authUser()    
-    if (!restaurantsResult) {      
-      getRestaurantByCoordinates(searchPlace.latitude, searchPlace.longitude)      
+    authUser()
+    if (!restaurantsResult) {
+      getRestaurantByCoordinates(searchPlace.latitude, searchPlace.longitude)
     }
   }, [restaurantsResult])
 

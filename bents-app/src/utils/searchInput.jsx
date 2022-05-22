@@ -12,8 +12,8 @@ export const searchInput = initialValue => {
       const response = await fetch(endpoint)
       const results = await response.json()
       setSuggestions(results?.features)
-    } catch (error) {
-      console.log('Error fetching data, ', error)
+    } catch (e) {
+      console.error('error autoComplete =>', e)
     }
   }
 

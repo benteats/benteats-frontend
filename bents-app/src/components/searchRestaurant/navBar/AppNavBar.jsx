@@ -7,6 +7,7 @@ import { GrMenu } from 'react-icons/gr'
 import { searchInput } from '../../../utils/searchInput'
 import * as NavbarStyle from './AppNavBar.style'
 import ProfileMenu from './profileMenu/ProfileMenu'
+import { URL_AZURE } from '../../../constants/http.azure.request'
 import axios from 'axios'
 
 function reizeWindowSize() {
@@ -48,7 +49,7 @@ export default function AppNavbar({
   async function getRestaurantByCoordinates(searchPlace) {
     try {
       const response = await axios.get(
-        `http://localhost:8080/restaurants/getRestaurantByCoordinates/${searchPlace.latitude}/${searchPlace.longitude}`
+        `${URL_AZURE}/restaurants/getRestaurantByCoordinates/${searchPlace.latitude}/${searchPlace.longitude}`
       )
       setRestaurantsResult(response.data)
     } catch (e) {

@@ -8,9 +8,11 @@ import * as FormStyle from '../../styles/form/Form.style'
 import * as LoginStyle from './Login.style'
 import * as Global from '../../styles/Global'
 import { useState, useEffect } from 'react'
+import { URL_AZURE } from '../../constants/http.azure.request'
 import axios from 'axios'
 
 export default function Login() {
+  console.log(URL_AZURE)
   let navigate = useNavigate()
   const [errorPostUser, setErrorPostUser] = useState(null)
   const [formLogin, setFormLogin] = useState({
@@ -31,7 +33,7 @@ export default function Login() {
   async function postLogin() {
     try {
       const response = await axios.post(
-        'http://localhost:8080/users/loginUser',
+        `${URL_AZURE}/users/loginUser`,
         formLogin
       )
       localStorage.setItem("idUser", response.data)
@@ -60,7 +62,7 @@ export default function Login() {
 
   async function authUser() {
     try {
-      const response = await axios.get(`http://localhost:8080/users/authenticateSession/${localStorage.idUser}`)
+      const response = await axios.get(`${URL_AZURE}/users/authenticateSession/${localStorage.idUser}`)
       if (response.data) {
         navigate('/restaurantes')
       }

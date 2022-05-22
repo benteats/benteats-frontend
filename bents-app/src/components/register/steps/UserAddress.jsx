@@ -3,6 +3,7 @@ import * as FormStyle from '../../../styles/form/Form.style'
 import * as StepsStyle from './Steps.style'
 import { userAddressItems } from './StepsMap'
 import { MdOutlineError } from 'react-icons/md'
+import { URL_AZURE } from '../../../constants/http.azure.request'
 import axios from 'axios'
 
 export default function UserAddress({ formData, setFormData, setPage, userType }) {
@@ -79,7 +80,7 @@ export default function UserAddress({ formData, setFormData, setPage, userType }
 
   async function postUser() {
     try {
-      await axios.post('http://localhost:8080/users', {...formData, userType: 'user'})
+      await axios.post(`${URL_AZURE}/users`, {...formData, userType: 'user'})
       setPage(3)
     } catch (e) {
       console.error('error postUser =>', e)
@@ -93,7 +94,7 @@ export default function UserAddress({ formData, setFormData, setPage, userType }
 
   async function postRestaurant() {
     try {
-      await axios.post('http://localhost:8080/restaurants', {...formData, userType: 'restaurant'})
+      await axios.post(`${URL_AZURE}/restaurants`, {...formData, userType: 'restaurant'})
       setPage(3)
     } catch (e) {
       console.error('error postRestaurant =>', e)
