@@ -15,7 +15,7 @@ export default function Login() {
   let navigate = useNavigate()
   const [errorPostUser, setErrorPostUser] = useState(null)
   const [formLogin, setFormLogin] = useState({
-    login: '',
+    email: '',
     password: ''
   })
 
@@ -31,11 +31,7 @@ export default function Login() {
 
   async function postLogin() {
     try {
-      const response = await axios.post(
-        `${URL_AZURE}/users/loginUser`,
-        formLogin
-      )
-      localStorage.setItem("idUser", response.data)
+      const response = await axios.post(`${URL_AZURE}/login`,formLogin);
       navigate('/restaurantes')
     } catch (e) {
       console.error('error postUser =>', e)
@@ -90,9 +86,9 @@ export default function Login() {
               <FormStyle.Input
                 placeholder="Seu telefone ou email"
                 maxLength={50}
-                name="login"
+                name="email"
                 type="text"
-                value={formLogin.login}
+                value={formLogin.email}
                 onChange={handleChange}
               />
             </LoginStyle.FormContainer>

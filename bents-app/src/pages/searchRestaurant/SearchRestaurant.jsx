@@ -17,41 +17,22 @@ export default function SearchRestaurant() {
     zoom: 14
   })
 
-  async function authUser() {
-    try {
-      const response = await axios.get(
-        `${URL_AZURE}/users/authenticateSession/${localStorage.idUser}`
-      )
-      if (!response.data) {
-        navigate('/login')
-      }
-    } catch (e) {
-      console.error('error authUser =>', e)
-      navigate('/login')
-    }
-  }
+  // async function getRestaurantByCoordinates(latitude, longitude) {
+  //   try {
+  //     const response = await axios.get(
+  //       `${URL_AZURE}/restaurants/getRestaurantByCoordinates/${latitude}/${longitude}`
+  //     )
+  //     setRestaurantsResult(response.data)
+  //   } catch (e) {
+  //     console.error('error getRestaurantByCoordinates =>', e)
+  //   }
+  // }
 
-  async function getRestaurantByCoordinates(latitude, longitude) {
-    try {
-      const response = await axios.get(
-        `${URL_AZURE}/restaurants/getRestaurantByCoordinates/${latitude}/${longitude}`
-      )
-      setRestaurantsResult(response.data)
-    } catch (e) {
-      console.error('error getRestaurantByCoordinates =>', e)
-    }
-  }
-
-  useEffect(() => {
-    authUser()
-  })
-
-  useEffect(() => {
-    authUser()
-    if (!restaurantsResult) {
-      getRestaurantByCoordinates(searchPlace.latitude, searchPlace.longitude)
-    }
-  }, [restaurantsResult])
+  // useEffect(() => {
+  //   if (!restaurantsResult) {
+  //     getRestaurantByCoordinates(searchPlace.latitude, searchPlace.longitude)
+  //   }
+  // }, [restaurantsResult])
 
   return (
     <>

@@ -18,7 +18,7 @@ export default function ProfileMenu() {
   }
   return (
     <>
-      <ProfileMenuStyle.MenuWrapperMobile>
+      <ProfileMenuStyle.MenuWrapper>
         <ul>
           <li>
             <a>Configurações</a>
@@ -27,7 +27,7 @@ export default function ProfileMenu() {
             <a onClick={logOff}>Sair da Conta</a>
           </li>
         </ul>
-      </ProfileMenuStyle.MenuWrapperMobile>
+      </ProfileMenuStyle.MenuWrapper>
     </>
   )
 }
