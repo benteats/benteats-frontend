@@ -1,1 +1,1 @@
-export const URL_AZURE = 'http://localhost:8080'
+export const URL_AZURE = 'http://benteats.azurewebsites.net'
