@@ -31,7 +31,7 @@ export default function Login() {
 
   async function postLogin() {
     try {
-      const response = await axios.post(`${URL_AZURE}/login`,formLogin);
+      const response = await axios.post(`${URL_AZURE}/login`, formLogin);
       navigate('/restaurantes')
     } catch (e) {
       console.error('error postUser =>', e)
@@ -47,23 +47,6 @@ export default function Login() {
   function handleLogin(e) {
     e.preventDefault();
     postLogin()
-  }
-
-  useEffect(() => {
-    if (localStorage.idUser) {
-      authUser()
-    }
-  });
-
-  async function authUser() {
-    try {
-      const response = await axios.get(`${URL_AZURE}/users/authenticateSession/${localStorage.idUser}`)
-      if (response.data) {
-        navigate('/restaurantes')
-      }
-    } catch (e) {
-      console.error('error authUser =>', e)
-    }
   }
 
   return (

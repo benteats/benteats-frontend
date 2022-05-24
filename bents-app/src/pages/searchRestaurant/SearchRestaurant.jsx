@@ -17,23 +17,6 @@ export default function SearchRestaurant() {
     zoom: 14
   })
 
-  // async function getRestaurantByCoordinates(latitude, longitude) {
-  //   try {
-  //     const response = await axios.get(
-  //       `${URL_AZURE}/restaurants/getRestaurantByCoordinates/${latitude}/${longitude}`
-  //     )
-  //     setRestaurantsResult(response.data)
-  //   } catch (e) {
-  //     console.error('error getRestaurantByCoordinates =>', e)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   if (!restaurantsResult) {
-  //     getRestaurantByCoordinates(searchPlace.latitude, searchPlace.longitude)
-  //   }
-  // }, [restaurantsResult])
-
   return (
     <>
       <AppNavbar
@@ -43,8 +26,8 @@ export default function SearchRestaurant() {
         setRestaurantsResult={setRestaurantsResult}
       />
       <SearchStyle.Container>
-        <Map searchPlace={searchPlace} restaurantsResult={restaurantsResult}/>
-        {restaurantsResult ? <Restaurants restaurantsResult={restaurantsResult}/> : <RestaurantNotFound />}
+        <Map searchPlace={searchPlace} restaurantsResult={restaurantsResult} />
+        {restaurantsResult ? <Restaurants restaurantsResult={restaurantsResult} /> : <RestaurantNotFound />}
       </SearchStyle.Container>
     </>
   )
