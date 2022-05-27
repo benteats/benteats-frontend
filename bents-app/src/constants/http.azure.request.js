@@ -1,1 +1,1 @@
-export const URL_AZURE = 'http://benteats.azurewebsites.net'
+export const URL_AZURE = 'https://benteats.azurewebsites.net'
