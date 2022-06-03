@@ -2,16 +2,15 @@ import { ReactComponent as CoupleSVG } from '../../assets/couple.svg'
 import { useNavigate } from 'react-router-dom'
 import { css } from '@emotion/react'
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io'
-import { MdOutlineError } from 'react-icons/md'
 import Header from '../../components/login/header/Header'
 import * as FormStyle from '../../styles/form/Form.style'
 import * as LoginStyle from './Login.style'
 import * as Global from '../../styles/Global'
-import { useState, useEffect } from 'react'
-import { URL_AZURE } from '../../constants/http.azure.request'
-import axios from 'axios'
+import { useState, useContext } from 'react'
+import { Context } from '../../context/AuthContext'
 
 export default function Login() {
+  const { authenticated, handleLogin } = useContext(Context);
   let navigate = useNavigate()
   const [errorPostUser, setErrorPostUser] = useState(null)
   const [formLogin, setFormLogin] = useState({
@@ -29,41 +28,11 @@ export default function Login() {
     return setFormLogin({ ...formLogin, [name]: value })
   }
 
-  async function postLogin() {
-    try {
-      const response = await axios.post(`${URL_AZURE}/login`,formLogin);
-      navigate('/restaurantes')
-    } catch (e) {
-      console.error('error postUser =>', e)
-      setErrorPostUser(
-        <>
-          <MdOutlineError />
-          Ops! Algum dos dados estão inválidos.
-        </>
-      )
-    }
-  }
-
-  function handleLogin(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    postLogin()
-  }
-
-  useEffect(() => {
-    if (localStorage.idUser) {
-      authUser()
-    }
-  });
-
-  async function authUser() {
-    try {
-      const response = await axios.get(`${URL_AZURE}/users/authenticateSession/${localStorage.idUser}`)
-      if (response.data) {
-        navigate('/restaurantes')
-      }
-    } catch (e) {
-      console.error('error authUser =>', e)
-    }
+    handleLogin(formLogin, {
+      setErrorPostUser
+    })
   }
 
   return (
@@ -107,7 +76,7 @@ export default function Login() {
                 <IoMdEyeOff size={'1.75em'} onClick={togglePassword} />
               )}
             </LoginStyle.FormContainer>
-            <LoginStyle.Button onClick={handleLogin}>Iniciar</LoginStyle.Button>
+            <LoginStyle.Button type='button' onClick={handleSubmit}>Iniciar</LoginStyle.Button>
             <LoginStyle.Span css={css({ textAlign: 'start' })}>
               Não é membro?{' '}
               <LoginStyle.Link
