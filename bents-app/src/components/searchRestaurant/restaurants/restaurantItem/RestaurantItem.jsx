@@ -14,7 +14,7 @@ export default function RestaurantItem({
   addressNumber,
   description,
   imgUrl
-}) {    
+}) {
   return (
     <>
       <RestaurantStyle.Item>
@@ -28,10 +28,7 @@ export default function RestaurantItem({
             </RestaurantStyle.Title>
             <RestaurantStyle.RateContainer>
               <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaStar />
+              <span>5,0</span>
             </RestaurantStyle.RateContainer>
           </RestaurantStyle.ContainerTitle>
           <RestaurantStyle.Address>
