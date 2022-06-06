@@ -7,8 +7,7 @@ import { GrMenu } from 'react-icons/gr'
 import { searchInput } from '../../../utils/searchInput'
 import * as NavbarStyle from './AppNavBar.style'
 import ProfileMenu from './profileMenu/ProfileMenu'
-import { URL_AZURE } from '../../../constants/http.azure.request'
-import axios from 'axios'
+import { axiosPrivate } from '../../../api/axios'
 
 function reizeWindowSize() {
   const [windowWidthSize, setWindowWidthSize] = useState(undefined)
@@ -48,8 +47,8 @@ export default function AppNavbar({
 
   async function getRestaurantByCoordinates(searchPlace) {
     try {
-      const response = await axios.get(
-        `${URL_AZURE}/restaurants/getRestaurantByCoordinates/${searchPlace.latitude}/${searchPlace.longitude}`
+      const response = await axiosPrivate.get(
+        `/restaurants/getRestaurantByCoordinates/${searchPlace.latitude}/${searchPlace.longitude}`
       )
       setRestaurantsResult(response.data)
     } catch (e) {
@@ -62,6 +61,7 @@ export default function AppNavbar({
       getRestaurantByCoordinates(searchPlace)
     }
   }, [searchPlace])
+
   return (
     <>
       <NavbarStyle.Nav>
@@ -72,7 +72,7 @@ export default function AppNavbar({
           <NavbarStyle.ContainerInput>
             <NavbarStyle.Input placeholder="Qual o seu destino?" {...address} />
             <RiSearchLine />
-            {address.suggestions?.length > 0 && (
+            {address.suggestions?.length > 0 ? (
               <NavbarStyle.SuggestionWrapper>
                 {address.suggestions.map((suggestion, index) => {
                   return (
@@ -91,7 +91,17 @@ export default function AppNavbar({
                   )
                 })}
               </NavbarStyle.SuggestionWrapper>
-            )}
+            ) :
+              (
+                <NavbarStyle.SuggestionWrapper>
+                  <NavbarStyle.SuggestionContainer>
+                    <FaMapMarkerAlt />
+                    <NavbarStyle.Suggestion>
+                      Casa
+                    </NavbarStyle.Suggestion>
+                  </NavbarStyle.SuggestionContainer>
+                </NavbarStyle.SuggestionWrapper>
+              )}
           </NavbarStyle.ContainerInput>
           <NavbarStyle.ContainerMoreOptions onClick={toggleProfileMenu}>
             <GrMenu />
