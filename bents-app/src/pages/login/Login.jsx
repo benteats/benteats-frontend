@@ -6,11 +6,11 @@ import Header from '../../components/login/header/Header'
 import * as FormStyle from '../../styles/form/Form.style'
 import * as LoginStyle from './Login.style'
 import * as Global from '../../styles/Global'
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { Context } from '../../context/AuthContext'
 
 export default function Login() {
-  const { authenticated, handleLogin } = useContext(Context);
+  const { handleLogin } = useContext(Context);
   let navigate = useNavigate()
   const [errorPostUser, setErrorPostUser] = useState(null)
   const [formLogin, setFormLogin] = useState({
@@ -34,6 +34,12 @@ export default function Login() {
       setErrorPostUser
     })
   }
+
+  useEffect(() => {
+    if (localStorage.getItem('token') !== null) {
+      navigate('/restaurantes')
+    }
+  }, [navigate])
 
   return (
     <>
@@ -76,7 +82,7 @@ export default function Login() {
                 <IoMdEyeOff size={'1.75em'} onClick={togglePassword} />
               )}
             </LoginStyle.FormContainer>
-            <LoginStyle.Button type='button' onClick={handleSubmit}>Iniciar</LoginStyle.Button>
+            <LoginStyle.Button onClick={handleSubmit}>Iniciar</LoginStyle.Button>
             <LoginStyle.Span css={css({ textAlign: 'start' })}>
               Não é membro?{' '}
               <LoginStyle.Link
