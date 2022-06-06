@@ -67,3 +67,20 @@ export const Description = styled('p')`
   color: ${paletteColors.secondaryText};
   white-space: pre-line;
 `
+
+export const FilterButton = styled('button')`
+  transition: ease all 100ms;
+  font-size: ${fontSize.smSubText};
+  font-weight: 400;
+  background: ${paletteColors.white};
+  border: 1px solid ${paletteColors.grayBorder};
+  border-radius: ${borderRadius.checkboxIcon};
+  outline: none;
+  cursor: pointer;
+  color: ${paletteColors.black};
+  width: fit-content;
+  padding: 8px 15px;
+  &:hover {
+    border: 1px solid ${paletteColors.black};
+  }
+`
