@@ -5,6 +5,7 @@ import Home from './pages/home/Home'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
 import SearchRestaurant from './pages/searchRestaurant/SearchRestaurant'
+import Restaurant from './pages/restaurant/Restaurant'
 import AuthProvider from './context/AuthContext'
 import history from './history'
 
@@ -43,6 +44,11 @@ export default function App() {
             <Route path="/restaurantes" element={
               <PrivateRoute redirectTo="/login">
                 <SearchRestaurant />
+              </PrivateRoute>
+            } />
+            <Route path="/restaurantes/restaurante" element={
+              <PrivateRoute redirectTo="/login">
+                <Restaurant />
               </PrivateRoute>
             } />
             <Route path="/*" element={<NotFound />} />
