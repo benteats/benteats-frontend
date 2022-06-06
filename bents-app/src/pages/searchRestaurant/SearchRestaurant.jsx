@@ -1,38 +1,18 @@
-import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Map from '../../components/searchRestaurant/map/Map'
 import AppNavbar from '../../components/searchRestaurant/navBar/AppNavBar'
 import Restaurants from '../../components/searchRestaurant/restaurants/Restaurants'
 import RestaurantNotFound from '../../components/searchRestaurant/restaurants/restaurantNotFound/RestaurantNotFound'
 import * as SearchStyle from './SearchRestaurant.style'
-import { URL_AZURE } from '../../constants/http.azure.request'
-import axios from 'axios'
+// import axios from '../../api/axios'
 
 export default function SearchRestaurant() {
-  let navigate = useNavigate()
   const [restaurantsResult, setRestaurantsResult] = useState(null)
   const [searchPlace, setSearchPlace] = useState({
     longitude: -46.661259,
     latitude: -23.557492,
     zoom: 14
   })
-
-  // async function getRestaurantByCoordinates(latitude, longitude) {
-  //   try {
-  //     const response = await axios.get(
-  //       `${URL_AZURE}/restaurants/getRestaurantByCoordinates/${latitude}/${longitude}`
-  //     )
-  //     setRestaurantsResult(response.data)
-  //   } catch (e) {
-  //     console.error('error getRestaurantByCoordinates =>', e)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   if (!restaurantsResult) {
-  //     getRestaurantByCoordinates(searchPlace.latitude, searchPlace.longitude)
-  //   }
-  // }, [restaurantsResult])
 
   return (
     <>
