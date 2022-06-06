@@ -2,19 +2,22 @@ import { paletteColors, borderRadius, fontSize } from '../../../styles/Root'
 import styled from '@emotion/styled'
 
 export const PhotosContent = styled('div')`
+  max-width: 1680px;
   width: 100%;
   height: 50vh;
-  display: grid;
-  grid-template-columns: 55% 45%;
+  display: flex;
   gap: 1em;
-  background: red;
+  @media screen and (max-width: 1080px){
+    grid-template-columns: 45% 55%;
+  }
 `
 
 export const PrincipalPhoto = styled('div')`
   height: 100%;
   width: 100%;
   img{
-    height: 50vh;
+    border-radius: 1.5em 0 0 1.5em;
+    height: 100%;
     width: 100%;
     object-fit: cover;
   }
@@ -24,14 +27,30 @@ export const OtherPhotos = styled('div')`
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-areas: 'a a' 'a a';
-  gap: 1em;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1em;
   div{
-    height: calc(25vh - 1em);
-    img{
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
+    display: grid;
+    grid-gap: 1em;
+    height: 100%;
+    &:nth-of-type(2){
+      div:nth-of-type(1){
+        img{
+          border-radius: 0 1em 0 0;
+        }
+      }
+      div:nth-of-type(2){
+        img{
+          border-radius: 0 0 1em 0;
+        }
+      }
+    }
+    div{
+      img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
     }
   }
 `
