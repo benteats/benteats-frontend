@@ -1,4 +1,5 @@
 import * as FilterOptionStyle from './FilterOption.style'
+import { FilterButton } from '../../../../styles/Global'
 import { filterOptions } from './FilterOptionMap'
 
 export default function FilterOption({ restaurantsResult }) {
@@ -9,9 +10,9 @@ export default function FilterOption({ restaurantsResult }) {
       </FilterOptionStyle.resultRestaurant>
       <FilterOptionStyle.ContainerButton>
         {filterOptions.map((element, item) => (
-          <FilterOptionStyle.filterButton key={item}>
+          <FilterButton key={item}>
             {element.value}
-          </FilterOptionStyle.filterButton>
+          </FilterButton>
         ))}
       </FilterOptionStyle.ContainerButton>
     </>
