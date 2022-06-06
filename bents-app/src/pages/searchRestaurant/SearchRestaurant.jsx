@@ -4,7 +4,6 @@ import AppNavbar from '../../components/searchRestaurant/navBar/AppNavBar'
 import Restaurants from '../../components/searchRestaurant/restaurants/Restaurants'
 import RestaurantNotFound from '../../components/searchRestaurant/restaurants/restaurantNotFound/RestaurantNotFound'
 import * as SearchStyle from './SearchRestaurant.style'
-// import axios from '../../api/axios'
 
 export default function SearchRestaurant() {
   const [restaurantsResult, setRestaurantsResult] = useState(null)
