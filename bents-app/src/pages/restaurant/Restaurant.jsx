@@ -28,12 +28,15 @@ export default function Restaurant() {
   }
 
   useEffect(() => {
-    getRestaurantById()
+    if(Array(restaurantsResult).length <= 1){
+        getRestaurantById()
+      }
   }, [])
 
   return (
     <>
     <AppSimpleNavbar />
+    {restaurantsResult && (
     <RestaurantStyle.Container>
       <RestaurantStyle.Content>
         <RestaurantPhoto />
@@ -98,6 +101,7 @@ export default function Restaurant() {
         </RestaurantStyle.Description>
       </RestaurantStyle.Content>
     </RestaurantStyle.Container>
+    )}
     </>
   )
 }
