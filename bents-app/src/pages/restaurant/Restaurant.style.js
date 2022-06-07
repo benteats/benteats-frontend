@@ -2,17 +2,23 @@ import {
   paletteColors,
   borderRadius,
   fontSize,
-  shadow
+  lineSize,
+  border
 } from '../../styles/Root'
 import styled from '@emotion/styled'
 
 export const Container = styled('div')`
-  padding: 0 40px;
+  padding: calc(70px + 1em) 40px 0 40px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`
+
+export const Content = styled('div')`
+  max-width: 1200px;
+  width: 100%;
 `
 
 export const RestaurantTitle = styled('div')`
@@ -47,7 +53,66 @@ export const RestaurantOptions = styled('div')`
   display: flex;
   gap: .5rem;
   width: 100%;
+  padding: .5rem 0em 1.5em 0em;
+  ${border.dfBottom}
 `
+
 export const RestaurantDetail = styled('div')`
+  padding: 2em 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+`
+
+export const Subtitle = styled('h2')`
+  color: ${paletteColors.primaryText};
+  font-size: ${fontSize.smSubTitle};
+  font-weight: 500;
+`
+
+export const ContainerDetail = styled('div')`
+  display: grid;
+  grid-template-columns: repeat(2, 20em);
+  grid-gap: 1.5em;
+`
+
+export const RestaurantDetailItem = styled('div')`
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  div{
+    svg{
+      font-size: ${fontSize.mdSubTitle};
+      color: ${paletteColors.primary};
+      path{
+        stroke: ${paletteColors.primary};
+      }
+    }
+    &:nth-of-type(2){
+      display: flex;
+      flex-direction: column;
+      h3{
+        color: ${paletteColors.primaryText};
+        font-size: ${fontSize.mdText};
+        font-weight: 600;
+      }
+      span{
+        font-size: ${fontSize.smText};
+        color: ${paletteColors.secondaryText};
+      }
+    }
+  }
+`
+
+export const Description = styled('div')`
+  p{
+    padding-top: 1em;
+    color: ${paletteColors.secondaryText};
+    font-size: ${fontSize.smText};
+    line-height: ${lineSize.mdLine};
+  }
+  ${border.dfTop};
+  ${border.dfBottom};
+  padding: 2em 0;
 `
