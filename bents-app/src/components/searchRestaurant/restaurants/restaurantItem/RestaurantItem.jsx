@@ -18,7 +18,7 @@ export default function RestaurantItem({
 }) {
   return (
     <>
-      <RestaurantStyle.Item onClick={() => {window.open(`/restaurantes/restaurante:${id}`, '_blank')}}>
+      <RestaurantStyle.Item onClick={() => {window.open(`/restaurantes/restaurante/${id}`, '_blank')}}>
         <RestaurantStyle.ContainerImg>
           <RestaurantStyle.Img src={imgUrl} />
         </RestaurantStyle.ContainerImg>
