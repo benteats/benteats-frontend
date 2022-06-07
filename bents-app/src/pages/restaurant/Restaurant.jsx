@@ -28,9 +28,9 @@ export default function Restaurant() {
   }
 
   useEffect(() => {
-    if(Array(restaurantsResult).length <= 1){
-        getRestaurantById()
-      }
+    if(restaurantsResult == null){
+      getRestaurantById()
+    }
   }, [])
 
   return (
