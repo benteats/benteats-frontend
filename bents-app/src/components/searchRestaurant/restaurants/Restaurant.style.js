@@ -88,10 +88,17 @@ export const Desc = styled('p')`
 `
 
 export const RateContainer = styled('div')`
+  display: flex;
+  align-items: center;
   color: ${paletteColors.orange};
-  svg {
+  svg {    
     font-size: ${fontSize.dfSubTitle};
     margin-right: 5px;
+  }
+  span{
+    font-family: 'Inter', sans-serif;
+    font-size: ${fontSize.smText};
+    color: ${paletteColors.secondaryText};
   }
 `
 

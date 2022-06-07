@@ -9,6 +9,7 @@ export default function Restaurants({ restaurantsResult }) {
         <FilterOption restaurantsResult={restaurantsResult} />
         {restaurantsResult.map(
         ({
+          id,
           name,
           address,
           foodType,
@@ -20,6 +21,7 @@ export default function Restaurants({ restaurantsResult }) {
         }) => (
           <RestaurantItem
           key={name}
+          id={id}
           name={name}
           address={address}
           foodType={foodType}

@@ -36,11 +36,21 @@ export const fontSize = {
   dfSubTitle: '1.25em',
   smSubTitle: '1.5em',
   mdSubTitle: '2em',
+  lgSuTitle: '2.5em',
   dfTitle: '4.5em',
   dfDesc: '1.05em'
+}
+
+export const lineSize = {
+  mdLine: '1.75em'
 }
 
 export const shadow = {
   btnShadow: 'box-shadow: 0px 10px 22px -2px rgba(33, 96, 232, 0.3);',
   dfBoxShadow: 'box-shadow: 0px 0px 2px rgba(9, 9, 41, 0.2);'
+}
+
+export const border = {
+  dfTop: `border-top: 1px solid ${paletteColors.lightGrayBorder}`,
+  dfBottom: `border-bottom: 1px solid ${paletteColors.lightGrayBorder}`
 }

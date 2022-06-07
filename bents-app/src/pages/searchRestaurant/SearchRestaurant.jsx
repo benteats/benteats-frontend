@@ -1,15 +1,11 @@
-import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Map from '../../components/searchRestaurant/map/Map'
 import AppNavbar from '../../components/searchRestaurant/navBar/AppNavBar'
 import Restaurants from '../../components/searchRestaurant/restaurants/Restaurants'
 import RestaurantNotFound from '../../components/searchRestaurant/restaurants/restaurantNotFound/RestaurantNotFound'
 import * as SearchStyle from './SearchRestaurant.style'
-import { URL_AZURE } from '../../constants/http.azure.request'
-import axios from 'axios'
 
 export default function SearchRestaurant() {
-  let navigate = useNavigate()
   const [restaurantsResult, setRestaurantsResult] = useState(null)
   const [searchPlace, setSearchPlace] = useState({
     longitude: -46.661259,

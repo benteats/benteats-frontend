@@ -1,21 +1,10 @@
-import { useNavigate } from 'react-router-dom'
 import * as ProfileMenuStyle from './ProfileMenu.style'
-import { URL_AZURE } from '../../../../constants/http.azure.request'
-import axios from 'axios'
+import { Context } from '../../../../context/AuthContext'
+import { useContext } from 'react'
 
 export default function ProfileMenu() {
-  let navigate = useNavigate()
-  async function logOff() {
-    try {
-      await axios.delete(
-        `${URL_AZURE}/users/logOffUser/${localStorage.idUser}`
-      )
-      localStorage.setItem("idUser", '')
-      navigate('/login')
-    } catch (e) {
-      console.error('error logOff =>', e)
-    }
-  }
+  const { handleLogout } = useContext(Context)
+
   return (
     <>
       <ProfileMenuStyle.MenuWrapper>
@@ -24,7 +13,7 @@ export default function ProfileMenu() {
             <a>Configurações</a>
           </li>
           <li>
-            <a onClick={logOff}>Sair da Conta</a>
+            <a onClick={handleLogout}>Sair da Conta</a>
           </li>
         </ul>
       </ProfileMenuStyle.MenuWrapper>
