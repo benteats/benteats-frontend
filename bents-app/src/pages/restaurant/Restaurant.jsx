@@ -39,11 +39,11 @@ export default function Restaurant() {
         <RestaurantPhoto />
         <RestaurantStyle.RestaurantTitle>
           <div>
-            <h2>Abbraccio Cucina Italiano</h2>
+            <h2>{restaurantsResult.user.name}</h2>
             <FaStar />
             <span>5,0</span>
           </div>
-          <span>Rua Olimpíadas, 360 - Vila Olímpia</span>
+          <span>{restaurantsResult.user.address}, {restaurantsResult.user.addressNumber} </span>
         </RestaurantStyle.RestaurantTitle>
         <RestaurantStyle.RestaurantOptions>
           <FilterButton>Informações</FilterButton>
@@ -58,7 +58,7 @@ export default function Restaurant() {
               </div>
               <div>
                 <h3>Tipo de Culinária</h3>
-                <span>Italiana</span>
+                <span>{restaurantsResult.foodType}</span>
               </div>
             </RestaurantStyle.RestaurantDetailItem>
             <RestaurantStyle.RestaurantDetailItem>
@@ -67,7 +67,7 @@ export default function Restaurant() {
               </div>
               <div>
                 <h3>Horário</h3>
-                <span>12:00 - 22:30</span>
+                <span>{restaurantsResult.closingTime}</span>
               </div>
             </RestaurantStyle.RestaurantDetailItem>
             <RestaurantStyle.RestaurantDetailItem>
@@ -76,7 +76,7 @@ export default function Restaurant() {
               </div>
               <div>
                 <h3>Média de Preço</h3>
-                <span>R$ 150 - R$ 300</span>
+                <span>R$ {restaurantsResult.priceAverage}</span>
               </div>
             </RestaurantStyle.RestaurantDetailItem>
             <RestaurantStyle.RestaurantDetailItem>
@@ -85,7 +85,7 @@ export default function Restaurant() {
               </div>
               <div>
                 <h3>Avaliações</h3>
-                <span>+2.535</span>
+                <span>{restaurantsResult.priceAverage}</span>
               </div>
             </RestaurantStyle.RestaurantDetailItem>
           </RestaurantStyle.ContainerDetail>
@@ -94,10 +94,7 @@ export default function Restaurant() {
           <RestaurantStyle.Subtitle>
             Sobre este restaurante
           </RestaurantStyle.Subtitle>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>{restaurantsResult.description}</p>
         </RestaurantStyle.Description>
       </RestaurantStyle.Content>
     </RestaurantStyle.Container>
