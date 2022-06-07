@@ -8,6 +8,21 @@ import SearchRestaurant from './pages/searchRestaurant/SearchRestaurant'
 import Restaurant from './pages/restaurant/Restaurant'
 import AuthProvider from './context/AuthContext'
 import history from './history'
+import ProgressBar from '@badrap/bar-of-progress'
+import { paletteColors } from './styles/Root'
+
+const progress = new ProgressBar({
+  size: 3,
+  color: paletteColors.primary,
+  className: 'z-50',
+  delay: 100
+})
+
+progress.start();
+
+setTimeout(() => {
+  progress.finish();
+}, 1000);
 
 const PrivateRoute = ({ children, redirectTo }) => {
   const isAuthenticated = localStorage.getItem('token') !== null
