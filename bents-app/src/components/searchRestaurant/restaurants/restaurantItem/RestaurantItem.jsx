@@ -6,6 +6,7 @@ import { FiClock } from 'react-icons/fi'
 import { BiChat } from 'react-icons/bi'
 
 export default function RestaurantItem({
+  id,
   name,
   address,
   foodType,
@@ -17,7 +18,7 @@ export default function RestaurantItem({
 }) {
   return (
     <>
-      <RestaurantStyle.Item>
+      <RestaurantStyle.Item onClick={() => {window.open(`/restaurantes/restaurante:${id}`, '_blank')}}>
         <RestaurantStyle.ContainerImg>
           <RestaurantStyle.Img src={imgUrl} />
         </RestaurantStyle.ContainerImg>
