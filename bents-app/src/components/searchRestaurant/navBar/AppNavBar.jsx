@@ -92,16 +92,18 @@ export default function AppNavbar({
                 })}
               </NavbarStyle.SuggestionWrapper>
             ) :
-              (
-                <NavbarStyle.SuggestionWrapper>
-                  <NavbarStyle.SuggestionContainer>
-                    <FaMapMarkerAlt />
-                    <NavbarStyle.Suggestion>
-                      Casa
-                    </NavbarStyle.Suggestion>
-                  </NavbarStyle.SuggestionContainer>
-                </NavbarStyle.SuggestionWrapper>
-              )}
+              ''
+              // (
+              //   <NavbarStyle.SuggestionWrapper>
+              //     <NavbarStyle.SuggestionContainer>
+              //       <FaMapMarkerAlt />
+              //       <NavbarStyle.Suggestion>
+              //         Casa
+              //       </NavbarStyle.Suggestion>
+              //     </NavbarStyle.SuggestionContainer>
+              //   </NavbarStyle.SuggestionWrapper>
+              // )
+            }
           </NavbarStyle.ContainerInput>
           <NavbarStyle.ContainerMoreOptions onClick={toggleProfileMenu}>
             <GrMenu />
