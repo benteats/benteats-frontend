@@ -46,7 +46,7 @@ export default function App() {
                 <SearchRestaurant />
               </PrivateRoute>
             } />
-            <Route path="/restaurantes/restaurante" element={
+            <Route path="/restaurantes/restaurante:id" element={
               <PrivateRoute redirectTo="/login">
                 <Restaurant />
               </PrivateRoute>
