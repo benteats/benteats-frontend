@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import useAuth from './hooks/UseAuth';
+import useAuth from './hooks/useAuth'
 
 export const Context = createContext()
 
