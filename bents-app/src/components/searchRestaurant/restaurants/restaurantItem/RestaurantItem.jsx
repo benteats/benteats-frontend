@@ -4,6 +4,7 @@ import { GrRestaurant } from 'react-icons/gr'
 import { AiOutlineDollarCircle } from 'react-icons/ai'
 import { FiClock } from 'react-icons/fi'
 import { BiChat } from 'react-icons/bi'
+import { useNavigate } from 'react-router-dom'
 
 export default function RestaurantItem({
   id,
@@ -16,9 +17,11 @@ export default function RestaurantItem({
   description,
   imgUrl
 }) {
+  let navigate = useNavigate()
+
   return (
     <>
-      <RestaurantStyle.Item onClick={() => {window.open(`/restaurantes/restaurante/${id}`, '_blank')}}>
+      <RestaurantStyle.Item onClick={() => {navigate(`/restaurantes/restaurante/${id}`)}}>
         <RestaurantStyle.ContainerImg>
           <RestaurantStyle.Img src={imgUrl} />
         </RestaurantStyle.ContainerImg>

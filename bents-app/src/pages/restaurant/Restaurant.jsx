@@ -7,10 +7,9 @@ import { AiOutlineDollarCircle } from 'react-icons/ai'
 import { FiClock } from 'react-icons/fi'
 import { BiChat } from 'react-icons/bi'
 import AppSimpleNavbar from '../../components/searchRestaurant/navBar/AppSimpleNavbar';
-import { axiosPrivate } from '../../api/axios'
+import { api } from '../../api/axios'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
-
 
 export default function Restaurant() {
   const [restaurantsResult, setRestaurantsResult] = useState(null)
@@ -18,7 +17,7 @@ export default function Restaurant() {
 
   async function getRestaurantById() {
     try {
-      const response = await axiosPrivate.get(
+      const response = await api.get(
         `/restaurants/getRestaurantById/${params.id}`
       )
       setRestaurantsResult(response.data)

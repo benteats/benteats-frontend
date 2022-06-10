@@ -1,9 +1,9 @@
 import * as ProfileMenuStyle from './ProfileMenu.style'
-import { Context } from '../../../../context/AuthContext'
+import { AuthContext } from '../../../../context/AuthContext'
 import { useContext } from 'react'
 
 export default function ProfileMenu() {
-  const { handleLogout } = useContext(Context)
+  const { handleLogout } = useContext(AuthContext)
 
   return (
     <>
