@@ -36,7 +36,7 @@ export default function RestaurantItem({
             </RestaurantStyle.RateContainer>
           </RestaurantStyle.ContainerTitle>
           <RestaurantStyle.Address>
-            {address}
+            {address}, {addressNumber}
           </RestaurantStyle.Address>
           <RestaurantStyle.Desc>
             {`${description}`}
