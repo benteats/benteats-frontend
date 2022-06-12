@@ -2,12 +2,12 @@ import * as RestaurantStyle from './RestaurantPhoto.style'
 import { useEffect, useState } from 'react';
 import { api } from '../../../api/axios'
 
-export default function RestaurantPhoto() {
+export default function RestaurantPhoto({params}) {
   const [images, setImages] = useState(null)
   async function getImageByIdRestaurant() {
     try {
       const response = await api.get(
-        `/images/9`
+        `/images/${params.id}`
       )
       setImages(response.data)
     } catch (e) {
