@@ -15,7 +15,7 @@ export default function ProfileMenu() {
             <a onClick={() => {navigate('/preferencias')}}>Preferências</a>
           </li>
           <li>
-            <a onClick={handleLogout}>Sair da Conta</a>
+            <a onClick={handleLogout}>Sair</a>
           </li>
         </ul>
       </ProfileMenuStyle.MenuWrapper>
