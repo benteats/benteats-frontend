@@ -32,7 +32,6 @@ export const FormInput = styled('div')`
   justify-content: space-between;
   align-items: center;
   padding: 1em 0;
-  ${border.dfTop};
   ${border.dfBottom};
 `
 
@@ -44,22 +43,4 @@ export const Field = styled('h2')`
 export const Value = styled('span')`
   font-size: ${fontSize.smText};
   color: ${paletteColors.secondaryText};
-`
-
-export const SaveBtn = styled('button')`
-  margin-top: 2em;
-  transition: ease all 100ms;
-  font-size: ${fontSize.smSubText};
-  font-weight: 400;
-  background: ${paletteColors.primary};
-  border-radius: ${borderRadius.checkboxIcon};
-  border: none;
-  outline: none;
-  cursor: pointer;
-  color: ${paletteColors.white};
-  width: fit-content;
-  padding: 12px 15px;
-  &:hover {
-    opacity: 0.85;
-  }
 `
