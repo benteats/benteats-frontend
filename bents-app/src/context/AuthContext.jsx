@@ -7,7 +7,6 @@ import { api } from '../api/axios'
 export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
-  const [authenticated, setAuthenticated] = useState(false)
   const [userData, setUserData] = useState(null)
 
   useEffect(() => {
@@ -16,7 +15,6 @@ export const AuthProvider = ({ children }) => {
 
       if (storageToken) {
         api.defaults.headers.Authorization = `Bearer ${storageToken}`
-        setAuthenticated(true)
         setUserData(userData)
         console.log('userData', userData)
       }
@@ -28,16 +26,14 @@ export const AuthProvider = ({ children }) => {
 
   const handleLogin = async (formLogin, { setErrorPostUser }) => {
     try {
-      const { data } = await api.post(`/login`, formLogin)
-      const userType = data.substring(0, data.indexOf(' '))
-      const token = data.substring(data.indexOf(' ') + 1)
-
-      localStorage.setItem('token', token)
-      api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-      setAuthenticated(true)
+      let { data } = await api.post(`/login`, formLogin)
+      data = data.split(/[ ]+/)
+      localStorage.setItem('token', data[2])
+      api.defaults.headers.common['Authorization'] = `Bearer ${data[2]}`
       setUserData({
-        userType: userType,
-        token: token
+        idUser: data[0],
+        userType: data[1],
+        token: data[2]
       })
     } catch (e) {
       console.error('error postUser =>', e)
@@ -51,7 +47,6 @@ export const AuthProvider = ({ children }) => {
   }
 
   const handleLogout = () => {
-    setAuthenticated(false)
     setUserData(null)
     localStorage.removeItem('token')
     api.defaults.headers.common['Authorization'] = undefined
@@ -60,7 +55,6 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{
-      authenticated,
       userData,
       handleLogin,
       handleLogout,
