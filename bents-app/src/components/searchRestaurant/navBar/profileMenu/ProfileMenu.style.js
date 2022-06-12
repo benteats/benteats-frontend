@@ -19,6 +19,7 @@ export const MenuWrapper = styled('div')`
     li {
       padding: 0.85em 2em;
       list-style: none;
+      text-align: left;
       a {
         transition: all ease-in 100ms;
         font-size: ${fontSize.smSubText};
