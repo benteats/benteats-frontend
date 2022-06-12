@@ -34,9 +34,9 @@ export default function Restaurant() {
 
   return (
     <>
-    <AppSimpleNavbar />
     {restaurantsResult && (
-    <RestaurantStyle.Container>
+      <RestaurantStyle.Container>
+      <AppSimpleNavbar />
       <RestaurantStyle.Content>
         <RestaurantPhoto />
         <RestaurantStyle.RestaurantTitle>
