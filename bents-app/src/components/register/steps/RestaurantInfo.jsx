@@ -6,7 +6,7 @@ import { MdOutlineError } from 'react-icons/md'
 import { api } from '../../../api/axios'
 import { useEffect } from 'react'
 
-export default function RestaurantInfo({ infoUser, setInfoUser }) {
+export default function RestaurantInfo({ infoUser, setInfoUser, setPage }) {
   useEffect(() => {
     console.log(infoUser)
   }, [])
@@ -59,7 +59,6 @@ export default function RestaurantInfo({ infoUser, setInfoUser }) {
 
   async function registerRestaurant() {
     try {
-      console.log(formData)
       const response = await api.post(`/restaurants/${infoUser.idUser}`, {...formData})
       setInfoUser({ ...infoUser, idRestaurant: response.data })
       setPage(6)

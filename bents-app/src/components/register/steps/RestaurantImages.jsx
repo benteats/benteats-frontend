@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 import DropFileInput from '../../../components/dropFileInput/DropFileInput'
 import axios from 'axios'
 
-export default function RestaurantInfo({ infoUser }) {
+export default function RestaurantInfo({ infoUser, setPage }) {
   useEffect(() => {
     console.log(infoUser)
   }, [])
