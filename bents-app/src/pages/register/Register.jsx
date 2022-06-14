@@ -12,7 +12,7 @@ import RestaurantImages from '../../components/register/steps/RestaurantImages'
 import FinishedRegister from '../../components/register/steps/FinishedRegister'
 
 export default function Register() {
-  const [page, setPage] = useState(7)
+  const [page, setPage] = useState(0)
   const [userType, setUserType] = useState('')
   const [infoUser, setInfoUser] = useState({
     idUser: 0,
