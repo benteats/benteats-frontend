@@ -21,14 +21,14 @@ export default function RestaurantItem({
 
   return (
     <>
-      <RestaurantStyle.Item onClick={() => {navigate(`/restaurantes/restaurante/${id}`)}}>
+      <RestaurantStyle.Item onClick={() => { navigate(`/restaurantes/restaurante/${id}`) }}>
         <RestaurantStyle.ContainerImg>
-          <RestaurantStyle.Img src={imgUrl} />
+          <RestaurantStyle.Img src={`data:image/jpg;base64, ${imgUrl}`} />
         </RestaurantStyle.ContainerImg>
         <RestaurantStyle.Detail>
           <RestaurantStyle.ContainerTitle>
             <RestaurantStyle.Title>
-            {name}
+              {name}
             </RestaurantStyle.Title>
             <RestaurantStyle.RateContainer>
               <FaStar />
