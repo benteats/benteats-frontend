@@ -12,9 +12,8 @@ export default function CreatedAccount() {
         <EatingSVG />
         <RegisterStyle.Title>Restaurante criado com sucesso!</RegisterStyle.Title>
         <RegisterStyle.Description>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s,
+        Parabéns pela criação da conta! Agora já está tudo certo para 
+        você navegar e conhecer as melhores opções gastrônomicas por perto de você.
         </RegisterStyle.Description>
         <FormStyle.Button
           onClick={() => {
