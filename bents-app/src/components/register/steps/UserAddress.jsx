@@ -6,7 +6,7 @@ import { MdOutlineError } from 'react-icons/md'
 import { URL_AZURE } from '../../../constants/http.azure.request'
 import { api } from '../../../api/axios'
 
-export default function UserAddress({ formData, setFormData, setPage, userType }) {
+export default function UserAddress({ formData, setFormData, setPage, userType, infoUser, setInfoUser }) {
   const [errorPostUser, setErrorPostUser] = useState('')
   const [formErrors, setFormErrors] = useState({
     cep: '',
@@ -93,12 +93,11 @@ export default function UserAddress({ formData, setFormData, setPage, userType }
 
   async function postRestaurant() {
     try {
-      await api.post(`/users/registerUser`, {...formData, userType: 'restaurant'})
-      if(formData.userType === 'user'){
-        setPage(3)
-        return;
-      }
-      // Navega para outra tela
+      const response = await api.post(`/users/registerUser`, {...formData, userType: 'restaurant'})
+      console.log(response)
+      setInfoUser({...infoUser, idUser: response.data})
+      setPage(4)
+      return;
     } catch (e) {
       console.error('error postRestaurant =>', e)
       setErrorPostUser(

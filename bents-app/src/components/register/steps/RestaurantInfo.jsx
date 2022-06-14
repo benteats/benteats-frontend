@@ -4,20 +4,26 @@ import * as StepsStyle from './Steps.style'
 import { restaurantItems } from './StepsMap'
 import { MdOutlineError } from 'react-icons/md'
 import { api } from '../../../api/axios'
+import { useEffect } from 'react'
 
-export default function RestaurantInfo({ setPage }) {
+export default function RestaurantInfo({ infoUser, setInfoUser }) {
+  useEffect(() => {
+    console.log(infoUser)
+  }, [])
   const [errorPostUser, setErrorPostUser] = useState('')
   const [formData, setFormData] = useState({
     foodType: '',
     priceAverage: '',
     openingTime: '',
-    closingTime: ''
+    closingTime: '',
+    description: ''
   })
   const [formErrors, setFormErrors] = useState({
     foodType: '',
     priceAverage: '',
     openingTime: '',
-    closingTime: ''
+    closingTime: '',
+    description: ''
   })
 
   const handleChange = e => {
@@ -25,35 +31,37 @@ export default function RestaurantInfo({ setPage }) {
     return setFormData({ ...formData, [name]: value })
   }
 
-  // const validateFormStep = values => {
-  //   let errors = { cep: '', state: '', address: '', addressNumber: '' }
-  //   const defaultMessage = 'Campo obrigatório'
+  const validateFormStep = values => {
+    let errors = { foodType: '', priceAverage: '', openingTime: '', closingTime: '', description: '' }
+    const defaultMessage = 'Campo obrigatório'
 
-  //   if (values.cep.length < 8) {
-  //     errors.cep = defaultMessage
-  //   }
-  //   if (values.state.length < 2) {
-  //     errors.state = defaultMessage
-  //   }
-  //   if (values.address.length < 5) {
-  //     errors.address = defaultMessage
-  //   }
-  //   if (values.addressNumber.length < 1) {
-  //     errors.addressNumber = defaultMessage
-  //   }
+    if (values.foodType.length < 5) {
+      errors.foodType = defaultMessage
+    }
+    if (values.priceAverage.length < 6) {
+      errors.priceAverage = defaultMessage
+    }
+    if (values.openingTime.length < 5) {
+      errors.openingTime = defaultMessage
+    }
+    if (values.closingTime.length < 5) {
+      errors.closingTime = defaultMessage
+    }
+    if (values.description.length < 5) {
+      errors.description = defaultMessage
+    }
 
-  //   if (Object.values(errors).every(o => o === '')) {
-  //     if(userType === 'user'){
-  //       return postUser()
-  //     }
-  //     return postRestaurant();
-  //   }
-  //   return errors
-  // }
+    if (Object.values(errors).every(o => o === '')) {
+      return registerRestaurant();
+    }
+    return errors
+  }
 
-  async function postUser() {
+  async function registerRestaurant() {
     try {
-      await api.post(`/users/registerUser`)
+      console.log(formData)
+      const response = await api.post(`/restaurants/${infoUser.idUser}`, {...formData})
+      setInfoUser({ ...infoUser, idRestaurant: response.data })
       setPage(6)
     } catch (e) {
       console.error('error postUser =>', e)
@@ -95,6 +103,16 @@ export default function RestaurantInfo({ setPage }) {
             )
           })}
         </StepsStyle.ContainerForm>
+        <StepsStyle.ContainerInput>
+          <FormStyle.Label>Descrição</FormStyle.Label>
+          <FormStyle.TextArea
+            placeholder='Decrição do restaurante'
+            name='description'
+            value={formData.description}
+            onChange={handleChange}
+            rows='5'
+          />
+        </StepsStyle.ContainerInput>
         <FormStyle.ErrorMessageLogin>{errorPostUser}</FormStyle.ErrorMessageLogin>
         <StepsStyle.ContainerButton>
           <FormStyle.Button type="button" onClick={(handleSubmitStep)}>

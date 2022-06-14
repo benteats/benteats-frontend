@@ -8,13 +8,16 @@ import UserType from '../../components/register/steps/UserType'
 import CreatedAccount from '../../components/register/steps/CreatedAccount'
 import CreatedRestaurantAccount from '../../components/register/steps/CreatedRestaurantAccount'
 import RestaurantInfo from '../../components/register/steps/RestaurantInfo'
-// import RestaurantImages from '../../../components/register/steps/RestaurantImages'
+import RestaurantImages from '../../components/register/steps/RestaurantImages'
 // import FinishedRegister from '../../../components/steps/FinishedRegister'
 
 export default function Register() {
-  const [page, setPage] = useState(5)
+  const [page, setPage] = useState(6)
   const [userType, setUserType] = useState('')
-  const [idRestaurant, setIdRestaurant] = useState(0)
+  const [infoUser, setInfoUser] = useState({
+    idUser: 0,
+    idRestaurant: 0
+  })
   const [formData, setFormData] = useState({
     name: '',
     password: '',
@@ -71,34 +74,39 @@ export default function Register() {
         setFormData={setFormData}
         setPage={setPage}
         userType={userType}
+        infoUser={infoUser}
+        setInfoUser={setInfoUser}
         />
       )
     }
     if (page === 3) {
-      return <CreatedAccount />
+      return (
+      <CreatedAccount />
+      )
     }
     if (page === 4) {
       return (
         <CreatedRestaurantAccount
         setPage={setPage}
-        setIdRestaurant={setIdRestaurant}
         />
       )
     }
     if (page === 5) {
       return (
         <RestaurantInfo
+        infoUser={infoUser}
+        setInfoUser={setInfoUser}
+        />
+      )
+    }
+    if (page === 6) {
+      return (
+        <RestaurantImages
+        infoUser={infoUser}
         setPage={setPage}
         />
       )
     }
-    // if (page === 6) {
-    //   return (
-    //     <RestaurantInfo
-    //     setPage={setPage}
-    //     />
-    //   )
-    // }
     // if (page === 7) {
     //   return (
     //     <FinishedRegister />

@@ -3,7 +3,7 @@ import * as FormStyle from '../../../styles/form/Form.style'
 import * as RegisterStyle from '../../../pages/register/Register.style'
 import * as StepsStyle from './Steps.style'
 
-export default function CreatedRestaurantAccount({setPage}) {
+export default function CreatedRestaurantAccount({ setPage }) {
   return (
     <>
       <StepsStyle.ContainerCreatedAccount>
