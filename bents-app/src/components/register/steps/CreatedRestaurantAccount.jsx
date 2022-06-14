@@ -1,4 +1,4 @@
-import { ReactComponent as EatingSVG } from '../../../assets/eating.svg'
+import { ReactComponent as EatingSVG } from '../../../assets/orange-boy.svg'
 import * as FormStyle from '../../../styles/form/Form.style'
 import * as RegisterStyle from '../../../pages/register/Register.style'
 import * as StepsStyle from './Steps.style'
@@ -19,7 +19,7 @@ export default function CreatedRestaurantAccount({ setPage }) {
             setPage(5)
           }}
         >
-          Acessar
+          Continuar
         </FormStyle.Button>
       </StepsStyle.ContainerCreatedAccount>
     </>

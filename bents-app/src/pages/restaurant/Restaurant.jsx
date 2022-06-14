@@ -38,7 +38,7 @@ export default function Restaurant() {
       <RestaurantStyle.Container>
       <AppSimpleNavbar />
       <RestaurantStyle.Content>
-        <RestaurantPhoto params={params} />
+        <RestaurantPhoto params={params.id} />
         <RestaurantStyle.RestaurantTitle>
           <div>
             <h2>{restaurantsResult.user.name}</h2>

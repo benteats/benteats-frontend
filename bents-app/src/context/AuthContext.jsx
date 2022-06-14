@@ -16,7 +16,6 @@ export const AuthProvider = ({ children }) => {
       if (storageToken) {
         api.defaults.headers.Authorization = `Bearer ${storageToken}`
         setUserData(userData)
-        console.log('userData', userData)
       }
 
     }
@@ -30,11 +29,21 @@ export const AuthProvider = ({ children }) => {
       data = data.split(/[ ]+/)
       localStorage.setItem('token', data[2])
       api.defaults.headers.common['Authorization'] = `Bearer ${data[2]}`
-      setUserData({
-        idUser: data[0],
-        userType: data[1],
-        token: data[2]
-      })
+      if(data[1] == 'restaurant'){
+        const response = await api.get(`/restaurants/getIdRestaurantByIdUser/${data[0]}`)
+        setUserData({
+          idUser: data[0],
+          userType: data[1],
+          token: data[2],
+          idRestaurant: response.data
+        })
+      } else {
+        setUserData({
+          idUser: data[0],
+          userType: data[1],
+          token: data[2]
+        })
+      }
     } catch (e) {
       console.error('error postUser =>', e)
       setErrorPostUser(

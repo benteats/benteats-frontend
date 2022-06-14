@@ -7,7 +7,7 @@ export default function RestaurantPhoto({params}) {
   async function getImageByIdRestaurant() {
     try {
       const response = await api.get(
-        `/images/${params.id}`
+        `/images/${params}`
       )
       setImages(response.data)
     } catch (e) {

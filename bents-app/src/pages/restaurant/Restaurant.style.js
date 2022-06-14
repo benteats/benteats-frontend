@@ -116,3 +116,37 @@ export const Description = styled('div')`
   ${border.dfBottom};
   padding: 2em 0;
 `
+
+// input[type="file"] {
+//   display: none;
+// }
+// .custom-file-upload {
+//   border: 1px solid #ccc;
+//   display: inline-block;
+//   padding: 6px 12px;
+//   cursor: pointer;
+// }
+
+export const UploadLabel = styled('label')`
+  margin-left: 4em;
+  transition: ease all 100ms;
+  font-size: ${fontSize.smSubText};
+  font-weight: 400;
+  background: ${paletteColors.primary};
+  border-radius: ${borderRadius.checkboxIcon};
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: ${paletteColors.white};
+  width: fit-content;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  &:hover {
+    opacity: 0.9;
+  }
+  input[type='file']{
+    display: none;
+  }
+`

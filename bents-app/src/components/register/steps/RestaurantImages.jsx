@@ -6,6 +6,8 @@ import { api } from '../../../api/axios'
 import { useEffect } from 'react'
 import DropFileInput from '../../../components/dropFileInput/DropFileInput'
 import axios from 'axios'
+import { URL_AZURE } from '../../../constants/http.azure.request'
+
 
 export default function RestaurantInfo({ infoUser, setPage }) {
   useEffect(() => {
@@ -19,10 +21,10 @@ export default function RestaurantInfo({ infoUser, setPage }) {
           let formData = new FormData()
           formData.append('img', item)
           axios({
-            method: "post",
-            url: `http://localhost:8080/images/addImageInQueue/${infoUser.idRestaurant}`,
+            method: 'post',
+            url: `${URL_AZURE}/images/addImageInQueue/${infoUser.idRestaurant}`,
             data: formData,
-            headers: { Accept: "application/json ,text/plain, */*" },
+            headers: { Accept: 'application/json ,text/plain, */*' },
             });
           })
     }

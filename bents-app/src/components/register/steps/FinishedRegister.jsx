@@ -1,4 +1,4 @@
-import { ReactComponent as EatingSVG } from '../../../assets/eating.svg'
+import { ReactComponent as EatingSVG } from '../../../assets/solution.svg'
 import * as FormStyle from '../../../styles/form/Form.style'
 import * as RegisterStyle from '../../../pages/register/Register.style'
 import * as StepsStyle from './Steps.style'
@@ -10,7 +10,7 @@ export default function CreatedAccount() {
     <>
       <StepsStyle.ContainerCreatedAccount>
         <EatingSVG />
-        <RegisterStyle.Title>Conta criada com sucesso!</RegisterStyle.Title>
+        <RegisterStyle.Title>Restaurante criado com sucesso!</RegisterStyle.Title>
         <RegisterStyle.Description>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
