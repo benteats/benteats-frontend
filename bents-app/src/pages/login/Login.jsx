@@ -97,7 +97,7 @@ export default function Login() {
     if(userData.userType == 'user'){
       return <Navigate to='/restaurantes' />
     } else if(userData.userType == 'restaurant'){
-      return <Navigate to='/meuRestaurante' />
+      return <Navigate to='/restaurante' />
     }
   }
 }

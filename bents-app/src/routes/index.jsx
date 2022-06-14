@@ -6,6 +6,7 @@ import Register from '../pages/register/Register'
 import SearchRestaurant from '../pages/searchRestaurant/SearchRestaurant'
 import Restaurant from '../pages/restaurant/Restaurant'
 import UserProflie from '../pages/user/userProfile/UserProfile'
+import UserRestaurant from '../pages/userRestaurant/UserRestaurant'
 import { PrivateRoute } from './privateRoutes'
 
 export const AppRouter = () => {
@@ -24,6 +25,9 @@ export const AppRouter = () => {
         </Route>
         <Route path="/preferencias" element={<PrivateRoute />}>
           <Route path="/preferencias" element={<UserProflie />} />
+        </Route>
+        <Route path="/restaurante" element={<PrivateRoute />}>
+          <Route path="/restaurante" element={<UserRestaurant />} />
         </Route>
       </Routes>
     </Router>

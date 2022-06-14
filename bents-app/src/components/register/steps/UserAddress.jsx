@@ -79,7 +79,7 @@ export default function UserAddress({ formData, setFormData, setPage, userType }
 
   async function postUser() {
     try {
-      await api.post(`${URL_AZURE}/users/registerUser`, {...formData, userType: 'user'})
+      await api.post(`/users/registerUser`, {...formData, userType: 'user'})
       setPage(3)
     } catch (e) {
       console.error('error postUser =>', e)
@@ -93,8 +93,12 @@ export default function UserAddress({ formData, setFormData, setPage, userType }
 
   async function postRestaurant() {
     try {
-      await api.post(`${URL_AZURE}/users/registerUser`, {...formData, userType: 'restaurant'})
-      setPage(3)
+      await api.post(`/users/registerUser`, {...formData, userType: 'restaurant'})
+      if(formData.userType === 'user'){
+        setPage(3)
+        return;
+      }
+      // Navega para outra tela
     } catch (e) {
       console.error('error postRestaurant =>', e)
       setErrorPostUser(

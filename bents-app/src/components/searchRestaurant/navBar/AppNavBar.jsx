@@ -80,6 +80,7 @@ export default function AppNavbar({
                       <FaMapMarkerAlt />
                       <NavbarStyle.Suggestion
                         onClick={() => {
+                          console.log(suggestion)
                           address.setValue(suggestion.place_name)
                           address.setSuggestions([])
                           handleChange(suggestion.center)
