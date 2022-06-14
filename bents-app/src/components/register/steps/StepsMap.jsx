@@ -91,3 +91,40 @@ export const userAddressItems = [
     inputMode: 'numeric'
   }
 ]
+
+export const restaurantItems = [
+  {
+    label: 'Tipo de Culinária',
+    name: 'foodType',
+    type: 'text',
+    maxLength: 15,
+    placeholder: 'Digite o seu tipo de culinaria',
+    value: 'foodType',
+    inputMode: 'tect'
+  },
+  {
+    label: 'Média de Preço',
+    name: 'priceAverage',
+    type: 'text',
+    maxLength: 20,
+    placeholder: 'Digite a sua média de preço',
+    value: 'priceAverage'
+  },
+  {
+    label: 'Horário de Abertura',
+    name: 'openingTime',
+    type: 'text',
+    maxLength: 5,
+    placeholder: 'Ex: 12:00',
+    value: 'openingTime'
+  },
+  {
+    label: 'Horário de Fechamento',
+    name: 'closingTime',
+    type: 'text',
+    maxLength: 5,
+    placeholder: 'Ex: 18:00',
+    value: 'closingTime',
+  }
+]
+

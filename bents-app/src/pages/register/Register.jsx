@@ -6,10 +6,18 @@ import UserAddress from '../../components/register/steps/UserAddress'
 import UserData from '../../components/register/steps/UserData'
 import UserType from '../../components/register/steps/UserType'
 import CreatedAccount from '../../components/register/steps/CreatedAccount'
+import CreatedRestaurantAccount from '../../components/register/steps/CreatedRestaurantAccount'
+import RestaurantInfo from '../../components/register/steps/RestaurantInfo'
+import RestaurantImages from '../../components/register/steps/RestaurantImages'
+import FinishedRegister from '../../components/register/steps/FinishedRegister'
 
 export default function Register() {
   const [page, setPage] = useState(0)
   const [userType, setUserType] = useState('')
+  const [infoUser, setInfoUser] = useState({
+    idUser: 0,
+    idRestaurant: 0
+  })
   const [formData, setFormData] = useState({
     name: '',
     password: '',
@@ -66,11 +74,44 @@ export default function Register() {
         setFormData={setFormData}
         setPage={setPage}
         userType={userType}
+        infoUser={infoUser}
+        setInfoUser={setInfoUser}
         />
       )
     }
     if (page === 3) {
-      return <CreatedAccount />
+      return (
+      <CreatedAccount />
+      )
+    }
+    if (page === 4) {
+      return (
+        <CreatedRestaurantAccount
+        setPage={setPage}
+        />
+      )
+    }
+    if (page === 5) {
+      return (
+        <RestaurantInfo
+        infoUser={infoUser}
+        setInfoUser={setInfoUser}
+        setPage={setPage}
+        />
+      )
+    }
+    if (page === 6) {
+      return (
+        <RestaurantImages
+        infoUser={infoUser}
+        setPage={setPage}
+        />
+      )
+    }
+    if (page === 7) {
+      return (
+        <FinishedRegister />
+      )
     }
   }
 
@@ -81,11 +122,18 @@ export default function Register() {
         <RegisterStyle.Form>
           <RegisterStyle.Span>{StepDetails[page]}</RegisterStyle.Span>
           <RegisterStyle.ProgressBar
-            style={{ display: page === 3 ? 'none' : '' }}
+            style={{ display: page === 3 || page === 4 || page === 7 ? 'none' : '' }}
           >
             <RegisterStyle.ProgessBarUse
               style={{
-                width: page === 0 ? '33.3%' : page == 1 ? '66.6%' : '100%'
+                width: page === 0 ? '33.3%' : page == 1 ? '66.6%' : '100%',
+                display: page <= 3 ? 'block' : 'none'
+              }}
+            />
+            <RegisterStyle.ProgessBarUse
+              style={{
+                width: page === 5 ? '33.3%' : '100',
+                display: page >= 5 && page <= 6 ? 'block' : 'none'
               }}
             />
           </RegisterStyle.ProgressBar>

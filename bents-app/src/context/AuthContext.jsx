@@ -1,15 +1,75 @@
 import { createContext } from 'react'
-import useAuth from './hooks/useAuth'
+import { useEffect, useState } from 'react'
+import { MdOutlineError } from 'react-icons/md'
+import { Navigate } from 'react-router-dom'
+import { api } from '../api/axios'
 
-export const Context = createContext()
+export const AuthContext = createContext()
 
-export default function AuthProvider({ children }) {
-  const { authenticated, loading, handleLogin, handleLogout } = useAuth();
+export const AuthProvider = ({ children }) => {
+  const [userData, setUserData] = useState(null)
+
+  useEffect(() => {
+    const loadingStoreData = () => {
+      const storageToken = localStorage.getItem('token')
+
+      if (storageToken) {
+        api.defaults.headers.Authorization = `Bearer ${storageToken}`
+        setUserData(userData)
+      }
+
+    }
+    loadingStoreData()
+
+  }, [])
+
+  const handleLogin = async (formLogin, { setErrorPostUser }) => {
+    try {
+      let { data } = await api.post(`/login`, formLogin)
+      data = data.split(/[ ]+/)
+      localStorage.setItem('token', data[2])
+      api.defaults.headers.common['Authorization'] = `Bearer ${data[2]}`
+      if(data[1] == 'restaurant'){
+        const response = await api.get(`/restaurants/getIdRestaurantByIdUser/${data[0]}`)
+        setUserData({
+          idUser: data[0],
+          userType: data[1],
+          token: data[2],
+          idRestaurant: response.data
+        })
+      } else {
+        setUserData({
+          idUser: data[0],
+          userType: data[1],
+          token: data[2]
+        })
+      }
+    } catch (e) {
+      console.error('error postUser =>', e)
+      setErrorPostUser(
+        <>
+          <MdOutlineError />
+          Ops! Algum dos dados estão inválidos.
+        </>
+      )
+    }
+  }
+
+  const handleLogout = () => {
+    setUserData(null)
+    localStorage.removeItem('token')
+    api.defaults.headers.common['Authorization'] = undefined
+    return <Navigate to='/login' />
+  }
 
   return (
-    <Context.Provider value={{ authenticated, loading, handleLogin, handleLogout }} >
+    <AuthContext.Provider value={{
+      userData,
+      handleLogin,
+      handleLogout,
+      signed: !!userData,
+    }} >
       {children}
-    </Context.Provider>
+    </AuthContext.Provider>
   )
 }
-

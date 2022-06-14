@@ -15,6 +15,20 @@ export const Input = styled('input')`
   }
 `
 
+export const TextArea = styled('textarea')`
+  resize: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: ${borderRadius.globalBtn};
+  font-size: ${fontSize.smText};
+  padding: 1.8em 2.5em;
+  background: ${paletteColors.iptBackground};
+  border: none;
+  &::placeholder {
+    color: ${paletteColors.secondaryText};
+  }
+`
+
 export const Label = styled('label')`
   font-size: ${fontSize.smText};
   font-weight: 700;

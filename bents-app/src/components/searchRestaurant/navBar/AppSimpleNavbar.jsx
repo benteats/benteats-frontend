@@ -4,6 +4,7 @@ import { ReactComponent as AvatarSVG } from '../../../assets/avatar.svg'
 import { GrMenu } from 'react-icons/gr'
 import * as NavbarStyle from './AppNavBar.style'
 import ProfileMenu from './profileMenu/ProfileMenu'
+import { useNavigate } from 'react-router-dom'
 
 function reizeWindowSize() {
   const [windowWidthSize, setWindowWidthSize] = useState(undefined)
@@ -24,6 +25,7 @@ function reizeWindowSize() {
 export default function AppSimpleNavbar() {
     const widthSizeScreen = reizeWindowSize()
     const [isOpen, setOpen] = useState(false)
+    const navigate = useNavigate()
     const toggleProfileMenu = () => {
       setOpen(!isOpen)
     }
@@ -32,7 +34,7 @@ export default function AppSimpleNavbar() {
       <>
         <NavbarStyle.Nav>
           <NavbarStyle.ContainerNav>
-            <NavbarStyle.Logo>
+            <NavbarStyle.Logo onClick={() => {navigate(-1)}}>
               <Logo />
             </NavbarStyle.Logo>
             <NavbarStyle.ContainerMoreOptions onClick={toggleProfileMenu}>
