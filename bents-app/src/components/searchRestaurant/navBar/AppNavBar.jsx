@@ -7,7 +7,7 @@ import { GrMenu } from 'react-icons/gr'
 import { searchInput } from '../../../utils/searchInput'
 import * as NavbarStyle from './AppNavBar.style'
 import ProfileMenu from './profileMenu/ProfileMenu'
-import { axiosPrivate } from '../../../api/axios'
+import { api } from '../../../api/axios'
 
 function reizeWindowSize() {
   const [windowWidthSize, setWindowWidthSize] = useState(undefined)
@@ -47,7 +47,7 @@ export default function AppNavbar({
 
   async function getRestaurantByCoordinates(searchPlace) {
     try {
-      const response = await axiosPrivate.get(
+      const response = await api.get(
         `/restaurants/getRestaurantByCoordinates/${searchPlace.latitude}/${searchPlace.longitude}`
       )
       setRestaurantsResult(response.data)
@@ -80,6 +80,7 @@ export default function AppNavbar({
                       <FaMapMarkerAlt />
                       <NavbarStyle.Suggestion
                         onClick={() => {
+                          console.log(suggestion)
                           address.setValue(suggestion.place_name)
                           address.setSuggestions([])
                           handleChange(suggestion.center)

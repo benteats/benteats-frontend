@@ -6,7 +6,7 @@ export const PhotosContent = styled('div')`
   min-height: 400px;
   height: 100%;
   display: flex;
-  gap: 1em;
+  gap: .5rem;
 `
 
 export const PrincipalPhoto = styled('div')`
@@ -25,7 +25,7 @@ export const OtherPhotos = styled('div')`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 20em);
-  grid-gap: 1em;
+  grid-gap: .5rem;
   div{
     height: 100%;
       img{

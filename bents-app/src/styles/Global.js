@@ -84,3 +84,26 @@ export const FilterButton = styled('button')`
     border: 1px solid ${paletteColors.black};
   }
 `
+
+export const UploadLabel = styled('label')`
+  transition: ease all 100ms;
+  font-size: ${fontSize.smSubText};
+  font-weight: 400;
+  background: ${paletteColors.primary};
+  border-radius: ${borderRadius.checkboxIcon};
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: ${paletteColors.white};
+  width: fit-content;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  &:hover {
+    opacity: 0.9;
+  }
+  input[type='file']{
+    display: none;
+  }
+`

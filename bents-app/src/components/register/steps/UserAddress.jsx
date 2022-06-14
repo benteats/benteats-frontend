@@ -4,9 +4,10 @@ import * as StepsStyle from './Steps.style'
 import { userAddressItems } from './StepsMap'
 import { MdOutlineError } from 'react-icons/md'
 import { URL_AZURE } from '../../../constants/http.azure.request'
-import axios, { Axios } from 'axios'
+import { api } from '../../../api/axios'
+import axios from 'axios'
 
-export default function UserAddress({ formData, setFormData, setPage, userType }) {
+export default function UserAddress({ formData, setFormData, setPage, userType, infoUser, setInfoUser }) {
   const [errorPostUser, setErrorPostUser] = useState('')
   const [formErrors, setFormErrors] = useState({
     cep: '',
@@ -93,17 +94,11 @@ export default function UserAddress({ formData, setFormData, setPage, userType }
 
   async function postRestaurant() {
     try {
-      await Axios({
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-         },
-        url: `${URL_AZURE}/users/registerUser`,
-        data: {...formData, userType: 'restaurant'}
-      }).then(function (response) {
-        console.log(response.data);
-      })
-      setPage(3)
+      const response = await axios.post(`${URL_AZURE}/users/registerUser`, {...formData, userType: 'restaurant'})
+      console.log(response)
+      setInfoUser({...infoUser, idUser: response.data})
+      setPage(4)
+      return;
     } catch (e) {
       console.error('error postRestaurant =>', e)
       setErrorPostUser(
