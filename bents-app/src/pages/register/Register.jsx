@@ -9,10 +9,10 @@ import CreatedAccount from '../../components/register/steps/CreatedAccount'
 import CreatedRestaurantAccount from '../../components/register/steps/CreatedRestaurantAccount'
 import RestaurantInfo from '../../components/register/steps/RestaurantInfo'
 import RestaurantImages from '../../components/register/steps/RestaurantImages'
-// import FinishedRegister from '../../../components/steps/FinishedRegister'
+import FinishedRegister from '../../components/register/steps/FinishedRegister'
 
 export default function Register() {
-  const [page, setPage] = useState(6)
+  const [page, setPage] = useState(7)
   const [userType, setUserType] = useState('')
   const [infoUser, setInfoUser] = useState({
     idUser: 0,
@@ -107,11 +107,11 @@ export default function Register() {
         />
       )
     }
-    // if (page === 7) {
-    //   return (
-    //     <FinishedRegister />
-    //   )
-    // }
+    if (page === 7) {
+      return (
+        <FinishedRegister />
+      )
+    }
   }
 
   return (
@@ -121,7 +121,7 @@ export default function Register() {
         <RegisterStyle.Form>
           <RegisterStyle.Span>{StepDetails[page]}</RegisterStyle.Span>
           <RegisterStyle.ProgressBar
-            style={{ display: page === 3 || page === 4 ? 'none' : '' }}
+            style={{ display: page === 3 || page === 4 || page === 7 ? 'none' : '' }}
           >
             <RegisterStyle.ProgessBarUse
               style={{
@@ -132,7 +132,7 @@ export default function Register() {
             <RegisterStyle.ProgessBarUse
               style={{
                 width: page === 5 ? '33.3%' : '100',
-                display: page >= 5 ? 'block' : 'none'
+                display: page >= 5 && page <= 6 ? 'block' : 'none'
               }}
             />
           </RegisterStyle.ProgressBar>
