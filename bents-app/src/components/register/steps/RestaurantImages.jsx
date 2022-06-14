@@ -22,7 +22,7 @@ export default function RestaurantInfo({ infoUser, setPage }) {
           formData.append('img', item)
           axios({
             method: 'post',
-            url: `${URL_AZURE}/images/addImageInQueue/${infoUser.idRestaurant}`,
+            url: `${URL_AZURE}/images/addImageInStack/${infoUser.idRestaurant}`,
             data: formData,
             headers: { Accept: 'application/json ,text/plain, */*' },
             });
@@ -33,7 +33,7 @@ export default function RestaurantInfo({ infoUser, setPage }) {
   const handleSubmitStep = e => {
     e.preventDefault()
     try {
-      api.post('/images/executeImageQueue')
+      api.post('/images/executeImageStack')
       setPage(7)
     } catch (e) {
       console.error('error executeImageQueue =>', e)

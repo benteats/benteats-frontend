@@ -5,6 +5,8 @@ import { restaurantItems } from './StepsMap'
 import { MdOutlineError } from 'react-icons/md'
 import { api } from '../../../api/axios'
 import { useEffect } from 'react'
+import { URL_AZURE } from '../../../constants/http.azure.request'
+import axios from 'axios'
 
 export default function RestaurantInfo({ infoUser, setInfoUser, setPage }) {
   useEffect(() => {
@@ -59,7 +61,7 @@ export default function RestaurantInfo({ infoUser, setInfoUser, setPage }) {
 
   async function registerRestaurant() {
     try {
-      const response = await api.post(`/restaurants/${infoUser.idUser}`, {...formData})
+      const response = await axios.post(`${URL_AZURE}/restaurants/${infoUser.idUser}`, {...formData})
       setInfoUser({ ...infoUser, idRestaurant: response.data })
       setPage(6)
     } catch (e) {

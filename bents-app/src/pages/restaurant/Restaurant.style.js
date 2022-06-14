@@ -117,16 +117,6 @@ export const Description = styled('div')`
   padding: 2em 0;
 `
 
-// input[type="file"] {
-//   display: none;
-// }
-// .custom-file-upload {
-//   border: 1px solid #ccc;
-//   display: inline-block;
-//   padding: 6px 12px;
-//   cursor: pointer;
-// }
-
 export const UploadLabel = styled('label')`
   margin-left: 4em;
   transition: ease all 100ms;
