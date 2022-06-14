@@ -7,16 +7,16 @@ export const UserProfileMap = [
   {
     id: 'email',
     field: 'E-mail',
-    description: 'Nome exibido visível para todos usuários da plataforma.'
+    description: 'E-mail para acesso na plataforma e recebimento de avisos.'
   },
   {
     id: 'phone',
     field: 'Telefone',
-    description: 'Nome exibido visível para todos usuários da plataforma.'
+    description: 'Telefone pessoal para utilizar os recursos do seu smartphone.'
   },
   {
     id: 'password',
     field: 'Senha',
-    description: 'Nome exibido visível para todos usuários da plataforma.'
+    description: 'Senha de acesso para a plataforma.'
   },
 ]
