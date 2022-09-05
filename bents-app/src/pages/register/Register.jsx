@@ -12,7 +12,7 @@ import RestaurantImages from '../../components/register/steps/RestaurantImages'
 import FinishedRegister from '../../components/register/steps/FinishedRegister'
 
 export default function Register() {
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(6)
   const [userType, setUserType] = useState('')
   const [infoUser, setInfoUser] = useState({
     idUser: 0,
@@ -48,70 +48,57 @@ export default function Register() {
     if (page === 0) {
       return (
         <UserType
-        formData={formData}
-        setFormData={setFormData}
-        setPage={setPage}
-        checkboxItems={checkboxItems}
-        setCheckboxItems={setCheckboxItems}
-        userType={userType}
-        setUserType={setUserType}
+          formData={formData}
+          setFormData={setFormData}
+          setPage={setPage}
+          checkboxItems={checkboxItems}
+          setCheckboxItems={setCheckboxItems}
+          userType={userType}
+          setUserType={setUserType}
         />
       )
     }
     if (page === 1) {
       return (
         <UserData
-        formData={formData}
-        setFormData={setFormData}
-        setPage={setPage}
+          formData={formData}
+          setFormData={setFormData}
+          setPage={setPage}
         />
       )
     }
     if (page === 2) {
       return (
         <UserAddress
-        formData={formData}
-        setFormData={setFormData}
-        setPage={setPage}
-        userType={userType}
-        infoUser={infoUser}
-        setInfoUser={setInfoUser}
+          formData={formData}
+          setFormData={setFormData}
+          setPage={setPage}
+          userType={userType}
+          infoUser={infoUser}
+          setInfoUser={setInfoUser}
         />
       )
     }
     if (page === 3) {
-      return (
-      <CreatedAccount />
-      )
+      return <CreatedAccount />
     }
     if (page === 4) {
-      return (
-        <CreatedRestaurantAccount
-        setPage={setPage}
-        />
-      )
+      return <CreatedRestaurantAccount setPage={setPage} />
     }
     if (page === 5) {
       return (
         <RestaurantInfo
-        infoUser={infoUser}
-        setInfoUser={setInfoUser}
-        setPage={setPage}
+          infoUser={infoUser}
+          setInfoUser={setInfoUser}
+          setPage={setPage}
         />
       )
     }
     if (page === 6) {
-      return (
-        <RestaurantImages
-        infoUser={infoUser}
-        setPage={setPage}
-        />
-      )
+      return <RestaurantImages infoUser={infoUser} setPage={setPage} />
     }
     if (page === 7) {
-      return (
-        <FinishedRegister />
-      )
+      return <FinishedRegister />
     }
   }
 
@@ -122,7 +109,9 @@ export default function Register() {
         <RegisterStyle.Form>
           <RegisterStyle.Span>{StepDetails[page]}</RegisterStyle.Span>
           <RegisterStyle.ProgressBar
-            style={{ display: page === 3 || page === 4 || page === 7 ? 'none' : '' }}
+            style={{
+              display: page === 3 || page === 4 || page === 7 ? 'none' : ''
+            }}
           >
             <RegisterStyle.ProgessBarUse
               style={{

@@ -27,80 +27,83 @@ export default function Restaurant() {
   }
 
   useEffect(() => {
-    if(restaurantsResult == null){
+    if (restaurantsResult == null) {
       getRestaurantById()
     }
   }, [])
 
   return (
     <>
-    {restaurantsResult && (
-      <RestaurantStyle.Container>
-      <AppSimpleNavbar />
-      <RestaurantStyle.Content>
-        <RestaurantPhoto params={params.id} />
-        <RestaurantStyle.RestaurantTitle>
-          <div>
-            <h2>{restaurantsResult.user.name}</h2>
-            <FaStar />
-            <span>5,0</span>
-          </div>
-          <span>{restaurantsResult.user.address}, {restaurantsResult.user.addressNumber} </span>
-        </RestaurantStyle.RestaurantTitle>
-        <RestaurantStyle.RestaurantOptions>
-          <FilterButton>Informações</FilterButton>
-          <FilterButton>Cardápio</FilterButton>
-          <FilterButton>Avaliações</FilterButton>
-        </RestaurantStyle.RestaurantOptions>
-        <RestaurantStyle.RestaurantDetail>
-          <RestaurantStyle.ContainerDetail>
-            <RestaurantStyle.RestaurantDetailItem>
+      {restaurantsResult && (
+        <RestaurantStyle.Container>
+          <AppSimpleNavbar />
+          <RestaurantStyle.Content>
+            <RestaurantPhoto params={params.id} />
+            <RestaurantStyle.RestaurantTitle>
               <div>
-                <GrRestaurant />
+                <h2>{restaurantsResult.user.name}</h2>
+                <FaStar />
+                <span>5,0</span>
               </div>
-              <div>
-                <h3>Tipo de Culinária</h3>
-                <span>{restaurantsResult.foodType}</span>
-              </div>
-            </RestaurantStyle.RestaurantDetailItem>
-            <RestaurantStyle.RestaurantDetailItem>
-              <div>
-                <FiClock />
-              </div>
-              <div>
-                <h3>Horário</h3>
-                <span>{restaurantsResult.closingTime}</span>
-              </div>
-            </RestaurantStyle.RestaurantDetailItem>
-            <RestaurantStyle.RestaurantDetailItem>
-              <div>
-                <AiOutlineDollarCircle />
-              </div>
-              <div>
-                <h3>Média de Preço</h3>
-                <span>R$ {restaurantsResult.priceAverage}</span>
-              </div>
-            </RestaurantStyle.RestaurantDetailItem>
-            <RestaurantStyle.RestaurantDetailItem>
-              <div>
-                <BiChat />
-              </div>
-              <div>
-                <h3>Avaliações</h3>
-                <span>{restaurantsResult.priceAverage}</span>
-              </div>
-            </RestaurantStyle.RestaurantDetailItem>
-          </RestaurantStyle.ContainerDetail>
-        </RestaurantStyle.RestaurantDetail>
-        <RestaurantStyle.Description>
-          <RestaurantStyle.Subtitle>
-            Sobre este restaurante
-          </RestaurantStyle.Subtitle>
-          <p>{restaurantsResult.description}</p>
-        </RestaurantStyle.Description>
-      </RestaurantStyle.Content>
-    </RestaurantStyle.Container>
-    )}
+              <span>
+                {restaurantsResult.user.address},{' '}
+                {restaurantsResult.user.addressNumber}{' '}
+              </span>
+            </RestaurantStyle.RestaurantTitle>
+            <RestaurantStyle.RestaurantOptions>
+              <FilterButton>Informações</FilterButton>
+              <FilterButton>Cardápio</FilterButton>
+              <FilterButton>Avaliações</FilterButton>
+            </RestaurantStyle.RestaurantOptions>
+            <RestaurantStyle.RestaurantDetail>
+              <RestaurantStyle.ContainerDetail>
+                <RestaurantStyle.RestaurantDetailItem>
+                  <div>
+                    <GrRestaurant />
+                  </div>
+                  <div>
+                    <h3>Tipo de Culinária</h3>
+                    <span>{restaurantsResult.foodType}</span>
+                  </div>
+                </RestaurantStyle.RestaurantDetailItem>
+                <RestaurantStyle.RestaurantDetailItem>
+                  <div>
+                    <FiClock />
+                  </div>
+                  <div>
+                    <h3>Horário</h3>
+                    <span>{restaurantsResult.closingTime}</span>
+                  </div>
+                </RestaurantStyle.RestaurantDetailItem>
+                <RestaurantStyle.RestaurantDetailItem>
+                  <div>
+                    <AiOutlineDollarCircle />
+                  </div>
+                  <div>
+                    <h3>Média de Preço</h3>
+                    <span>R$ {restaurantsResult.priceAverage}</span>
+                  </div>
+                </RestaurantStyle.RestaurantDetailItem>
+                <RestaurantStyle.RestaurantDetailItem>
+                  <div>
+                    <BiChat />
+                  </div>
+                  <div>
+                    <h3>Avaliações</h3>
+                    <span>{restaurantsResult.priceAverage}</span>
+                  </div>
+                </RestaurantStyle.RestaurantDetailItem>
+              </RestaurantStyle.ContainerDetail>
+            </RestaurantStyle.RestaurantDetail>
+            <RestaurantStyle.Description>
+              <RestaurantStyle.Subtitle>
+                Sobre este restaurante
+              </RestaurantStyle.Subtitle>
+              <p>{restaurantsResult.description}</p>
+            </RestaurantStyle.Description>
+          </RestaurantStyle.Content>
+        </RestaurantStyle.Container>
+      )}
     </>
   )
 }

@@ -8,25 +8,23 @@ import DropFileInput from '../../../components/dropFileInput/DropFileInput'
 import axios from 'axios'
 import { URL_AZURE } from '../../../constants/http.azure.request'
 
-
 export default function RestaurantInfo({ infoUser, setPage }) {
   useEffect(() => {
     console.log(infoUser)
   }, [])
   const [errorPostUser, setErrorPostUser] = useState('')
-  const onFileChange = async (files) => {
-    if(files.length == 5){
-      files.forEach(
-        (item) => {
-          let formData = new FormData()
-          formData.append('img', item)
-          axios({
-            method: 'post',
-            url: `${URL_AZURE}/images/addImageInStack/${infoUser.idRestaurant}`,
-            data: formData,
-            headers: { Accept: 'application/json ,text/plain, */*' },
-            });
-          })
+  const onFileChange = async files => {
+    if (files.length == 5) {
+      files.forEach(item => {
+        let formData = new FormData()
+        formData.append('img', item)
+        axios({
+          method: 'post',
+          url: `${URL_AZURE}/images/addImageInStack/42`,
+          data: formData,
+          headers: { Accept: 'application/json ,text/plain, */*' }
+        })
+      })
     }
   }
 
@@ -48,10 +46,14 @@ export default function RestaurantInfo({ infoUser, setPage }) {
   return (
     <>
       <StepsStyle.Container>
-        <DropFileInput onFileChange={(files) => onFileChange(files)}/>
-        {errorPostUser && (<FormStyle.ErrorMessageLogin>{errorPostUser}</FormStyle.ErrorMessageLogin>)}
+        <DropFileInput onFileChange={files => onFileChange(files)} />
+        {errorPostUser && (
+          <FormStyle.ErrorMessageLogin>
+            {errorPostUser}
+          </FormStyle.ErrorMessageLogin>
+        )}
         <StepsStyle.ContainerButton>
-          <FormStyle.Button type="button" onClick={(handleSubmitStep)}>
+          <FormStyle.Button type="button" onClick={handleSubmitStep}>
             Próximo
           </FormStyle.Button>
         </StepsStyle.ContainerButton>

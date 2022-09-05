@@ -18,7 +18,6 @@ export default function UserRestaurant() {
   const [uploadImage, setUploadImage] = useState(false)
   const { userData } = useContext(AuthContext)
 
-
   async function getRestaurantById() {
     try {
       const response = await api.get(
@@ -30,7 +29,7 @@ export default function UserRestaurant() {
     }
   }
 
-  const onFileChange = async (e) => {
+  const onFileChange = async e => {
     console.log(e.target.files[0])
     const files = e.target.files[0]
     let formData = new FormData()
@@ -44,8 +43,8 @@ export default function UserRestaurant() {
         headers: {
           Authorization: `Bearer ${userData.token}`,
           Accept: 'application/json ,text/plain, */*'
-        },
-      });
+        }
+      })
       setUploadImage(true)
     } catch (e) {
       console.error('error executeImageQueue =>', e)
@@ -71,15 +70,18 @@ export default function UserRestaurant() {
                 <FaStar />
                 <span>5,0</span>
               </div>
-              <span>{restaurantsResult.user.address}, {restaurantsResult.user.addressNumber} </span>
+              <span>
+                {restaurantsResult.user.address},{' '}
+                {restaurantsResult.user.addressNumber}{' '}
+              </span>
             </RestaurantStyle.RestaurantTitle>
-            <RestaurantStyle.RestaurantOptions>
+            {/* <RestaurantStyle.RestaurantOptions>
               <UploadLabel>
-                <input type='file' onChange={onFileChange} />
+                <input type="file" onChange={onFileChange} />
                 <AiOutlineCloudUpload />
                 Subir Cardápio TXT
               </UploadLabel>
-            </RestaurantStyle.RestaurantOptions>
+            </RestaurantStyle.RestaurantOptions> */}
             <RestaurantStyle.RestaurantDetail>
               <RestaurantStyle.ContainerDetail>
                 <RestaurantStyle.RestaurantDetailItem>
@@ -120,12 +122,6 @@ export default function UserRestaurant() {
                 </RestaurantStyle.RestaurantDetailItem>
               </RestaurantStyle.ContainerDetail>
             </RestaurantStyle.RestaurantDetail>
-            <RestaurantStyle.Description>
-              <RestaurantStyle.Subtitle>
-                Sobre este restaurante
-              </RestaurantStyle.Subtitle>
-              <p>{restaurantsResult.description}</p>
-            </RestaurantStyle.Description>
             <RestaurantStyle.Description>
               <RestaurantStyle.Subtitle>
                 Sobre este restaurante

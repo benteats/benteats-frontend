@@ -2,16 +2,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 15px;
+  border: 2px solid #c7d6f1;
+  border-style: dashed;
+  transition: all ease-in 150ms;
 }
 
 .drop-file-input input {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   cursor: pointer;
+  width: 100%;
+  height: 200px;
+  color: transparent;
+}
+
+.drop-file-input input::-webkit-file-upload-button {
+  visibility: hidden;
 }
 
 .drop-file-input:hover,
@@ -20,22 +25,59 @@
 }
 
 .drop-file-input__label {
+  position: absolute;
   text-align: center;
-  color: var(--txt-second-color);
-  font-weight: 600;
-  padding: 10px;
 }
 
 .drop-file-input__label img {
   width: 100px;
 }
 
-.drop-file-preview {
-  margin-top: 30px;
+.drop-file-input__label p {
+  font-size: 14px;
+  font-weight: 400;
 }
 
-.drop-file-preview p {
-  font-weight: 500;
+.drop-file-input__label p:nth-of-type(2) {
+  color: #a5afc1;
+  font-size: 12px;
+  margin-top: 1.5em;
+  white-space: pre-line;
+}
+
+.drop-file-input__label button {
+  border: 1.5px solid #2160e8;
+  background: none;
+  padding: 0.5rem 1em;
+  border-radius: 5px;
+  color: #2160e8;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+  margin-top: 0.25rem;
+}
+
+.ipt-browser-file {
+  border: 1.5px solid #2160e8;
+  background: none;
+  padding: 0.5rem 1em;
+  border-radius: 5px;
+  color: #2160e8;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+  margin-top: 0.25rem;
+  padding: 0.75rem 1.5em 0.75rem 1.5em;
+  height: auto !important;
+  width: 165px !important;
+}
+.ipt-browser-file::before {
+  content: 'Escolha o arquivo';
+  color: #2160e8 !important;
+}
+
+.drop-file-preview {
+  margin-top: 30px;
 }
 
 .drop-file-preview__title {
@@ -44,42 +86,42 @@
 
 .drop-file-preview__item {
   position: relative;
-  display: flex;
   margin-bottom: 10px;
-  background-color: var(--input-bg);
   padding: 15px;
-  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  transition: all ease-in 150ms;
+  border: 1.5px solid #92a1c3;
+  border: 1.5px solid #e2ebff;
+  background: #f7faff;
+}
+
+.drop-file-preview__item:hover {
+  opacity: 0.85;
 }
 
 .drop-file-preview__item img {
-  width: 50px;
+  width: 38px;
   margin-right: 20px;
 }
 
 .drop-file-preview__item__info {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+}
+
+.drop-file-preview__item__info--title {
+  font-size: 14px;
+}
+
+.drop-file-preview__item__info--size {
+  font-size: 14px;
+  font-weight: 400;
+  color: #a5afc1;
 }
 
 .drop-file-preview__item__del {
-  background-color: var(--box-bg);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  box-shadow: var(--box-shadow);
+  font-size: 1.25em;
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.drop-file-preview__item:hover .drop-file-preview__item__del {
-  opacity: 1;
 }
