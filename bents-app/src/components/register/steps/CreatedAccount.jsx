@@ -12,9 +12,8 @@ export default function CreatedAccount() {
         <EatingSVG />
         <RegisterStyle.Title>Conta criada com sucesso!</RegisterStyle.Title>
         <RegisterStyle.Description>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s,
+        Seja bem vindo à BentEats! Tudo certo para que os usuários 
+        conhecam seu comércio e seus produtos usando a nosssa plataforma.
         </RegisterStyle.Description>
         <FormStyle.Button
           onClick={() => {

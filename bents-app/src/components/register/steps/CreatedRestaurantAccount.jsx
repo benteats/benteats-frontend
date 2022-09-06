@@ -10,9 +10,9 @@ export default function CreatedRestaurantAccount({ setPage }) {
         <EatingSVG />
         <RegisterStyle.Title>Falta só um pouco!</RegisterStyle.Title>
         <RegisterStyle.Description>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s,
+        Tudo certo por aqui, seu usuário já está criado! 
+        Só faltam mais alguns detalhes para você contar sobre o seu 
+        comércio para os usuários.
         </RegisterStyle.Description>
         <FormStyle.Button
           onClick={() => {

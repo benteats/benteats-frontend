@@ -22,8 +22,8 @@ export default function SearchRestaurant() {
         setRestaurantsResult={setRestaurantsResult}
       />
       <SearchStyle.Container>
-        <Map searchPlace={searchPlace} restaurantsResult={restaurantsResult}/>
-        {restaurantsResult ? <Restaurants restaurantsResult={restaurantsResult}/> : <RestaurantNotFound />}
+        <Map searchPlace={searchPlace} restaurantsResult={restaurantsResult} />
+        {restaurantsResult ? <Restaurants restaurantsResult={restaurantsResult} /> : <RestaurantNotFound />}
       </SearchStyle.Container>
     </>
   )
