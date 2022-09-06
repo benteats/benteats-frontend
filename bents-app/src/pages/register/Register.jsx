@@ -10,8 +10,14 @@ import CreatedRestaurantAccount from '../../components/register/steps/CreatedRes
 import RestaurantInfo from '../../components/register/steps/RestaurantInfo'
 import RestaurantImages from '../../components/register/steps/RestaurantImages'
 import FinishedRegister from '../../components/register/steps/FinishedRegister'
+import Notify from '../../components/notify/Notify'
 
 export default function Register() {
+  const [formDataNotify, setFormDataNotify] = useState({
+    message: '',
+    visible: false,
+    render: false
+  })
   const [page, setPage] = useState(6)
   const [userType, setUserType] = useState('')
   const [infoUser, setInfoUser] = useState({
@@ -95,7 +101,14 @@ export default function Register() {
       )
     }
     if (page === 6) {
-      return <RestaurantImages infoUser={infoUser} setPage={setPage} />
+      return (
+        <RestaurantImages
+          infoUser={infoUser}
+          setPage={setPage}
+          formDataNotify={formDataNotify}
+          setFormDataNotify={setFormDataNotify}
+        />
+      )
     }
     if (page === 7) {
       return <FinishedRegister />
@@ -104,6 +117,10 @@ export default function Register() {
 
   return (
     <>
+      <Notify
+        formDataNotify={formDataNotify}
+        setFormDataNotify={setFormDataNotify}
+      />
       <Header />
       <RegisterStyle.Container>
         <RegisterStyle.Form>

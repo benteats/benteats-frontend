@@ -1,44 +1,42 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import './DropFileInput.css'
 import { ImageConfig } from '../../config/ImageConfig'
 import { BiTrash } from 'react-icons/bi'
 
-const DropFileInput = props => {
+const DropFileInput = ({ props, formDataNotify, setFormDataNotify }) => {
+  const [reRender, setReRender] = useState(false)
   const wrapperRef = useRef(null)
-  const [fileList, setFileList] = useState([])
+  const [files, setFiles] = useState([])
   const onDragEnter = () => wrapperRef.current.classList.add('dragover')
   const onDragLeave = () => wrapperRef.current.classList.remove('dragover')
   const onDrop = () => wrapperRef.current.classList.remove('dragover')
 
   const onFileDrop = e => {
-    const newFile = e.target.files[0]
-    if (newFile) {
-      const updatedList = [...fileList, newFile]
-      if (validateFileSize(updatedList)) {
-        setFileList(updatedList)
-        props.onFileChange(updatedList)
+    console.log(formDataNotify.message)
+    for (let i = 0; i < e.target.files.length; i++) {
+      if (validateFileSize(e.target.files[i])) {
+        setFiles(prevFiles => [...prevFiles, e.target.files[i]])
       }
-      console.log('aaaa')
     }
   }
 
-  const validateFileSize = list => {
-    let validateFileSize = false
-    list.forEach(element => {
-      console.log(element.size / 10000)
-      element.size / 10000 < 1500
-        ? (validateFileSize = true)
-        : (validateFileSize = false)
+  const validateFileSize = element => {
+    if (element.size / 10000 < 150) {
+      return true
+    }
+    setFormDataNotify({
+      ...formDataNotify,
+      visible: true,
+      message: `O arquivo ${element.name} excede o limite de 15MB`
     })
-    console.log(validateFileSize)
-    return validateFileSize
+    return false
   }
 
   const fileRemove = file => {
-    const updatedList = [...fileList]
-    updatedList.splice(fileList.indexOf(file), 1)
-    setFileList(updatedList)
+    const updatedList = [...files]
+    updatedList.splice(files.indexOf(file), 1)
+    setFiles(updatedList)
     props.onFileChange(updatedList)
   }
 
@@ -46,12 +44,18 @@ const DropFileInput = props => {
     var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
     if (bytes == 0) return '0 Byte'
     var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)))
-    return Math.round(bytes / Math.pow(1000, i), 2) + ' ' + sizes[i]
+    return Math.round(bytes / Math.pow(1000, i), 2) + sizes[i]
   }
 
   const convertFileName = fileName => {
     return fileName.replace(/\.[^\/.]+$/, '')
   }
+
+  useEffect(() => {
+    if (reRender) {
+      setReRender(!reRender)
+    }
+  }, [reRender])
 
   return (
     <>
@@ -65,11 +69,11 @@ const DropFileInput = props => {
         <div className="drop-file-input__label">
           <p>Arraste & Solte ou</p>
           <input
-            multiple
             className="ipt-browser-file"
             type="file"
             value=""
             onChange={onFileDrop}
+            multiple
           />
           <p>{`Arquivos aceitos: png, jpg e jpeg.
           Tamanho máximo - 15MB`}</p>
@@ -79,12 +83,13 @@ const DropFileInput = props => {
           type="file"
           value=""
           onChange={onFileDrop}
-        ></input>
+          multiple
+        />
       </div>
-      {fileList.length > 0 ? (
+      {files.length > 0 ? (
         <div className="drop-file-preview">
           <p className="drop-file-preview__title">Arquivos</p>
-          {fileList.map((item, index) => (
+          {files.map((item, index) => (
             <div key={index} className="drop-file-preview__item">
               <div className="drop-file-preview__item__info">
                 <img

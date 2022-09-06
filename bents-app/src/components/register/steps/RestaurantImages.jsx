@@ -8,7 +8,12 @@ import DropFileInput from '../../../components/dropFileInput/DropFileInput'
 import axios from 'axios'
 import { URL_AZURE } from '../../../constants/http.azure.request'
 
-export default function RestaurantInfo({ infoUser, setPage }) {
+export default function RestaurantInfo({
+  infoUser,
+  setPage,
+  formDataNotify,
+  setFormDataNotify
+}) {
   useEffect(() => {
     console.log(infoUser)
   }, [])
@@ -46,7 +51,11 @@ export default function RestaurantInfo({ infoUser, setPage }) {
   return (
     <>
       <StepsStyle.Container>
-        <DropFileInput onFileChange={files => onFileChange(files)} />
+        <DropFileInput
+          onFileChange={files => onFileChange(files)}
+          formDataNotify={formDataNotify}
+          setFormDataNotify={setFormDataNotify}
+        />
         {errorPostUser && (
           <FormStyle.ErrorMessageLogin>
             {errorPostUser}

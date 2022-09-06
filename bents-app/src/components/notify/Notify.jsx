@@ -2,30 +2,44 @@ import * as NotifyStyle from './Notify.style'
 import { ReactComponent as Loading } from '../../assets/loading.svg'
 import { BsFillCheckCircleFill } from 'react-icons/bs'
 import { MdOutlineError } from 'react-icons/md'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
-export default function Notify({ formData, isLoading, setIsLoading }) {
+export default function Notify({ formDataNotify, setFormDataNotify }) {
+  const [isVisible, setIsVisible] = useState(false)
+  useEffect(() => {
+    setIsVisible(formDataNotify.visible)
+  }, [formDataNotify])
+
+  const handleClose = () => {
+    setFormDataNotify({ render: true })
+    setIsVisible(!isVisible)
+  }
   return (
     <>
-      <NotifyStyle.Overlay>
-        <NotifyStyle.Notify>
-          <NotifyStyle.NotifyContainer>
-            <NotifyStyle.Header>
-              <h1>{formData.title}</h1>
-              <p>{formData.description}</p>
-            </NotifyStyle.Header>
-            <NotifyStyle.Steps>
-              <li>
-                {/* <BsFillCheckCircleFill />
+      {isVisible && (
+        <NotifyStyle.Overlay>
+          <NotifyStyle.Notify>
+            <NotifyStyle.NotifyContainer>
+              {/* <NotifyStyle.Header>
+              <h1>Title</h1>
+              <p>Description</p>
+            </NotifyStyle.Header> */}
+              <NotifyStyle.Steps>
+                <li>
+                  {/* <BsFillCheckCircleFill />
                 <span>Concluído</span> */}
-                {/* <Loading />
+                  {/* <Loading />
                 <span>Carregando</span> */}
-                <MdOutlineError />
-                <span>Ops! Não foi possível enviar, verifique o arquivo</span>
-              </li>
-            </NotifyStyle.Steps>
-          </NotifyStyle.NotifyContainer>
-        </NotifyStyle.Notify>
-      </NotifyStyle.Overlay>
+                  <MdOutlineError />
+                  <span>{formDataNotify.message}</span>
+                </li>
+                <NotifyStyle.Close onClick={handleClose} />
+              </NotifyStyle.Steps>
+            </NotifyStyle.NotifyContainer>
+          </NotifyStyle.Notify>
+        </NotifyStyle.Overlay>
+      )}
     </>
   )
 }

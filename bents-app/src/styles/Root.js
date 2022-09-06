@@ -47,7 +47,8 @@ export const lineSize = {
 
 export const shadow = {
   btnShadow: 'box-shadow: 0px 10px 22px -2px rgba(33, 96, 232, 0.3);',
-  dfBoxShadow: 'box-shadow: 0px 0px 2px rgba(9, 9, 41, 0.2);'
+  dfBoxShadow: 'box-shadow: 0px 0px 2px rgba(9, 9, 41, 0.2);',
+  notify: 'box-shadow: 0px 1px 6px 0px rgb(165 165 165 / 30%)'
 }
 
 export const border = {

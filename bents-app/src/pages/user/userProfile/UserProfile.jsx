@@ -25,7 +25,7 @@ export default function UserProflie() {
     }
   }
 
-  const handleEditModal = (params) => {
+  const handleEditModal = params => {
     setValueState({
       state: params.state,
       field: params.field,
@@ -39,7 +39,6 @@ export default function UserProflie() {
     }
   }, [])
 
-
   useEffect(() => {
     if (reRender) {
       getUserDetailById()
@@ -51,21 +50,41 @@ export default function UserProflie() {
     <>
       {user && (
         <UserStyle.Container>
-          {valueState.state && <Modal valueState={valueState} setValueState={setValueState} userData={userData} reRender={reRender} setReRender={setReRender}/>}
+          {valueState.state && (
+            <Modal
+              valueState={valueState}
+              setValueState={setValueState}
+              userData={userData}
+              reRender={reRender}
+              setReRender={setReRender}
+            />
+          )}
           <AppSimpleNavbar />
           <UserStyle.ContainerPreferences>
             <UserStyle.Title>Preferências</UserStyle.Title>
             {Object.keys(user).map((element, item) => (
               <UserStyle.FormInput key={item}>
                 <div>
-                  {UserProfileMap.map(subElement =>
-                  <UserStyle.Field>
-                    {subElement.field}
-                  </UserStyle.Field>
-                  )[item]}
-                  <UserStyle.Value>{element == 'password' ? '******' : user[element]}</UserStyle.Value>
+                  {
+                    UserProfileMap.map(subElement => (
+                      <UserStyle.Field>{subElement.field}</UserStyle.Field>
+                    ))[item]
+                  }
+                  <UserStyle.Value>
+                    {element == 'password' ? '******' : user[element]}
+                  </UserStyle.Value>
                 </div>
-                <FilterButton onClick={() => handleEditModal({state: !valueState.state, field: element, value: user[element]})}>Alterar</FilterButton>
+                <FilterButton
+                  onClick={() =>
+                    handleEditModal({
+                      state: !valueState.state,
+                      field: element,
+                      value: user[element]
+                    })
+                  }
+                >
+                  Alterar
+                </FilterButton>
               </UserStyle.FormInput>
             ))}
           </UserStyle.ContainerPreferences>
