@@ -18,41 +18,33 @@ export default function RestaurantInfo({
     console.log(infoUser)
   }, [])
   const [errorPostUser, setErrorPostUser] = useState('')
-  const onFileChange = async files => {
-    if (files.length == 5) {
-      files.forEach(item => {
-        let formData = new FormData()
-        formData.append('img', item)
-        axios({
-          method: 'post',
-          url: `${URL_AZURE}/images/addImageInStack/42`,
-          data: formData,
-          headers: { Accept: 'application/json ,text/plain, */*' }
-        })
-      })
-    }
-  }
-
+  const [listImages, setListImages] = useState('')
   const handleSubmitStep = e => {
     e.preventDefault()
-    try {
-      api.post('/images/executeImageStack')
-      setPage(7)
-    } catch (e) {
-      console.error('error executeImageQueue =>', e)
-      setErrorPostUser(
-        <>
-          <MdOutlineError /> Houve um erro! Verifique os campos preenchidos!
-        </>
-      )
-    }
+    console.log('listImages', listImages)
+    // try {
+    //   api.post('/images/executeImageStack')
+    //   setPage(7)
+    // } catch (e) {
+    //   console.error('error executeImageQueue =>', e)
+    //   setErrorPostUser(
+    //     <>
+    //       <MdOutlineError /> Houve um erro! Verifique os campos preenchidos!
+    //     </>
+    //   )
+    // }
   }
+
+  useEffect(() => {
+    console.log('atingiu')
+  }, [listImages])
 
   return (
     <>
       <StepsStyle.Container>
         <DropFileInput
-          onFileChange={files => onFileChange(files)}
+          listImages={listImages}
+          setListImages={setListImages}
           formDataNotify={formDataNotify}
           setFormDataNotify={setFormDataNotify}
         />

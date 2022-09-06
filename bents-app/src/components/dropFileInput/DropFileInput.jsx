@@ -4,7 +4,12 @@ import './DropFileInput.css'
 import { ImageConfig } from '../../config/ImageConfig'
 import { BiTrash } from 'react-icons/bi'
 
-const DropFileInput = ({ props, formDataNotify, setFormDataNotify }) => {
+export default function DropFileInput({
+  formDataNotify,
+  setFormDataNotify,
+  listImages,
+  setListImages
+}) {
   const [reRender, setReRender] = useState(false)
   const wrapperRef = useRef(null)
   const [files, setFiles] = useState([])
@@ -22,7 +27,15 @@ const DropFileInput = ({ props, formDataNotify, setFormDataNotify }) => {
   }
 
   const validateFileSize = element => {
-    if (element.size / 10000 < 150) {
+    if (files.length > 4) {
+      setFormDataNotify({
+        ...formDataNotify,
+        visible: true,
+        message: `Limite de 5 imagens atingido.`
+      })
+      return false
+    }
+    if (element.size / 10000 < 1500) {
       return true
     }
     setFormDataNotify({
@@ -37,7 +50,6 @@ const DropFileInput = ({ props, formDataNotify, setFormDataNotify }) => {
     const updatedList = [...files]
     updatedList.splice(files.indexOf(file), 1)
     setFiles(updatedList)
-    props.onFileChange(updatedList)
   }
 
   const bytesToSize = bytes => {
@@ -56,6 +68,12 @@ const DropFileInput = ({ props, formDataNotify, setFormDataNotify }) => {
       setReRender(!reRender)
     }
   }, [reRender])
+
+  useEffect(() => {
+    if (files.length == 5) {
+      setListImages(files)
+    }
+  }, [files])
 
   return (
     <>
@@ -76,7 +94,7 @@ const DropFileInput = ({ props, formDataNotify, setFormDataNotify }) => {
             multiple
           />
           <p>{`Arquivos aceitos: png, jpg e jpeg.
-          Tamanho máximo - 15MB`}</p>
+          Limite de 5 fotos e tamanho máximo - 15MB`}</p>
         </div>
         <input
           className="iptOnFileDrop"
@@ -118,9 +136,3 @@ const DropFileInput = ({ props, formDataNotify, setFormDataNotify }) => {
     </>
   )
 }
-
-DropFileInput.propTypes = {
-  onFileChange: PropTypes.func
-}
-
-export default DropFileInput

@@ -15,6 +15,7 @@ export const Overlay = styled('div')`
 `
 
 export const Notify = styled('div')`
+  z-index: 9999;
   position: absolute;
   bottom: 0;
   right: 0;
