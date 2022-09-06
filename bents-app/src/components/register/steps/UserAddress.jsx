@@ -7,7 +7,14 @@ import { URL_AZURE } from '../../../constants/http.azure.request'
 import { api } from '../../../api/axios'
 import axios from 'axios'
 
-export default function UserAddress({ formData, setFormData, setPage, userType, infoUser, setInfoUser }) {
+export default function UserAddress({
+  formData,
+  setFormData,
+  setPage,
+  userType,
+  infoUser,
+  setInfoUser
+}) {
   const [errorPostUser, setErrorPostUser] = useState('')
   const [formErrors, setFormErrors] = useState({
     cep: '',
@@ -33,7 +40,7 @@ export default function UserAddress({ formData, setFormData, setPage, userType, 
   const findCEP = name => {
     fetch(`https://cep.awesomeapi.com.br/json/${name}`).then(res =>
       res.json().then(data => {
-        if(res.status == 200){
+        if (res.status == 200) {
           setErrorPostUser('')
           setFormData({
             ...formData,
@@ -46,7 +53,9 @@ export default function UserAddress({ formData, setFormData, setPage, userType, 
             lng: data.lng
           })
         } else {
-          setErrorPostUser('Não conseguimos encontrar um endereço com o seu CEP ;(')
+          setErrorPostUser(
+            'Não conseguimos encontrar um endereço com o seu CEP ;('
+          )
         }
       })
     )
@@ -70,17 +79,20 @@ export default function UserAddress({ formData, setFormData, setPage, userType, 
     }
 
     if (Object.values(errors).every(o => o === '')) {
-      if(userType === 'user'){
+      if (userType === 'user') {
         return postUser()
       }
-      return postRestaurant();
+      return postRestaurant()
     }
     return errors
   }
 
   async function postUser() {
     try {
-      await axios.post(`${URL_AZURE}/users/registerUser`, {...formData, userType: 'user'})
+      await axios.post(`${URL_AZURE}/users/registerUser`, {
+        ...formData,
+        userType: 'user'
+      })
       setPage(3)
     } catch (e) {
       console.error('error postUser =>', e)
@@ -94,11 +106,13 @@ export default function UserAddress({ formData, setFormData, setPage, userType, 
 
   async function postRestaurant() {
     try {
-      const response = await axios.post(`${URL_AZURE}/users/registerUser`, {...formData, userType: 'restaurant'})
-      console.log(response)
-      setInfoUser({...infoUser, idUser: response.data})
+      const response = await axios.post(`${URL_AZURE}/users/registerUser`, {
+        ...formData,
+        userType: 'restaurant'
+      })
+      setInfoUser({ ...infoUser, idUser: response.data })
       setPage(4)
-      return;
+      return
     } catch (e) {
       console.error('error postRestaurant =>', e)
       setErrorPostUser(
@@ -139,7 +153,9 @@ export default function UserAddress({ formData, setFormData, setPage, userType, 
             )
           })}
         </StepsStyle.ContainerForm>
-        <FormStyle.ErrorMessageLogin>{errorPostUser}</FormStyle.ErrorMessageLogin>
+        <FormStyle.ErrorMessageLogin>
+          {errorPostUser}
+        </FormStyle.ErrorMessageLogin>
         <StepsStyle.ContainerButton>
           <FormStyle.PrevButton
             type="button"

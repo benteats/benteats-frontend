@@ -9,9 +9,6 @@ import { URL_AZURE } from '../../../constants/http.azure.request'
 import axios from 'axios'
 
 export default function RestaurantInfo({ infoUser, setInfoUser, setPage }) {
-  useEffect(() => {
-    console.log(infoUser)
-  }, [])
   const [errorPostUser, setErrorPostUser] = useState('')
   const [formData, setFormData] = useState({
     foodType: '',
@@ -34,7 +31,13 @@ export default function RestaurantInfo({ infoUser, setInfoUser, setPage }) {
   }
 
   const validateFormStep = values => {
-    let errors = { foodType: '', priceAverage: '', openingTime: '', closingTime: '', description: '' }
+    let errors = {
+      foodType: '',
+      priceAverage: '',
+      openingTime: '',
+      closingTime: '',
+      description: ''
+    }
     const defaultMessage = 'Campo obrigatório'
 
     if (values.foodType.length < 5) {
@@ -54,14 +57,17 @@ export default function RestaurantInfo({ infoUser, setInfoUser, setPage }) {
     }
 
     if (Object.values(errors).every(o => o === '')) {
-      return registerRestaurant();
+      return registerRestaurant()
     }
     return errors
   }
 
   async function registerRestaurant() {
     try {
-      const response = await axios.post(`${URL_AZURE}/restaurants/${infoUser.idUser}`, {...formData})
+      const response = await axios.post(
+        `${URL_AZURE}/restaurants/${infoUser.idUser}`,
+        { ...formData }
+      )
       setInfoUser({ ...infoUser, idRestaurant: response.data })
       setPage(6)
     } catch (e) {
@@ -107,16 +113,18 @@ export default function RestaurantInfo({ infoUser, setInfoUser, setPage }) {
         <StepsStyle.ContainerInput>
           <FormStyle.Label>Descrição</FormStyle.Label>
           <FormStyle.TextArea
-            placeholder='Decrição do restaurante'
-            name='description'
+            placeholder="Decrição do restaurante"
+            name="description"
             value={formData.description}
             onChange={handleChange}
-            rows='5'
+            rows="5"
           />
         </StepsStyle.ContainerInput>
-        <FormStyle.ErrorMessageLogin>{errorPostUser}</FormStyle.ErrorMessageLogin>
+        <FormStyle.ErrorMessageLogin>
+          {errorPostUser}
+        </FormStyle.ErrorMessageLogin>
         <StepsStyle.ContainerButton>
-          <FormStyle.Button type="button" onClick={(handleSubmitStep)}>
+          <FormStyle.Button type="button" onClick={handleSubmitStep}>
             Próximo
           </FormStyle.Button>
         </StepsStyle.ContainerButton>

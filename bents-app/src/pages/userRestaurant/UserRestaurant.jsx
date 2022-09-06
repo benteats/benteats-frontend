@@ -30,11 +30,9 @@ export default function UserRestaurant() {
   }
 
   const onFileChange = async e => {
-    console.log(e.target.files[0])
     const files = e.target.files[0]
     let formData = new FormData()
     formData.append('filename', files)
-    console.log('formData', formData)
     try {
       axios({
         method: 'post',

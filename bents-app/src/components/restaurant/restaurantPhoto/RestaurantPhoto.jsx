@@ -14,7 +14,6 @@ export default function RestaurantPhoto({ params }) {
   }
 
   useEffect(() => {
-    console.log('images', images)
     if (images == null) {
       getImageByIdRestaurant()
     }

@@ -14,30 +14,26 @@ export default function RestaurantInfo({
   formDataNotify,
   setFormDataNotify
 }) {
-  useEffect(() => {
-    console.log(infoUser)
-  }, [])
   const [errorPostUser, setErrorPostUser] = useState('')
   const [listImages, setListImages] = useState('')
-  const handleSubmitStep = e => {
-    e.preventDefault()
-    console.log('listImages', listImages)
-    // try {
-    //   api.post('/images/executeImageStack')
-    //   setPage(7)
-    // } catch (e) {
-    //   console.error('error executeImageQueue =>', e)
-    //   setErrorPostUser(
-    //     <>
-    //       <MdOutlineError /> Houve um erro! Verifique os campos preenchidos!
-    //     </>
-    //   )
-    // }
+
+  const handleSubmitStep = async e => {
+    let formData = new FormData()
+    listImages.forEach(item => {
+      formData.append('imgs', item)
+    })
+    try {
+      const response = api.post(
+        `/images/saveImage/${infoUser.idRestaurant}`,
+        formData
+      )
+      setPage(7)
+    } catch (e) {
+      console.error('error executeImageQueue =>', e)
+    }
   }
 
-  useEffect(() => {
-    console.log('atingiu')
-  }, [listImages])
+  useEffect(() => {}, [listImages])
 
   return (
     <>

@@ -18,7 +18,7 @@ export default function Register() {
     visible: false,
     render: false
   })
-  const [page, setPage] = useState(6)
+  const [page, setPage] = useState(0)
   const [userType, setUserType] = useState('')
   const [infoUser, setInfoUser] = useState({
     idUser: 0,

@@ -72,28 +72,29 @@ export default function AppNavbar({
           <NavbarStyle.ContainerInput>
             <NavbarStyle.Input placeholder="Qual o seu destino?" {...address} />
             <RiSearchLine />
-            {address.suggestions?.length > 0 ? (
-              <NavbarStyle.SuggestionWrapper>
-                {address.suggestions.map((suggestion, index) => {
-                  return (
-                    <NavbarStyle.SuggestionContainer key={index}>
-                      <FaMapMarkerAlt />
-                      <NavbarStyle.Suggestion
-                        onClick={() => {
-                          console.log(suggestion)
-                          address.setValue(suggestion.place_name)
-                          address.setSuggestions([])
-                          handleChange(suggestion.center)
-                        }}
-                      >
-                        {suggestion.place_name}
-                      </NavbarStyle.Suggestion>
-                    </NavbarStyle.SuggestionContainer>
-                  )
-                })}
-              </NavbarStyle.SuggestionWrapper>
-            ) :
-              ''
+            {
+              address.suggestions?.length > 0 ? (
+                <NavbarStyle.SuggestionWrapper>
+                  {address.suggestions.map((suggestion, index) => {
+                    return (
+                      <NavbarStyle.SuggestionContainer key={index}>
+                        <FaMapMarkerAlt />
+                        <NavbarStyle.Suggestion
+                          onClick={() => {
+                            address.setValue(suggestion.place_name)
+                            address.setSuggestions([])
+                            handleChange(suggestion.center)
+                          }}
+                        >
+                          {suggestion.place_name}
+                        </NavbarStyle.Suggestion>
+                      </NavbarStyle.SuggestionContainer>
+                    )
+                  })}
+                </NavbarStyle.SuggestionWrapper>
+              ) : (
+                ''
+              )
               // (
               //   <NavbarStyle.SuggestionWrapper>
               //     <NavbarStyle.SuggestionContainer>

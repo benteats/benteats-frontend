@@ -18,7 +18,6 @@ export default function DropFileInput({
   const onDrop = () => wrapperRef.current.classList.remove('dragover')
 
   const onFileDrop = e => {
-    console.log(formDataNotify.message)
     for (let i = 0; i < e.target.files.length; i++) {
       if (validateFileSize(e.target.files[i])) {
         setFiles(prevFiles => [...prevFiles, e.target.files[i]])
