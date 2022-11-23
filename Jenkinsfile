@@ -14,17 +14,22 @@ pipeline {
             steps {
                 echo 'Building new image..'
                 sh """
-                    docker build -t front:$RELEASE_NOTES  
+                    docker build -t lucasnishimoto05/bentsfront:$RELEASE_NOTES  
+                    docker build -t lucasnishimoto05/bentsfront:$RELEASE_NOTES  
+                    docker push lucasnishimoto05/bentsfront:$RELEASE_NOTES    
                 """
             }
+            
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh("docker rm -f bents-frontend")
+                
                 sh """
-                    docker run -dit  --restart always \ 
-                    --name bents-frontend -p 80:80 front:$RELEASE_NOTES
+                    ssh root@44.206.2.154  docker pull lucasnishimoto05/bentsfront:$RELEASE_NOTES
+                    ssh root@44.207.103.66 docker rm -f bents-frontend 
+                    ssh root@44.206.2.154 docker run -dit  --restart always --name bents-frontend -p 80:80 lucasnishimoto05/bentsfront:$RELEASE_NOTES
+                    ssh root@44.207.103.66 docker run -dit  --restart always --name bents-frontend -p 80:80 lucasnishimoto05/bentsfront:$RELEASE_NOTES
                 """
             }
         }
