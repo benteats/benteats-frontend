@@ -1,5 +1,7 @@
 import RestaurantPhoto from '../../components/restaurant/restaurantPhoto/RestaurantPhoto'
 import * as RestaurantStyle from './Restaurant.style'
+import AvaliationCard from '../../components/restaurant/avaliationCard/AvaliationCard'
+import FoodCard from '../../components/restaurant/foodCard/FoodCard'
 import { FilterButton } from '../../styles/Global'
 import { FaStar } from 'react-icons/fa'
 import { GrRestaurant } from 'react-icons/gr'
@@ -101,6 +103,18 @@ export default function Restaurant() {
               </RestaurantStyle.Subtitle>
               <p>{restaurantsResult.description}</p>
             </RestaurantStyle.Description>
+            <RestaurantStyle.FoodCardContainer>
+              <FoodCard/>
+              <FoodCard/>
+              <FoodCard/>
+            </RestaurantStyle.FoodCardContainer>
+            <RestaurantStyle.AvaliationsContainer>
+               <AvaliationCard/>
+               <AvaliationCard/>
+               <AvaliationCard/>
+            </RestaurantStyle.AvaliationsContainer>
+
+
           </RestaurantStyle.Content>
         </RestaurantStyle.Container>
       )}
