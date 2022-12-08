@@ -140,3 +140,21 @@ export const UploadLabel = styled('label')`
     display: none;
   }
 `
+
+export const AvaliationsContainer = styled('div')`
+  margin-top: 3em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-height: 30vh;
+  gap: 30px;
+  min-height: 30vh;
+`
+
+export const FoodCardContainer = styled('div')`
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-height: 30vh;
+  gap: 30px;
+  min-height: 80vh;
+`
