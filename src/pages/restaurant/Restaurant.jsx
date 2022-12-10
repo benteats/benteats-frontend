@@ -16,11 +16,12 @@ import { useEffect, useState } from 'react'
 export default function Restaurant() {
   const [restaurantsResult, setRestaurantsResult] = useState(null)
   const params = useParams()
+  const restaurantId = params.id
 
   async function getRestaurantById() {
     try {
       const response = await api.get(
-        `/restaurants/getRestaurantById/${params.id}`
+        `/restaurants/getRestaurantById/${restaurantId}`
       )
       setRestaurantsResult(response.data)
     } catch (e) {
@@ -40,7 +41,7 @@ export default function Restaurant() {
         <RestaurantStyle.Container>
           <AppSimpleNavbar />
           <RestaurantStyle.Content>
-            <RestaurantPhoto params={params.id} />
+            <RestaurantPhoto params={restaurantId} />
             <RestaurantStyle.RestaurantTitle>
               <div>
                 <h2>{restaurantsResult.user.name}</h2>
@@ -103,16 +104,8 @@ export default function Restaurant() {
               </RestaurantStyle.Subtitle>
               <p>{restaurantsResult.description}</p>
             </RestaurantStyle.Description>
-            <RestaurantStyle.FoodCardContainer>
-              <FoodCard />
-              <FoodCard />
-              <FoodCard />
-            </RestaurantStyle.FoodCardContainer>
-            {/* <RestaurantStyle.AvaliationsContainer>
-               <AvaliationCard/>
-               <AvaliationCard/>
-               <AvaliationCard/>
-            </RestaurantStyle.AvaliationsContainer> */}
+            {/* <FoodCard /> */}
+            <AvaliationCard />
           </RestaurantStyle.Content>
         </RestaurantStyle.Container>
       )}

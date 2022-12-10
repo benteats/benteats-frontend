@@ -56,6 +56,7 @@ export const Img = styled('img')`
   width: 100%;
   height: 100%;
   border-radius: ${borderRadius.imgRestaurant};
+  object-fit: cover;
 `
 
 export const ContainerTitle = styled('div')`
@@ -64,7 +65,7 @@ export const ContainerTitle = styled('div')`
   padding-bottom: 0.25rem;
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    gap: .5rem;
+    gap: 0.5rem;
   }
 `
 
@@ -91,11 +92,11 @@ export const RateContainer = styled('div')`
   display: flex;
   align-items: center;
   color: ${paletteColors.orange};
-  svg {    
+  svg {
     font-size: ${fontSize.dfSubTitle};
     margin-right: 5px;
   }
-  span{
+  span {
     font-family: 'Inter', sans-serif;
     font-size: ${fontSize.smText};
     color: ${paletteColors.secondaryText};

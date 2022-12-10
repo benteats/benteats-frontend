@@ -146,7 +146,7 @@ export const AvaliationsContainer = styled('div')`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   max-height: 30vh;
-  gap: 30px;
+  gap: 3em;
   min-height: 30vh;
 `
 

@@ -18,7 +18,8 @@ export const paletteColors = {
   grayBorder: '#C4C4C4',
   lightGrayBorder: '#E5E7EB',
   moneyGreen: '#1CC92E',
-  descriptionMenu: '#9D9797'
+  descriptionMenu: '#9D9797',
+  lightBorder: '#E5E5E5'
 }
 
 export const borderRadius = {
@@ -50,10 +51,12 @@ export const lineSize = {
 export const shadow = {
   btnShadow: 'box-shadow: 0px 10px 22px -2px rgba(33, 96, 232, 0.3);',
   dfBoxShadow: 'box-shadow: 0px 0px 2px rgba(9, 9, 41, 0.2);',
-  notify: 'box-shadow: 0px 1px 6px 0px rgb(165 165 165 / 30%)'
+  notify: 'box-shadow: 0px 1px 6px 0px rgb(165 165 165 / 30%);',
+  menuCard: 'box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.05);'
 }
 
 export const border = {
   dfTop: `border-top: 1px solid ${paletteColors.lightGrayBorder}`,
-  dfBottom: `border-bottom: 1px solid ${paletteColors.lightGrayBorder}`
+  dfBottom: `border-bottom: 1px solid ${paletteColors.lightGrayBorder}`,
+  menuCard: `border: 1px solid ${paletteColors.lightBorder};`
 }
