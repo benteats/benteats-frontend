@@ -16,7 +16,9 @@ export const paletteColors = {
   gray: '#6B7280',
   defaultBorder: '#DDDDDD',
   grayBorder: '#C4C4C4',
-  lightGrayBorder: '#E5E7EB'
+  lightGrayBorder: '#E5E7EB',
+  moneyGreen: '#1CC92E',
+  descriptionMenu: '#9D9797'
 }
 
 export const borderRadius = {

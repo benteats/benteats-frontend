@@ -104,17 +104,15 @@ export default function Restaurant() {
               <p>{restaurantsResult.description}</p>
             </RestaurantStyle.Description>
             <RestaurantStyle.FoodCardContainer>
-              <FoodCard/>
-              <FoodCard/>
-              <FoodCard/>
+              <FoodCard />
+              <FoodCard />
+              <FoodCard />
             </RestaurantStyle.FoodCardContainer>
-            <RestaurantStyle.AvaliationsContainer>
+            {/* <RestaurantStyle.AvaliationsContainer>
                <AvaliationCard/>
                <AvaliationCard/>
                <AvaliationCard/>
-            </RestaurantStyle.AvaliationsContainer>
-
-
+            </RestaurantStyle.AvaliationsContainer> */}
           </RestaurantStyle.Content>
         </RestaurantStyle.Container>
       )}

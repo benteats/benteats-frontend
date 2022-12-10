@@ -24,26 +24,26 @@ export const Content = styled('div')`
 export const RestaurantTitle = styled('div')`
   padding: 1em 0;
   width: 100%;
-  div{
+  div {
     display: flex;
     align-items: center;
-    h2{
+    h2 {
       font-size: ${fontSize.mdSubTitle};
       color: ${paletteColors.primaryText};
       margin-right: 0.75em;
     }
-    svg{
+    svg {
       font-size: ${fontSize.dfSubTitle};
       color: ${paletteColors.orange};
-      margin-right: .25rem;
+      margin-right: 0.25rem;
     }
-    span{
-      font-family: 'Inter',sans-serif;
+    span {
+      font-family: 'Inter', sans-serif;
       font-size: ${paletteColors.mdSubTitle};
       color: ${paletteColors.secondaryText};
     }
   }
-  span{
+  span {
     font-size: ${fontSize.mdText};
     color: ${paletteColors.gray};
   }
@@ -51,9 +51,9 @@ export const RestaurantTitle = styled('div')`
 
 export const RestaurantOptions = styled('div')`
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
   width: 100%;
-  padding: .5rem 0em 1.5em 0em;
+  padding: 0.5rem 0em 1.5em 0em;
   ${border.dfBottom}
 `
 
@@ -81,23 +81,23 @@ export const RestaurantDetailItem = styled('div')`
   display: flex;
   align-items: center;
   gap: 1em;
-  div{
-    svg{
+  div {
+    svg {
       font-size: ${fontSize.mdSubTitle};
       color: ${paletteColors.primary};
-      path{
+      path {
         stroke: ${paletteColors.primary};
       }
     }
-    &:nth-of-type(2){
+    &:nth-of-type(2) {
       display: flex;
       flex-direction: column;
-      h3{
+      h3 {
         color: ${paletteColors.primaryText};
         font-size: ${fontSize.mdText};
         font-weight: 600;
       }
-      span{
+      span {
         font-size: ${fontSize.smText};
         color: ${paletteColors.secondaryText};
       }
@@ -106,7 +106,7 @@ export const RestaurantDetailItem = styled('div')`
 `
 
 export const Description = styled('div')`
-  p{
+  p {
     padding-top: 1em;
     color: ${paletteColors.secondaryText};
     font-size: ${fontSize.smText};
@@ -136,7 +136,7 @@ export const UploadLabel = styled('label')`
   &:hover {
     opacity: 0.9;
   }
-  input[type='file']{
+  input[type='file'] {
     display: none;
   }
 `
@@ -154,7 +154,5 @@ export const FoodCardContainer = styled('div')`
   margin-top: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  max-height: 30vh;
   gap: 30px;
-  min-height: 80vh;
 `
