@@ -26,7 +26,7 @@ export default function AvaliationCard() {
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aut culpa sed inventore maxime
                             maiores, ducimus delectus similique voluptatibus, possimus nulla. Quod, praesentium
-                            exercitationem animi ipsa at nam iusto quas.
+                            exercitationem animi ipsa at nam iusto quas. 
                         </p>
                     </AvaliationCardStyle.AvaliationCardMessage>
                 </AvaliationCardStyle.AvaliationCardContent>
