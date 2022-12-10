@@ -1,18 +1,29 @@
 pipeline {
     agent any
+        environment {
+            registry = "lucasnishimoto05/bentsfront"
+            registryCredential = 'dockerhub'
+            dockerImage = ''
+        }
         stages {
-            stage('Build') {
-                steps {
-                    echo 'Building new image..'
-                    sh """
-                        docker build -t lucasnishimoto05/bentsfront:testeee12  .
-                        docker push lucasnishimoto05/bentsfront:testeee12    
-                    """
+            stage('Build image') {
+              steps{
+                script {
+                  dockerImage = docker.build registry + ":testeee12"
                 }
-
+              }
+            }
+            stage('Upload Image to Registry') {
+              steps{
+                script {
+                  docker.withRegistry( '', registryCredential ) {
+                    dockerImage.push()
+                  }
+                }
+              }
             }
             stage('Deploy') {
-                steps {
+                  steps {
                     echo 'Deploying....'
                     sh """
                         ssh root@44.206.2.154 docker pull lucasnishimoto05/bentsfront:testeee12
