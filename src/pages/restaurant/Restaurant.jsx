@@ -1,20 +1,20 @@
 import RestaurantPhoto from '../../components/restaurant/restaurantPhoto/RestaurantPhoto'
 import * as RestaurantStyle from './Restaurant.style'
-import AvaliationCard from '../../components/restaurant/avaliationCard/AvaliationCard'
-import FoodCard from '../../components/restaurant/foodCard/FoodCard'
 import { FilterButton } from '../../styles/Global'
 import { FaStar } from 'react-icons/fa'
-import { GrRestaurant } from 'react-icons/gr'
-import { AiOutlineDollarCircle } from 'react-icons/ai'
-import { FiClock } from 'react-icons/fi'
-import { BiChat } from 'react-icons/bi'
 import AppSimpleNavbar from '../../components/searchRestaurant/navBar/AppSimpleNavbar'
 import { api } from '../../api/axios'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import filterList from './RestaurantFilterList'
+import RestaurantDetail from '../../components/restaurant/restaurantDetail/RestaurantDetail'
+import FoodCard from '../../components/restaurant/foodCard/FoodCard'
+import AvaliationCard from '../../components/restaurant/avaliationCard/AvaliationCard'
 
 export default function Restaurant() {
+  const [isClicked, setIsClicked] = useState({ id: 1, isClicked: true })
   const [restaurantsResult, setRestaurantsResult] = useState(null)
+  const [restaurantStep, setRestaurantStep] = useState(null)
   const params = useParams()
   const restaurantId = params.id
 
@@ -26,6 +26,26 @@ export default function Restaurant() {
       setRestaurantsResult(response.data)
     } catch (e) {
       console.error('error getRestaurantByCoordinates =>', e)
+    }
+  }
+
+  const handleClickFilter = item => {
+    setIsClicked({
+      id: item.id,
+      clicked: true
+    })
+  }
+
+  const restaurantCurrentStep = () => {
+    const currentStep = isClicked.id
+    if (currentStep == 1) {
+      return <RestaurantDetail restaurantsResult={restaurantsResult} />
+    }
+    if (currentStep == 2) {
+      return <FoodCard />
+    }
+    if (currentStep == 3) {
+      return <AvaliationCard />
     }
   }
 
@@ -54,58 +74,19 @@ export default function Restaurant() {
               </span>
             </RestaurantStyle.RestaurantTitle>
             <RestaurantStyle.RestaurantOptions>
-              <FilterButton>Informações</FilterButton>
-              <FilterButton>Cardápio</FilterButton>
-              <FilterButton>Avaliações</FilterButton>
+              {filterList.map(item => {
+                return (
+                  <FilterButton
+                    key={item.id}
+                    onClick={() => handleClickFilter(item)}
+                    className={isClicked.id == item.id ? 'clicked' : ''}
+                  >
+                    {item.label}
+                  </FilterButton>
+                )
+              })}
             </RestaurantStyle.RestaurantOptions>
-            <RestaurantStyle.RestaurantDetail>
-              <RestaurantStyle.ContainerDetail>
-                <RestaurantStyle.RestaurantDetailItem>
-                  <div>
-                    <GrRestaurant />
-                  </div>
-                  <div>
-                    <h3>Tipo de Culinária</h3>
-                    <span>{restaurantsResult.foodType}</span>
-                  </div>
-                </RestaurantStyle.RestaurantDetailItem>
-                <RestaurantStyle.RestaurantDetailItem>
-                  <div>
-                    <FiClock />
-                  </div>
-                  <div>
-                    <h3>Horário</h3>
-                    <span>{restaurantsResult.closingTime}</span>
-                  </div>
-                </RestaurantStyle.RestaurantDetailItem>
-                <RestaurantStyle.RestaurantDetailItem>
-                  <div>
-                    <AiOutlineDollarCircle />
-                  </div>
-                  <div>
-                    <h3>Média de Preço</h3>
-                    <span>R$ {restaurantsResult.priceAverage}</span>
-                  </div>
-                </RestaurantStyle.RestaurantDetailItem>
-                <RestaurantStyle.RestaurantDetailItem>
-                  <div>
-                    <BiChat />
-                  </div>
-                  <div>
-                    <h3>Avaliações</h3>
-                    <span>{restaurantsResult.priceAverage}</span>
-                  </div>
-                </RestaurantStyle.RestaurantDetailItem>
-              </RestaurantStyle.ContainerDetail>
-            </RestaurantStyle.RestaurantDetail>
-            <RestaurantStyle.Description>
-              <RestaurantStyle.Subtitle>
-                Sobre este restaurante
-              </RestaurantStyle.Subtitle>
-              <p>{restaurantsResult.description}</p>
-            </RestaurantStyle.Description>
-            {/* <FoodCard /> */}
-            <AvaliationCard />
+            {restaurantCurrentStep()}
           </RestaurantStyle.Content>
         </RestaurantStyle.Container>
       )}
