@@ -15,7 +15,7 @@ export default function FoodCard({ foodResult }) {
                 <FoodCardStyle.FoodCardData>
                   <h1>{item.name}</h1>
                   <p>{item.description}</p>
-                  <FoodCardStyle.Price>{item.price}</FoodCardStyle.Price>
+                  <FoodCardStyle.Price>R$ {item.price}</FoodCardStyle.Price>
                 </FoodCardStyle.FoodCardData>
               </FoodCardStyle.FoodCardContent>
             )

@@ -17,7 +17,8 @@ export default function Restaurants({ restaurantsResult }) {
             openingTime,
             addressNumber,
             description,
-            imgUrl
+            imgUrl,
+            ratingAverage
           }) => (
             <RestaurantItem
               key={name}
@@ -30,6 +31,7 @@ export default function Restaurants({ restaurantsResult }) {
               addressNumber={addressNumber}
               description={description}
               imgUrl={imgUrl}
+              ratingAverage={ratingAverage}
             />
           )
         )}

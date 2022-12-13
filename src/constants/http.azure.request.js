@@ -1,1 +1,1 @@
-export const URL_AZURE = 'http://backend-bents.hopto.org/'
+export const URL_AZURE = 'http://localhost:8080'
