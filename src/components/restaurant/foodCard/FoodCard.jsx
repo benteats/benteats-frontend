@@ -1,54 +1,28 @@
 import * as FoodCardStyle from './FoodCard.style'
+import RestaurantNotFound from '../../../components/searchRestaurant/restaurants/restaurantNotFound/RestaurantNotFound'
 
-export default function FoodCard() {
+export default function FoodCard({ foodResult }) {
   return (
     <>
       <FoodCardStyle.Container>
-        <FoodCardStyle.FoodCardContent>
-          <FoodCardStyle.FoodCardImage>
-            <img src="https://img.itdg.com.br/tdg/images/recipes/000/138/558/325115/325115_original.jpg?mode=crop&width=710&height=400" />
-          </FoodCardStyle.FoodCardImage>
-          <FoodCardStyle.FoodCardData>
-            <h1>Lasagna Alla Bolognesa</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aut
-              culpa sed inventore maxime maiores, ducimus delectus similique
-              voluptatibus, possimus nulla. Quod, praesentium exercitationem
-              animi ipsa at nam iusto quas.
-            </p>
-            <FoodCardStyle.Price>R$ 25,00</FoodCardStyle.Price>
-          </FoodCardStyle.FoodCardData>
-        </FoodCardStyle.FoodCardContent>
-        <FoodCardStyle.FoodCardContent>
-          <FoodCardStyle.FoodCardImage>
-            <img src="https://img.itdg.com.br/tdg/images/recipes/000/138/558/325115/325115_original.jpg?mode=crop&width=710&height=400" />
-          </FoodCardStyle.FoodCardImage>
-          <FoodCardStyle.FoodCardData>
-            <h1>Lasagna Alla Bolognesa</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aut
-              culpa sed inventore maxime maiores, ducimus delectus similique
-              voluptatibus, possimus nulla. Quod, praesentium exercitationem
-              animi ipsa at nam iusto quas.
-            </p>
-            <FoodCardStyle.Price>R$ 25,00</FoodCardStyle.Price>
-          </FoodCardStyle.FoodCardData>
-        </FoodCardStyle.FoodCardContent>
-        <FoodCardStyle.FoodCardContent>
-          <FoodCardStyle.FoodCardImage>
-            <img src="https://img.itdg.com.br/tdg/images/recipes/000/138/558/325115/325115_original.jpg?mode=crop&width=710&height=400" />
-          </FoodCardStyle.FoodCardImage>
-          <FoodCardStyle.FoodCardData>
-            <h1>Lasagna Alla Bolognesa</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aut
-              culpa sed inventore maxime maiores, ducimus delectus similique
-              voluptatibus, possimus nulla. Quod, praesentium exercitationem
-              animi ipsa at nam iusto quas.
-            </p>
-            <FoodCardStyle.Price>R$ 25,00</FoodCardStyle.Price>
-          </FoodCardStyle.FoodCardData>
-        </FoodCardStyle.FoodCardContent>
+        {foodResult ? (
+          foodResult.map(item => {
+            return (
+              <FoodCardStyle.FoodCardContent key={item.id}>
+                <FoodCardStyle.FoodCardImage>
+                  <img src="https://img.itdg.com.br/tdg/images/recipes/000/138/558/325115/325115_original.jpg?mode=crop&width=710&height=400" />
+                </FoodCardStyle.FoodCardImage>
+                <FoodCardStyle.FoodCardData>
+                  <h1>{item.name}</h1>
+                  <p>{item.description}</p>
+                  <FoodCardStyle.Price>{item.price}</FoodCardStyle.Price>
+                </FoodCardStyle.FoodCardData>
+              </FoodCardStyle.FoodCardContent>
+            )
+          })
+        ) : (
+          <RestaurantNotFound />
+        )}
       </FoodCardStyle.Container>
     </>
   )

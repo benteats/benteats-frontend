@@ -14,7 +14,8 @@ import AvaliationCard from '../../components/restaurant/avaliationCard/Avaliatio
 export default function Restaurant() {
   const [isClicked, setIsClicked] = useState({ id: 1, isClicked: true })
   const [restaurantsResult, setRestaurantsResult] = useState(null)
-  const [restaurantStep, setRestaurantStep] = useState(null)
+  const [avaliationResult, setAvaliationResult] = useState(null)
+  const [foodResult, setFoodResult] = useState(null)
   const params = useParams()
   const restaurantId = params.id
 
@@ -26,6 +27,26 @@ export default function Restaurant() {
       setRestaurantsResult(response.data)
     } catch (e) {
       console.error('error getRestaurantByCoordinates =>', e)
+    }
+  }
+
+  async function getAvaliationById() {
+    try {
+      const response = await api.get(
+        `avaliations/getAvaliationsByIdRestaurant/${restaurantId}`
+      )
+      setAvaliationResult(response.data)
+    } catch (e) {
+      console.error('error getAvaliationById =>', e)
+    }
+  }
+
+  async function getMenuFoodById() {
+    try {
+      const response = await api.get(`foods/${restaurantId}`)
+      setFoodResult(response.data)
+    } catch (e) {
+      console.error('error getMenuFoodById =>', e)
     }
   }
 
@@ -42,16 +63,18 @@ export default function Restaurant() {
       return <RestaurantDetail restaurantsResult={restaurantsResult} />
     }
     if (currentStep == 2) {
-      return <FoodCard />
+      return <FoodCard foodResult={foodResult} />
     }
     if (currentStep == 3) {
-      return <AvaliationCard />
+      return <AvaliationCard avaliationResult={avaliationResult} />
     }
   }
 
   useEffect(() => {
     if (restaurantsResult == null) {
       getRestaurantById()
+      getAvaliationById()
+      getMenuFoodById()
     }
   }, [])
 
