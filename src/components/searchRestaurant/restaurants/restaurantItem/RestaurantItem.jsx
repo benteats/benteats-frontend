@@ -15,32 +15,33 @@ export default function RestaurantItem({
   openingTime,
   addressNumber,
   description,
-  imgUrl
+  imgUrl,
+  ratingAverage
 }) {
   let navigate = useNavigate()
 
   return (
     <>
-      <RestaurantStyle.Item onClick={() => { navigate(`/restaurantes/restaurante/${id}`) }}>
+      <RestaurantStyle.Item
+        onClick={() => {
+          navigate(`/restaurantes/restaurante/${id}`)
+        }}
+      >
         <RestaurantStyle.ContainerImg>
           <RestaurantStyle.Img src={`data:image/jpg;base64, ${imgUrl}`} />
         </RestaurantStyle.ContainerImg>
         <RestaurantStyle.Detail>
           <RestaurantStyle.ContainerTitle>
-            <RestaurantStyle.Title>
-              {name}
-            </RestaurantStyle.Title>
+            <RestaurantStyle.Title>{name}</RestaurantStyle.Title>
             <RestaurantStyle.RateContainer>
               <FaStar />
-              <span>5,0</span>
+              <span>{ratingAverage}</span>
             </RestaurantStyle.RateContainer>
           </RestaurantStyle.ContainerTitle>
           <RestaurantStyle.Address>
             {address}, {addressNumber}
           </RestaurantStyle.Address>
-          <RestaurantStyle.Desc>
-            {`${description}`}
-          </RestaurantStyle.Desc>
+          <RestaurantStyle.Desc>{`${description}`}</RestaurantStyle.Desc>
           <RestaurantStyle.Info>
             <RestaurantStyle.InfoItem>
               <GrRestaurant />

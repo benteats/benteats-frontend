@@ -25,8 +25,7 @@ export const AvaliationCardContent = styled('div')`
 export const AvaliationCardImage = styled('figure')`
   width: 60px;
   border-radius: 25%;
-  img {
-    border-radius: 50%;
+  svg {
     height: 3.5em;
     width: 3.5em;
     object-fit: cover;

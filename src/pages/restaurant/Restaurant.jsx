@@ -35,7 +35,10 @@ export default function Restaurant() {
       const response = await api.get(
         `avaliations/getAvaliationsByIdRestaurant/${restaurantId}`
       )
-      setAvaliationResult(response.data)
+      const respondeDescSortById = response.data.sort(
+        (a, b) => b.idAvaliation - a.idAvaliation
+      )
+      setAvaliationResult(respondeDescSortById)
     } catch (e) {
       console.error('error getAvaliationById =>', e)
     }
@@ -66,7 +69,13 @@ export default function Restaurant() {
       return <FoodCard foodResult={foodResult} />
     }
     if (currentStep == 3) {
-      return <AvaliationCard avaliationResult={avaliationResult} />
+      return (
+        <AvaliationCard
+          avaliationResult={avaliationResult}
+          setAvaliationResult={setAvaliationResult}
+          restaurantId={restaurantId}
+        />
+      )
     }
   }
 
@@ -89,7 +98,7 @@ export default function Restaurant() {
               <div>
                 <h2>{restaurantsResult.user.name}</h2>
                 <FaStar />
-                <span>5,0</span>
+                <span>{restaurantsResult.ratingAverage}</span>
               </div>
               <span>
                 {restaurantsResult.user.address},{' '}

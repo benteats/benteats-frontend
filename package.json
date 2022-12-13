@@ -26,6 +26,7 @@
     "react-icons": "^4.3.1",
     "react-map-gl": "^7.0.10",
     "react-router-dom": "^6.3.0",
+    "react-textarea-autosize": "^8.4.0",
     "vite-plugin-svgr": "^1.1.0",
     "vite-security-admin": "^0.0.2-beta.0",
     "yarn": "^1.22.18"
