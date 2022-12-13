@@ -1,1 +1,1 @@
-export const URL_AZURE = 'https://bents.hopto.org'
+export const URL_AZURE = 'https://backend-bents.hopto.org'
