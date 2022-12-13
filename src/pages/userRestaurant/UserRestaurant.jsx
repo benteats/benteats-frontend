@@ -12,11 +12,17 @@ import { useEffect, useState, useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import axios from 'axios'
 import { URL_AZURE } from '../../constants/http.azure.request'
+import filterList from '../../pages/restaurant/RestaurantFilterList'
+import RestaurantDetail from '../../components/restaurant/restaurantDetail/RestaurantDetail'
+import FoodCard from '../../components/restaurant/foodCard/FoodCard'
+import AvaliationCard from '../../components/restaurant/avaliationCard/AvaliationCard'
 
 export default function UserRestaurant() {
-  const [restaurantsResult, setRestaurantsResult] = useState(null)
-  const [uploadImage, setUploadImage] = useState(false)
   const { userData } = useContext(AuthContext)
+  const [isClicked, setIsClicked] = useState({ id: 1, isClicked: true })
+  const [restaurantsResult, setRestaurantsResult] = useState(null)
+  const [avaliationResult, setAvaliationResult] = useState(null)
+  const [foodResult, setFoodResult] = useState(null)
 
   async function getRestaurantById() {
     try {
@@ -29,29 +35,69 @@ export default function UserRestaurant() {
     }
   }
 
-  const onFileChange = async e => {
-    const files = e.target.files[0]
-    let formData = new FormData()
-    formData.append('filename', files)
+  async function getAvaliationById() {
     try {
-      axios({
-        method: 'post',
-        url: `${URL_AZURE}/foods/fileReader/${userData.idRestaurant}`,
-        data: formData,
-        headers: {
-          Authorization: `Bearer ${userData.token}`,
-          Accept: 'application/json ,text/plain, */*'
-        }
-      })
-      setUploadImage(true)
+      const response = await api.get(
+        `avaliations/getAvaliationsByIdRestaurant/${userData.idRestaurant}`
+      )
+      if (response.data.length > 0) {
+        const respondeDescSortById = response.data.sort(
+          (a, b) => b.idAvaliation - a.idAvaliation
+        )
+        setAvaliationResult(respondeDescSortById)
+      }
     } catch (e) {
-      console.error('error executeImageQueue =>', e)
+      console.error('error getAvaliationById =>', e)
+    }
+  }
+
+  async function getMenuFoodById() {
+    try {
+      const response = await api.get(`foods/${userData.idRestaurant}`)
+      setFoodResult(response.data)
+    } catch (e) {
+      console.error('error getMenuFoodById =>', e)
+    }
+  }
+
+  const handleClickFilter = item => {
+    setIsClicked({
+      id: item.id,
+      clicked: true
+    })
+  }
+
+  const restaurantCurrentStep = () => {
+    const currentStep = isClicked.id
+    if (currentStep == 1) {
+      return <RestaurantDetail restaurantsResult={restaurantsResult} />
+    }
+    if (currentStep == 2) {
+      return (
+        <FoodCard
+          foodResult={foodResult}
+          setFoodResult={setFoodResult}
+          idRestaurant={userData.idRestaurant}
+          isOwner={true}
+        />
+      )
+    }
+    if (currentStep == 3) {
+      return (
+        <AvaliationCard
+          avaliationResult={avaliationResult}
+          setAvaliationResult={setAvaliationResult}
+          restaurantId={userData.idRestaurant}
+        />
+      )
     }
   }
 
   useEffect(() => {
     if (restaurantsResult == null) {
       getRestaurantById()
+      getAvaliationById()
+      getMenuFoodById()
     }
   }, [])
 
@@ -66,66 +112,31 @@ export default function UserRestaurant() {
               <div>
                 <h2>{restaurantsResult.user.name}</h2>
                 <FaStar />
-                <span>5,0</span>
+                <span>
+                  {restaurantsResult.ratingAverage
+                    ? restaurantsResult.ratingAverage
+                    : 'Você ainda não possuí avaliações'}
+                </span>
               </div>
               <span>
                 {restaurantsResult.user.address},{' '}
                 {restaurantsResult.user.addressNumber}{' '}
               </span>
             </RestaurantStyle.RestaurantTitle>
-            {/* <RestaurantStyle.RestaurantOptions>
-              <UploadLabel>
-                <input type="file" onChange={onFileChange} />
-                <AiOutlineCloudUpload />
-                Subir Cardápio TXT
-              </UploadLabel>
-            </RestaurantStyle.RestaurantOptions> */}
-            <RestaurantStyle.RestaurantDetail>
-              <RestaurantStyle.ContainerDetail>
-                <RestaurantStyle.RestaurantDetailItem>
-                  <div>
-                    <GrRestaurant />
-                  </div>
-                  <div>
-                    <h3>Tipo de Culinária</h3>
-                    <span>{restaurantsResult.foodType}</span>
-                  </div>
-                </RestaurantStyle.RestaurantDetailItem>
-                <RestaurantStyle.RestaurantDetailItem>
-                  <div>
-                    <FiClock />
-                  </div>
-                  <div>
-                    <h3>Horário</h3>
-                    <span>{restaurantsResult.closingTime}</span>
-                  </div>
-                </RestaurantStyle.RestaurantDetailItem>
-                <RestaurantStyle.RestaurantDetailItem>
-                  <div>
-                    <AiOutlineDollarCircle />
-                  </div>
-                  <div>
-                    <h3>Média de Preço</h3>
-                    <span>R$ {restaurantsResult.priceAverage}</span>
-                  </div>
-                </RestaurantStyle.RestaurantDetailItem>
-                <RestaurantStyle.RestaurantDetailItem>
-                  <div>
-                    <BiChat />
-                  </div>
-                  <div>
-                    <h3>Avaliações</h3>
-                    <span>{restaurantsResult.priceAverage}</span>
-                  </div>
-                </RestaurantStyle.RestaurantDetailItem>
-              </RestaurantStyle.ContainerDetail>
-            </RestaurantStyle.RestaurantDetail>
-            <RestaurantStyle.Description>
-              <RestaurantStyle.Subtitle>
-                Sobre este restaurante
-              </RestaurantStyle.Subtitle>
-              <p>{restaurantsResult.description}</p>
-            </RestaurantStyle.Description>
+            <RestaurantStyle.RestaurantOptions>
+              {filterList.map(item => {
+                return (
+                  <FilterButton
+                    key={item.id}
+                    onClick={() => handleClickFilter(item)}
+                    className={isClicked.id == item.id ? 'clicked' : ''}
+                  >
+                    {item.label}
+                  </FilterButton>
+                )
+              })}
+            </RestaurantStyle.RestaurantOptions>
+            {restaurantCurrentStep()}
           </RestaurantStyle.Content>
         </RestaurantStyle.Container>
       )}

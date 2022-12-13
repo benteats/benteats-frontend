@@ -37,7 +37,7 @@ export default function RestaurantDetail({ restaurantsResult }) {
               <span>R$ {restaurantsResult.priceAverage}</span>
             </div>
           </RestaurantStyle.RestaurantDetailItem>
-          <RestaurantStyle.RestaurantDetailItem>
+          {/* <RestaurantStyle.RestaurantDetailItem>
             <div>
               <BiChat />
             </div>
@@ -45,7 +45,7 @@ export default function RestaurantDetail({ restaurantsResult }) {
               <h3>Avaliações</h3>
               <span>{restaurantsResult.priceAverage}</span>
             </div>
-          </RestaurantStyle.RestaurantDetailItem>
+          </RestaurantStyle.RestaurantDetailItem> */}
         </RestaurantStyle.ContainerDetail>
       </RestaurantStyle.RestaurantDetail>
       <RestaurantStyle.Description>

@@ -1,4 +1,10 @@
-import { fontSize, paletteColors, shadow, border } from '../../../styles/Root'
+import {
+  fontSize,
+  paletteColors,
+  shadow,
+  border,
+  borderRadius
+} from '../../../styles/Root'
 import styled from '@emotion/styled'
 
 export const FoodCardContent = styled('div')`
@@ -64,5 +70,32 @@ export const Container = styled('div')`
   gap: 30px;
   @media screen and (max-width: 1020px) {
     grid-template-columns: none;
+  }
+`
+
+export const ContainerBtn = styled('div')`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2em 0;
+  button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: ease all 100ms;
+    font-size: ${fontSize.smSubText};
+    font-weight: 400;
+    border: 1px solid ${paletteColors.grayBorder};
+    border-radius: ${borderRadius.checkboxIcon};
+    outline: none;
+    cursor: pointer;
+    color: ${paletteColors.black};
+    width: fit-content;
+    padding: 8px 15px;
+    background: ${paletteColors.primary};
+    color: ${paletteColors.white};
+  }
+  svg {
+    font-size: 1.25em;
   }
 `

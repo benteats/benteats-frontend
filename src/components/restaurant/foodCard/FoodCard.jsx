@@ -1,16 +1,61 @@
 import * as FoodCardStyle from './FoodCard.style'
 import RestaurantNotFound from '../../../components/searchRestaurant/restaurants/restaurantNotFound/RestaurantNotFound'
+import { IoMdAdd } from 'react-icons/io'
+import NewFood from './newFood/NewFood'
+import { useState, useEffect } from 'react'
+import { api } from '../../../api/axios'
 
-export default function FoodCard({ foodResult }) {
+export default function FoodCard({
+  foodResult,
+  setFoodResult,
+  idRestaurant,
+  isOwner = false
+}) {
+  const [isUpdated, setIsUpdated] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const restaurantDetail = {
+    title: 'Ooops! Você ainda não cadastrou nenhum prato.',
+    description: `Clique no botão a baixo para cadastrar seus pratos ao cardápio`
+  }
+
+  async function getMenuFoodById() {
+    try {
+      const response = await api.get(`foods/${idRestaurant}`)
+      setFoodResult(response.data)
+    } catch (e) {
+      console.error('error getMenuFoodById =>', e)
+    }
+  }
+
+  useEffect(() => {
+    if (isUpdated) {
+      getMenuFoodById()
+    }
+  }, [isUpdated])
+
   return (
     <>
-      <FoodCardStyle.Container>
-        {foodResult ? (
-          foodResult.map(item => {
+      <NewFood
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        isUpdated={isUpdated}
+        setIsUpdated={setIsUpdated}
+      />
+      {isOwner && (
+        <FoodCardStyle.ContainerBtn>
+          <button onClick={() => setIsOpen(true)}>
+            <IoMdAdd />
+            Novo Prato
+          </button>
+        </FoodCardStyle.ContainerBtn>
+      )}
+      {foodResult ? (
+        <FoodCardStyle.Container>
+          {foodResult.map(item => {
             return (
               <FoodCardStyle.FoodCardContent key={item.id}>
                 <FoodCardStyle.FoodCardImage>
-                  <img src="https://img.itdg.com.br/tdg/images/recipes/000/138/558/325115/325115_original.jpg?mode=crop&width=710&height=400" />
+                  <img src={`data:image/jpg;base64, ${item.image}`} />
                 </FoodCardStyle.FoodCardImage>
                 <FoodCardStyle.FoodCardData>
                   <h1>{item.name}</h1>
@@ -19,11 +64,11 @@ export default function FoodCard({ foodResult }) {
                 </FoodCardStyle.FoodCardData>
               </FoodCardStyle.FoodCardContent>
             )
-          })
-        ) : (
-          <RestaurantNotFound />
-        )}
-      </FoodCardStyle.Container>
+          })}
+        </FoodCardStyle.Container>
+      ) : (
+        <RestaurantNotFound restaurantDetail={restaurantDetail} />
+      )}
     </>
   )
 }

@@ -12,6 +12,11 @@ export default function SearchRestaurant() {
     latitude: -23.557492,
     zoom: 14
   })
+  const restaurantDetail = {
+    title: 'Ooops! Ainda não chegamos na sua região',
+    description: `Nos informe se você é um Usuário em busca de novos locais e
+            opiniôes. Ou um empreendedor querendo melhorar através de feedbacks.`
+  }
 
   return (
     <>
@@ -23,7 +28,11 @@ export default function SearchRestaurant() {
       />
       <SearchStyle.Container>
         <Map searchPlace={searchPlace} restaurantsResult={restaurantsResult} />
-        {restaurantsResult ? <Restaurants restaurantsResult={restaurantsResult} /> : <RestaurantNotFound />}
+        {restaurantsResult ? (
+          <Restaurants restaurantsResult={restaurantsResult} />
+        ) : (
+          <RestaurantNotFound restaurantDetail={restaurantDetail} />
+        )}
       </SearchStyle.Container>
     </>
   )

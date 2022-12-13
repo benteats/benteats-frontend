@@ -66,13 +66,12 @@ export default function Restaurant() {
       return <RestaurantDetail restaurantsResult={restaurantsResult} />
     }
     if (currentStep == 2) {
-      return <FoodCard foodResult={foodResult} />
+      return <FoodCard foodResult={foodResult} setFoodResult={setFoodResult} />
     }
     if (currentStep == 3) {
       return (
         <AvaliationCard
           avaliationResult={avaliationResult}
-          setAvaliationResult={setAvaliationResult}
           restaurantId={restaurantId}
         />
       )
