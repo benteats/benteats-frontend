@@ -38,10 +38,15 @@ export default function NewComment({ isSentAvaliation, setIsSentAvaliation }) {
     render: false
   })
 
-  // const [isSentAvaliation, setIsSentAvaliation] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [labelRate, setLabelRate] = useState(ratingList[0].label)
-  const [userComment, setUserComment] = useState(initialUserComment)
+  const [userComment, setUserComment] = useState({
+    idUser: userData.idUser,
+    idRestaurant: restaurantId,
+    dhAvaliation: moment().format('YYYY-MM-DD'),
+    rating: 0,
+    comment: ''
+  })
 
   const handleChangeComment = e => {
     setUserComment({ ...userComment, comment: e.target.value })
@@ -54,14 +59,7 @@ export default function NewComment({ isSentAvaliation, setIsSentAvaliation }) {
     }, '500')
   }
 
-  const handleSubmit = () => {
-    const currentDate = moment().format('YYYY-MM-DD')
-    setUserComment({
-      ...userComment,
-      idUser: userData.idUser,
-      idRestaurant: restaurantId,
-      dhAvaliation: currentDate
-    })
+  const handleSubmit = async () => {
     validateUserComment(userComment)
   }
 
@@ -79,7 +77,7 @@ export default function NewComment({ isSentAvaliation, setIsSentAvaliation }) {
     }
   }
 
-  const validateUserComment = values => {
+  const validateUserComment = async values => {
     const initialValue = Object.values(initialUserComment)
     const labelValue = [
       'id do usuário',
@@ -153,7 +151,7 @@ export default function NewComment({ isSentAvaliation, setIsSentAvaliation }) {
         <button
           onClick={handleSubmit}
           className={isSentAvaliation ? 'sentAvaliation' : ''}
-          disabled={isSentAvaliation}
+          // disabled={isSentAvaliation}
         >
           <TbSend />
         </button>

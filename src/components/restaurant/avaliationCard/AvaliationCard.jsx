@@ -34,18 +34,21 @@ export default function AvaliationCard({
 
   useEffect(() => {
     if (isSentAvaliation) {
-      getAvaliationById()
+      setTimeout(() => {
+        getAvaliationById()
+        console.log('chamou')
+      }, '5000')
     }
   }, [isSentAvaliation])
 
   return (
     <>
+      <NewComment
+        isSentAvaliation={isSentAvaliation}
+        setIsSentAvaliation={setIsSentAvaliation}
+      />
       {avaliationResult ? (
         <>
-          <NewComment
-            isSentAvaliation={isSentAvaliation}
-            setIsSentAvaliation={setIsSentAvaliation}
-          />
           <AvaliationCardStyle.Container>
             {avaliationResult.map(item => {
               return (

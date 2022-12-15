@@ -72,6 +72,7 @@ export default function Restaurant() {
       return (
         <AvaliationCard
           avaliationResult={avaliationResult}
+          setAvaliationResult={setAvaliationResult}
           restaurantId={restaurantId}
         />
       )
